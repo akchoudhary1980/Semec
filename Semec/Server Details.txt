@@ -1,0 +1,56 @@
+
+Dear User ,
+
+Thank you for choosing hioxindia.com for your hosting needs. We strive to ensure that you are satisfied with the services you will be receiving from us. The order for your hosting package expires as on 2022-11-12.
+
+
+WEBSITE PREVIEW
+You can view your website using the below URL
+Before Domain Propagation : http://103.235.105.151/plesk-site-preview/semec.in/
+After Domain Propagation : http://semec.in
+
+PLESK ACCESS
+Before Domain Propagation: http://ns21.dnsrain.com:8880
+After Domain Propagation : http://semec.in:8880
+Username : semec.in
+Password : eVR]ks!p863)H-C
+
+FTP ACCESS
+Host Name : semec.in [or] 103.235.105.151
+Port Number : 21
+Username : semecin
+Password : eVR]ks!p863)H-C
+
+WEBMAIL URL
+URL :http://webmail.semec.in
+
+NAMESERVER DETAILS
+If your domain name is already registered, then you need to login to your account where you have registered it and put our Anonymous Name Servers as listed below.
+
+Primary Name Server : ns21.dnsrain.com
+Secondary Name Server : ns22.dnsrain.com
+
+Depending upon your registrar the changes will take into effect within 72 hrs.
+
+RELATED FAQ's
+How to access plesk
+How to access ftp
+How to update nameserver
+How to upload files
+More about plesk
+
+SUPPORT
+For any support with respect to your relationship with HioxIndia, you can always contact us directly using the below Information.
+
+
+Thanks & Regards,
+
+HIOX India
+
+https://www.hioxindia.com
+
+Live Chat : https://www.hioxindia.com/chat.php
+
+Email Address : support@hioxindia.com
+
+Contact Number : +91-7708009900

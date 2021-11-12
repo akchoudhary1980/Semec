@@ -140,6 +140,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\AdminManage\AdminManageAreaRegistration.cs" />
+    <Compile Include="Areas\EmdManage\EmdManageAreaRegistration.cs" />
+    <Compile Include="Areas\InvoiceManage\InvoiceManageAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -329,6 +332,10 @@
     <Content Include="Content\assets\vendor\remixicon\remixicon.ttf" />
     <Content Include="Content\assets\vendor\remixicon\remixicon.woff" />
     <Content Include="Content\assets\vendor\remixicon\remixicon.woff2" />
+    <Content Include="Areas\InvoiceManage\Views\web.config" />
+    <Content Include="Areas\EmdManage\Views\web.config" />
+    <Content Include="Areas\AdminManage\Views\web.config" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -342,6 +349,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Server Details.txt" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -362,6 +370,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\AdminManage\Controllers\" />
+    <Folder Include="Areas\AdminManage\Data\" />
+    <Folder Include="Areas\AdminManage\Views\Shared\" />
+    <Folder Include="Areas\EmdManage\Controllers\" />
+    <Folder Include="Areas\EmdManage\Data\" />
+    <Folder Include="Areas\EmdManage\Views\Shared\" />
+    <Folder Include="Areas\InvoiceManage\Controllers\" />
+    <Folder Include="Areas\InvoiceManage\Data\" />
+    <Folder Include="Areas\InvoiceManage\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
