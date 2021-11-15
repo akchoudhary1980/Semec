@@ -1,0 +1,35 @@
+﻿/* For Search Box */
+.search-box {
+    background-color: #01a9ac;
+    padding-top: 15px;
+    margin-top: 15px;
+    color: white;
+}
+/* For Accordian */
+@font-face {
+    font-family: 'fontawesome-webfont';
+    src: url('../adminty-master/files/assets/fonts/fontawesome-webfont.ttf') format('truetype');
+}
+
+.accordion .card-header:after {
+    font-family: 'fontawesome-webfont';
+    content: "\f068";
+    float: right;
+}
+
+.accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f067";
+}
+
+.accordion-heading {
+    background-color: #01a9ac !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 1px;
+    color:white;
+}
+
+    .accordion-heading:hover {
+        background-color: #40b3a5 !important;
+    }
