@@ -56,6 +56,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.8\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -159,6 +162,7 @@
     <Compile Include="Areas\AdminManage\Model\TOrderTransModel.cs" />
     <Compile Include="Areas\AdminManage\Model\VisiterModel.cs" />
     <Compile Include="Areas\CommonManage\CommonManageAreaRegistration.cs" />
+    <Compile Include="Areas\CommonManage\Controllers\StateController.cs" />
     <Compile Include="Areas\CommonManage\Model\BrandModel.cs" />
     <Compile Include="Areas\CommonManage\Model\CategoryModel.cs" />
     <Compile Include="Areas\CommonManage\Model\CityModel.cs" />
@@ -647,6 +651,15 @@
     <Content Include="Content\adminty\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\adminty\fonts\icofont.woff" />
     <Content Include="Areas\CommonManage\Views\web.config" />
+    <Content Include="Areas\AdminManage\Views\Shared\_Admin.cshtml" />
+    <Content Include="Areas\CommonManage\Views\Shared\_Common.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Shared\_EMD.cshtml" />
+    <Content Include="Areas\InvoiceManage\Views\Shared\_Invoice.cshtml" />
+    <Content Include="Areas\CommonManage\Views\Unit\Index.cshtml" />
+    <Content Include="Areas\CommonManage\Views\State\Create.cshtml" />
+    <Content Include="Areas\CommonManage\Views\State\Delete.cshtml" />
+    <Content Include="Areas\CommonManage\Views\State\Edit.cshtml" />
+    <Content Include="Areas\CommonManage\Views\State\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -683,13 +696,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AdminManage\Controllers\" />
-    <Folder Include="Areas\AdminManage\Views\Shared\" />
-    <Folder Include="Areas\CommonManage\Controllers\" />
-    <Folder Include="Areas\CommonManage\Views\Shared\" />
+    <Folder Include="Areas\CommonManage\Views\Default\" />
     <Folder Include="Areas\EmdManage\Controllers\" />
-    <Folder Include="Areas\EmdManage\Views\Shared\" />
     <Folder Include="Areas\InvoiceManage\Controllers\" />
-    <Folder Include="Areas\InvoiceManage\Views\Shared\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
