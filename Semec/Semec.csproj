@@ -184,6 +184,8 @@
     <Compile Include="Areas\CommonManage\Model\UnitModel.cs" />
     <Compile Include="Areas\CommonManage\Model\UserModel.cs" />
     <Compile Include="Areas\EmdManage\EmdManageAreaRegistration.cs" />
+    <Compile Include="Areas\EmdManage\Model\DealInModel.cs" />
+    <Compile Include="Areas\EmdManage\Model\DealersModel.cs" />
     <Compile Include="Areas\EmdManage\Model\EMDDocumentsTypeModel.cs" />
     <Compile Include="Areas\EmdManage\Model\EMDReceiptModel.cs" />
     <Compile Include="Areas\EmdManage\Model\EMDExtendedModel.cs" />
