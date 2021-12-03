@@ -37,6 +37,7 @@
         "columns": [
             { "data": "DealersID", "name": "DealersID", "autoWidth": true },
             { "data": "Company", "name": "Company", "autoWidth": true },
+            { "data": "Brand", "name": "Brand", "autoWidth": true },
             {
                 "render": function (data, type, full)
                 {

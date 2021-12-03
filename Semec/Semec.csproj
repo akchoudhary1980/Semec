@@ -234,6 +234,7 @@
     <Compile Include="Areas\InvoiceManage\Model\VenderModel.cs" />
     <Compile Include="Areas\InvoiceManage\Model\VenderPaymentModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShareController.cs" />
     <Compile Include="Data\MyContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

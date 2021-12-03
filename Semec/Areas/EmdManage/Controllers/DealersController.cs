@@ -40,6 +40,7 @@ namespace Semec.Areas.EmdManage.Controllers
                            {
                                t1.DealersID,
                                t1.Company,
+                               t1.Brand
                            });
                 // for Sorting
                 if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDir)))
@@ -49,7 +50,15 @@ namespace Semec.Areas.EmdManage.Controllers
                 // searching 
                 if (!string.IsNullOrEmpty(searchValue))
                 {
-                    obj = obj.Where(m => m.Company.Contains(searchValue));
+                    obj = obj.Where(m => m.Company.Contains(searchValue)
+                                                     || m.Brand.Contains(searchValue)
+                                                     //|| m.CategoryName.Contains(searchValue)
+                                                     //|| m.UnitName.Contains(searchValue)
+                                                     //|| m.MRP.ToString().Contains(searchValue)
+                                                     //|| m.MRP.ToString().Contains(searchValue)
+                                                     //|| m.MRP.ToString().Contains(searchValue)
+                                                     );
+
                 }
 
 
