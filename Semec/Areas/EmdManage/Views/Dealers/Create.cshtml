@@ -1,0 +1,198 @@
+﻿@model Semec.Areas.EmdManage.Model.DealersModel
+@{ Layout = "~/Areas/EmdManage/Views/Shared/_EMD.cshtml"; }
+
+<div class="page-header animated bounceInRight">
+    <div class="card">
+        <div class="card-block bg-primary">
+            <div class="row ">
+                <div class="col-lg-4">
+                    <h5 class="text-uppercase font-weight-bold">New Product</h5>
+                </div>
+                <div class="col-lg-8 align-items-end">
+                    <div class="page-header-breadcrumb">
+                        <ul class="breadcrumb-title">
+                            <li class="breadcrumb-item">
+                                <a href="@Url.Action("Index", "Dashboard")"> <i class="icofont icofont-home" style="color:white"></i> </a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="@Url.Action("Index", "Dealers")" style="color:white">Home / Masters / New Product</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row animated bounceInUp">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-9 col-9"><h3>@ViewData["PageTitle"]</h3></div>
+                    <div class="col-md-3 col-3">
+                        <a href="@Url.Action("Index", "Dealers")" class="btn btn-primary btn-outline-primary float-right">
+                            <i class="icofont icofont-user-alt-3"></i> Back to List
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            @using (Html.BeginForm("Create", "Dealers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+        <div class="card-block">
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <h4 class="sub-title" style="color:darkmagenta">Dealer Info</h4>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Company, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Brand, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.Brand, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Brand, "", new { @class = "text-danger" })
+                </div>
+                @Html.LabelFor(model => model.Website, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.Website, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                </div>
+                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <h4 class="sub-title" style="color:darkmagenta">Contact Persion 1</h4>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.CP1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CP1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CP1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.MobileCP1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.MobileCP1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
+                </div>
+                @Html.LabelFor(model => model.EmailCP1, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.EmailCP1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <h4 class="sub-title" style="color:darkmagenta">Contact Persion 2</h4>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.CP2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CP2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CP2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.MobileCP2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.MobileCP2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
+                </div>
+                @Html.LabelFor(model => model.EmailCP2, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.EmailCP2, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <h4 class="sub-title" style="color:darkmagenta">Contact Persion 3</h4>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.CP3, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CP3, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CP2, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.MobileCP3, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.MobileCP3, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
+                </div>
+                @Html.LabelFor(model => model.EmailCP3, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.EmailCP3, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <h4 class="sub-title" style="color:darkmagenta">Deal In</h4>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.DealIn, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.DealIn, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DealIn, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-success float-right" onclick="DealIn()"><i class="icofont icofont-user-alt-3"></i> Add</button>                   
+                </div>
+            </div>
+
+            <h4 class="sub-title" style="color:darkmagenta">Logo and Cataloge</h4>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <p>Company Logo (Size: 150px X 100px)</p>
+                    <img id="logoPicture" src="" alt="" class="img-fluid img-thumbnail" />
+                </div>
+                <div class="col-md-4">
+                    <input type='file' name="FileUpload" onchange="uploadPicture(this);" class="btn btn-success pull-right" />
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Cataloge, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <p>Product Cataloge (Size <= 2MB)</p>
+                    <img id="productPicture" src="" alt="" class="img-fluid img-thumbnail" />
+                </div>
+                <div class="col-md-4">
+                    <input type='file' name="FileUpload" onchange="uploadPicture(this);" class="btn btn-success pull-right" />
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="submit" value="Create" onclick="FormValidation();" class="btn btn-primary btn-out float-right" />
+                </div>
+            </div>
+        </div>
+            }
+         </div>
+    </div>
+</div>
+
+
+

@@ -183,7 +183,10 @@
     <Compile Include="Areas\CommonManage\Model\StateModel.cs" />
     <Compile Include="Areas\CommonManage\Model\UnitModel.cs" />
     <Compile Include="Areas\CommonManage\Model\UserModel.cs" />
+    <Compile Include="Areas\EmdManage\Controllers\DealersController.cs" />
+    <Compile Include="Areas\EmdManage\Controllers\ItemController.cs" />
     <Compile Include="Areas\EmdManage\EmdManageAreaRegistration.cs" />
+    <Compile Include="Areas\EmdManage\Model\ItemModel.cs" />
     <Compile Include="Areas\EmdManage\Model\DealInModel.cs" />
     <Compile Include="Areas\EmdManage\Model\DealersModel.cs" />
     <Compile Include="Areas\EmdManage\Model\EMDDocumentsTypeModel.cs" />
@@ -235,6 +238,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112021048320_initial.cs" />
+    <Compile Include="Migrations\202112021048320_initial.designer.cs">
+      <DependentUpon>202112021048320_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112021225315_ItemModel.cs" />
+    <Compile Include="Migrations\202112021225315_ItemModel.designer.cs">
+      <DependentUpon>202112021225315_ItemModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112031120544_DealersModel.cs" />
+    <Compile Include="Migrations\202112031120544_DealersModel.designer.cs">
+      <DependentUpon>202112031120544_DealersModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112031210283_DealersModel1.cs" />
+    <Compile Include="Migrations\202112031210283_DealersModel1.designer.cs">
+      <DependentUpon>202112031210283_DealersModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -662,6 +682,16 @@
     <Content Include="Areas\CommonManage\Views\State\Delete.cshtml" />
     <Content Include="Areas\CommonManage\Views\State\Edit.cshtml" />
     <Content Include="Areas\CommonManage\Views\State\Index.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Item\Create.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Item\Delete.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Item\Edit.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Item\Index.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Shared\EMDLeftMenu.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Shared\EMDTopMenu.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Dealers\Index.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Dealers\Edit.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Dealers\Delete.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Dealers\Create.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -671,6 +701,8 @@
     <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.6.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-app\dt-dealer.js" />
+    <Content Include="Scripts\jquery-app\dt-item.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -699,12 +731,25 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\AdminManage\Controllers\" />
     <Folder Include="Areas\CommonManage\Views\Default\" />
-    <Folder Include="Areas\EmdManage\Controllers\" />
     <Folder Include="Areas\InvoiceManage\Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202112021048320_initial.resx">
+      <DependentUpon>202112021048320_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112021225315_ItemModel.resx">
+      <DependentUpon>202112021225315_ItemModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112031120544_DealersModel.resx">
+      <DependentUpon>202112031120544_DealersModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112031210283_DealersModel1.resx">
+      <DependentUpon>202112031210283_DealersModel1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

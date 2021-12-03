@@ -15,58 +15,70 @@ namespace Semec.Areas.EmdManage.Model
         public int DealersID { get; set; }
 
         [Display(Name = "Company Name")]
-        public int Company { get; set; }
+        public string Company { get; set; }      
 
-        [Display(Name = "Company Logo")]
-        public int Logo { get; set; }
 
         [Display(Name = "Brand Name")]
-        public int Brand { get; set; }
-
-        [Display(Name = "State")]
-        public int State { get; set; }
-
-        [Display(Name = "City")]
-        public int City { get; set; }
-
-        [Display(Name = "Address")]
-        public int Address { get; set; }
-
-        //Contact Persion
-        [Display(Name = "CP1")]
-        public int CP1 { get; set; }
-
-        [Display(Name = "CP2")]
-        public int CP2 { get; set; }
-
-        [Display(Name = "CP3")]
-        public int CP3 { get; set; }
-        
-        // Mobile 
-        [Display(Name = "MobileCP1")]
-        public int MobileCP1 { get; set; }
-
-        [Display(Name = "MobileCP2")]
-        public int MobileCP2 { get; set; }
-
-        [Display(Name = "MobileCP3")]
-        public int MobileCP3 { get; set; }
-        
-        // Email
-        [Display(Name = "EmailCP1")]
-        public int EmailCP1 { get; set; }
-
-        [Display(Name = "EmailCP3")]
-        public int EmailCP2 { get; set; }
-
-        [Display(Name = "EmailCP3")]
-        public int EmailCP3 { get; set; }
+        public string Brand { get; set; }
 
         [Display(Name = "Website")]
-        public int Website { get; set; }
+        public string Website { get; set; }
+
+
+        [Display(Name = "Address")]
+        [DataType(DataType.MultilineText)]
+        public string Address { get; set; }
+
+
+        [Display(Name = "State")]
+        public string State { get; set; }
+
+        [Display(Name = "City")]
+        public string City { get; set; }
+
+       
+
+        //Contact Persion
+        [Display(Name = "Contact Persion")]
+        public string CP1 { get; set; }
+
+        [Display(Name = "Contact Persion")]
+        public string CP2 { get; set; }
+
+        [Display(Name = "Contact Persion")]
+        public string CP3 { get; set; }
+        
+        // Mobile 
+        [Display(Name = "Mobile")]
+        public string MobileCP1 { get; set; }
+
+        [Display(Name = "Mobile")]
+        public string MobileCP2 { get; set; }
+
+        [Display(Name = "Mobile")]
+        public string MobileCP3 { get; set; }
+        
+        // Email
+        [Display(Name = "Email")]
+        public string EmailCP1 { get; set; }
+
+        [Display(Name = "Email")]
+        public string EmailCP2 { get; set; }
+
+        [Display(Name = "Email")]
+        public string EmailCP3 { get; set; }
+
+      
+
 
         [Display(Name = "Cataloge")]
-        public int Cataloge { get; set; }
+        public string Cataloge { get; set; }
+
+        [Display(Name = "Company Logo")]
+        public string Logo { get; set; }
+
+        [Display(Name = "Deal In")]
+        public string DealIn { get; set; }
 
     }
 }

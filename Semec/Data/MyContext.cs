@@ -73,10 +73,9 @@ namespace Semec
         public DbSet<EMDIssueModel> EMDIssueModels { get; set; }
         public DbSet<EMDExtendedModel> EMDextendedModel { get; set; }
         public DbSet<EMDReceiptModel> EMDReceiptModels { get; set; }
-
-
         public DbSet<DealersModel> DealersModels { get; set; }
         public DbSet<DealInModel> DealInModels { get; set; }
+        public DbSet<ItemModel> ItemModels { get; set; }
 
         // Invoice Modules Class 
 

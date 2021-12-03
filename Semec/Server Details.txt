@@ -54,3 +54,9 @@ Live Chat : https://www.hioxindia.com/chat.php
 Email Address : support@hioxindia.com
 
 Contact Number : +91-7708009900
+
+
+Database Details 
+dbName : semec_in_erpsystem
+user : erpsystem
+pass : #Qt6ww08

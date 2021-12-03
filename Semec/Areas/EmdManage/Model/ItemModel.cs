@@ -8,15 +8,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Semec.Areas.EmdManage.Model
 {
-    public class DealInModel
+    public class ItemModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int DealInID { get; set; }
+        public int ItemID { get; set; }
 
         [Display(Name = "Item Name")]
-        public int ItemID { get; set; }
-        public int DealersID { get; set; }
+        public string ItemName { get; set; }        
 
     }
 }

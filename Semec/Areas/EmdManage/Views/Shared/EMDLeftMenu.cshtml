@@ -1,0 +1,237 @@
+﻿<script src="~/Scripts/jquery-3.3.1.js"></script>
+<nav class="pcoded-navbar" pcoded-header-position="relative">
+    <div class="pcoded-inner-navbar main-menu">
+        <div class="pcoded-navigatio-lavel">EMD Suite</div>
+        <ul class="pcoded-item pcoded-left-item">
+            <li>
+                <a href="@Url.Action("Dashboard", "Admin")">
+                    <span class="pcoded-micon"><i class="feather icon-grid"></i></span>
+                    <span class="pcoded-mtext">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="pcoded-hasmenu">
+                <a href="#">
+                    <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
+                    <span class="pcoded-mtext">EMD Manage</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="@Url.Action("Index", "Dealers" , new { area = "EmdManage" }, null)">
+                            <span class="pcoded-mtext">Dealer List</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "Sale")">
+                            <span class="pcoded-mtext">Sale List</span>
+                        </a>
+                    </li>
+                </ul>                
+            </li>
+
+            <li class="pcoded-hasmenu">
+                <a href="#">
+                    <span class="pcoded-micon"><i class="feather icon-award"></i></span>
+                    <span class="pcoded-mtext">Registration</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="@Url.Action("Index", "Registration")">
+                            <span class="pcoded-mtext">Registration</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("PaymentList", "Registration")">
+                            <span class="pcoded-mtext">Payment List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+
+            <li class="pcoded-hasmenu">
+                <a href="#">
+                    <span class="pcoded-micon"><i class="feather icon-box"></i></span>
+                    <span class="pcoded-mtext">Product</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="@Url.Action("Index", "Product")">
+                            <span class="pcoded-mtext">Product</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "Brand")">
+                            <span class="pcoded-mtext">Brand</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "Category")">
+                            <span class="pcoded-mtext">Category</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "Unit")">
+                            <span class="pcoded-mtext">Unit</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "GSTSlab")">
+                            <span class="pcoded-mtext">GST Slab</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="pcoded-hasmenu">
+                <a href="#">
+                    <span class="pcoded-micon"><i class="feather icon-cpu"></i></span>
+                    <span class="pcoded-mtext">Master</span>
+                </a>
+                <ul class="pcoded-submenu">
+
+                    <li class="">
+                        <a href="@Url.Action("Index", "Company")">
+                            <span class="pcoded-mtext">Company</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "Customer")">
+                            <span class="pcoded-mtext">Customer</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "Dealer")">
+                            <span class="pcoded-mtext">Dealers</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "Slider")">
+                            <span class="pcoded-mtext">Slider</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "Testimonial")">
+                            <span class="pcoded-mtext">Testimonial</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "Country")">
+                            <span class="pcoded-mtext">Country</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "State")">
+                            <span class="pcoded-mtext">State</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "City")">
+                            <span class="pcoded-mtext">City</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pcoded-hasmenu">
+                <a href="#">
+                    <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                    <span class="pcoded-mtext">Contact Form</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="@Url.Action("Index", "Contact")">
+                            <span class="pcoded-mtext">Contact Form List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pcoded-hasmenu">
+                <a href="#">
+                    <span class="pcoded-micon"><i class="feather icon-user"></i></span>
+                    <span class="pcoded-mtext">Visiter</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="@Url.Action("Index", "Visiter")">
+                            <span class="pcoded-mtext">Visiter List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="pcoded-hasmenu">
+            <a href="#">
+                <span class="pcoded-micon"><i class="feather icon-smartphone"></i></span>
+                <span class="pcoded-mtext">SMS Marketing</span>
+            </a>
+            <ul class="pcoded-submenu">
+                <li class="">
+                    <a href="@Url.Action("SMSSingle", "SMS")">
+                        <span class="pcoded-mtext">SMS Single</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action("SMSMultiple", "SMS")">
+                        <span class="pcoded-mtext">SMS Multiple</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action("SMSProduct", "SMS")">
+                        <span class="pcoded-mtext">Send Product Link</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action("Index", "SMSTemplete")">
+                        <span class="pcoded-mtext">SMS Templete</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action("History", "SMS")">
+                        <span class="pcoded-mtext">SMS History</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+            <li class="pcoded-hasmenu">
+                <a href="#">
+                    <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
+                    <span class="pcoded-mtext">Setup</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    @*<li class="">
+                        <a href="@Url.Action("Index", "Setting")">
+                            <span class="pcoded-mtext">Setting</span>
+                        </a>
+                    </li>*@
+                    <li class="">
+                    <a href="@Url.Action("Index", "Caution")">
+                        <span class="pcoded-mtext">Running Message</span>
+                    </a>
+                </li>
+                @*<li class="">
+                    <a href="@Url.Action("SMSSetup", "SMS")">
+                        <span class="pcoded-mtext">SMS Setup</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="@Url.Action("EmailSetup", "Email")">
+                        <span class="pcoded-mtext">Email Setup</span>
+                    </a>
+                </li>*@
+                    <li class="">
+                        <a href="@Url.Action("Index", "User")">
+                            <span class="pcoded-mtext">Users</span>
+                        </a>
+                    </li>
+
+                    @*<li class="">
+                    <a href="@Url.Action("LoadDefault", "Database")">
+                        <span class="pcoded-mtext">Default Data</span>
+                    </a>
+                </li>*@
+                </ul>
+            </li>
+        </ul>
+        
+    </div>
+</nav>
