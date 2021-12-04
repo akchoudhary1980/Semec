@@ -234,6 +234,7 @@
     <Compile Include="Areas\InvoiceManage\Model\VenderModel.cs" />
     <Compile Include="Areas\InvoiceManage\Model\VenderPaymentModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SetupController.cs" />
     <Compile Include="Controllers\ShareController.cs" />
     <Compile Include="Data\MyContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -259,6 +260,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\City.xml" />
+    <Content Include="App_Data\Country.xml" />
+    <Content Include="App_Data\Profession.xml" />
+    <Content Include="App_Data\SetupModel.xml" />
+    <Content Include="App_Data\State.xml" />
     <Content Include="Content\adminty\css\bootstrap.min.css" />
     <Content Include="Content\adminty\css\buttons.dataTables.min.css" />
     <Content Include="Content\adminty\css\buttons.dataTables.min1.css" />
@@ -729,7 +735,6 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Areas\AdminManage\Controllers\" />
     <Folder Include="Areas\CommonManage\Views\Default\" />
     <Folder Include="Areas\InvoiceManage\Controllers\" />

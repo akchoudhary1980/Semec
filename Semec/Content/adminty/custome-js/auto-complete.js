@@ -1,6 +1,6 @@
 ﻿// Get State List
 function GetStateList() {    
-    $(document).ready(function () {
+    $(document).ready(function () {       
         $("#State").autocomplete({
             source: function (request, response) {
                 $.ajax({
