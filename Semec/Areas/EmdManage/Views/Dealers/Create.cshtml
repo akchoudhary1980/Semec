@@ -2,11 +2,56 @@
 @{ Layout = "~/Areas/EmdManage/Views/Shared/_EMD.cshtml"; }
 
 <script type="text/javascript">
+    // define array 
+    var mylist = new Array();
+
     GetStateList();
     GetCityList();
+    GetItemList();
     function FormValidation() {
+        var deal = '';
+        jQuery.each(mylist, function (i, val) {
+            deal = deal + ',' + val;
+        });
+        $("#DealIn").val(deal);
+    }
+    // add item to container 
+    function AddItems() {
+        var item = $("#DealIn").val();
+        mylist.push(item);
+        var finallist = '';
+        jQuery.each(mylist, function (i, val) {
+            finallist = finallist + '<span class="item-list">' + val + '</span>';
+        });        
+        $("#list-items").first().html(finallist);        
+    }
+
+</script>
+
+<script type="text/javascript">
+    function uploadPicture(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#logoPicture')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(100);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
     }
 </script>
+
+<style type="text/css">
+    .item-list {
+        margin: 5px;
+        background-color: #00AEAE;
+        color: white;
+        padding: 5px;
+        font-size: small;
+    }
+</style>
 
 <div class="page-header animated bounceInRight">
     <div class="card">
@@ -47,11 +92,11 @@
 
             @using (Html.BeginForm("Create", "Dealers", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-        <div class="card-block">
+               <div class="card-block">
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <h4 class="sub-title" style="color:darkmagenta">Dealer Info</h4>
 
+            <h4 class="sub-title" style="color:darkmagenta">Dealer Info</h4>
             <div class="form-group row">
                 @Html.LabelFor(model => model.Company, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -154,7 +199,27 @@
                     @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
                 </div>
             </div>
-
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Cataloge, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <p>Product Cataloge (Size <= 2MB)</p>
+                    <img src="~/UploadFiles/CommonFile/pdfIcon.png" height="50" />
+                </div>
+                <div class="col-md-4">
+                    <input type='file' name="FileCataloge" onchange="uploadPicture(this);" class="btn btn-success pull-right" />
+                </div>
+            </div>
+            <h4 class="sub-title" style="color:darkmagenta">Logo and Cataloge</h4>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <p>Company Logo (Size: 150px X 100px)</p>
+                    <img id="logoPicture" src="~/UploadFiles/CommonFile/cameraIcon.png" alt="" class="img-fluid img-thumbnail" />
+                </div>
+                <div class="col-md-4">
+                    <input type='file' name="FileLogo" onchange="uploadPicture(this);" class="btn btn-success pull-right" />
+                </div>
+            </div>
             <h4 class="sub-title" style="color:darkmagenta">Deal In</h4>
             <div class="form-group row">
                 @Html.LabelFor(model => model.DealIn, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -163,39 +228,19 @@
                     @Html.ValidationMessageFor(model => model.DealIn, "", new { @class = "text-danger" })
                 </div>
                 <div class="col-md-1">
-                    <button type="button" class="btn btn-success float-right" onclick="DealIn()"><i class="icofont icofont-user-alt-3"></i> Add</button>                   
-                </div>
-            </div>
-
-            <h4 class="sub-title" style="color:darkmagenta">Logo and Cataloge</h4>
-            <div class="form-group row">
-                @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4">
-                    <p>Company Logo (Size: 150px X 100px)</p>
-                    <img id="logoPicture" src="" alt="" class="img-fluid img-thumbnail" />
-                </div>
-                <div class="col-md-4">
-                    <input type='file' name="FileUpload" onchange="uploadPicture(this);" class="btn btn-success pull-right" />
+                    <button type="button" class="btn btn-success float-right" onclick="AddItems()"><i class="icofont icofont-user-alt-3"></i> Add</button>
                 </div>
             </div>
             <div class="form-group row">
-                @Html.LabelFor(model => model.Cataloge, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4">
-                    <p>Product Cataloge (Size <= 2MB)</p>
-                    <img id="productPicture" src="" alt="" class="img-fluid img-thumbnail" />
-                </div>
-                <div class="col-md-4">
-                    <input type='file' name="FileUpload" onchange="uploadPicture(this);" class="btn btn-success pull-right" />
+                <div id="list-items" class="col-md-12" style="border: 1px solid #D8D8D8; min-height: 100px; padding-top:10px;">
                 </div>
             </div>
-
-
             <div class="form-group row">
                 <div class="col-sm-12">
                     <input type="submit" value="Create" onclick="FormValidation();" class="btn btn-primary btn-out float-right" />
                 </div>
             </div>
-        </div>
+             </div>
             }
          </div>
     </div>

@@ -240,6 +240,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Libs\Basic.cs" />
+    <Compile Include="Libs\DataLib.cs" />
+    <Compile Include="Libs\GraphicsLib.cs" />
+    <Compile Include="Libs\NetLib.cs" />
+    <Compile Include="Libs\TextLib.cs" />
     <Compile Include="Migrations\202112021048320_initial.cs" />
     <Compile Include="Migrations\202112021048320_initial.designer.cs">
       <DependentUpon>202112021048320_initial.cs</DependentUpon>
@@ -716,6 +721,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Server Details.txt" />
+    <Content Include="UploadFiles\CommonFile\cameraIcon.png" />
+    <Content Include="UploadFiles\CommonFile\pdfIcon.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -739,6 +746,7 @@
     <Folder Include="Areas\CommonManage\Views\Default\" />
     <Folder Include="Areas\InvoiceManage\Controllers\" />
     <Folder Include="Models\" />
+    <Folder Include="TempFiles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

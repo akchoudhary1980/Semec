@@ -54,6 +54,37 @@ function GetCityList() {
         });
     })
 }
+
+// Get Item List
+function GetItemList() {
+    $(document).ready(function () {
+        $("#DealIn").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Share/ItemAutoComplete",
+                    type: "POST",
+                    dataType: "json",
+                    data: { Prefix: request.term },
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return { label: item.ItemName, value: item.ItemName, id: item.ItemID };
+                        }))
+                    },
+                })
+            },
+            select: function (event, ui) {
+                // alert(ui.item.id);
+                $("#DealIn").val(ui.item.id);
+                // $('#CusID').val(response);
+            },
+            messages: {
+                noResults: "", results: ""
+            }
+        });
+    })
+}
+
+
 // Get Area List
 function GetAreaList() {  
     $(document).ready(function () {

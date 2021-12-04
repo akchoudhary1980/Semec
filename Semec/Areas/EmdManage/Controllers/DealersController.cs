@@ -90,6 +90,8 @@ namespace Semec.Areas.EmdManage.Controllers
                 {
                     int incid = db.DealersModels.DefaultIfEmpty().Max(r => r == null ? 0 : r.DealersID);
                     obj.DealersID = incid + 1;
+                    obj.Logo = TextLib.UploadFilewithHTMLControl("FileLogo", "DealInLogo" + obj.DealersID.ToString());
+                    obj.Cataloge = TextLib.UploadFilewithHTMLControl("FileCataloge", "DealInCataloge" + obj.DealersID.ToString());
                     db.DealersModels.Add(obj);
                     db.SaveChanges();
                     Session["Create"] = "Yes";
@@ -108,23 +110,43 @@ namespace Semec.Areas.EmdManage.Controllers
             return View(model);
         }
         [HttpPost]
-        public ActionResult Edit(ItemModel obj)
+        public ActionResult Edit(DealersModel obj)
         {
             MyContext db1 = new MyContext();
             if (ModelState.IsValid)
             {
                 // Check Duplicate and prevet duplication at the time of edit
-                var oldvalue = db1.ItemModels.Where(x => x.ItemID == obj.ItemID).SingleOrDefault();
-                if (oldvalue.ItemName != obj.ItemName)
+                var oldvalue = db1.DealersModels.Where(x => x.DealersID == obj.DealersID).SingleOrDefault();
+                if (oldvalue.Company != obj.Company)
                 {
-                    bool duplicate = db1.ItemModels.Any(x => x.ItemName == obj.ItemName);
+                    bool duplicate = db1.DealersModels.Any(x => x.Company == obj.Company);
                     if (duplicate)
                     {
-                        ModelState.AddModelError("ItemName", "Duplicate Record Found");
+                        ModelState.AddModelError("Company", "Duplicate Record Found");
                         return View();
                     }
                     else
                     {
+
+                        // Picture
+                        if (TextLib.UploadFilewithHTMLControl("FileLogo", "DealInLogo" + obj.DealersID.ToString()) != "No")
+                        {
+                            obj.Logo = TextLib.UploadFilewithHTMLControl("FileLogo", "DealInLogo" + obj.DealersID.ToString());
+                        }
+                        else
+                        {
+                            obj.Logo = oldvalue.Logo;
+                        }
+
+                        // cataloge
+                        if (TextLib.UploadFilewithHTMLControl("FileCataloge", "DealInCataloge" + obj.DealersID.ToString()) != "No")
+                        {
+                            obj.Cataloge = TextLib.UploadFilewithHTMLControl("FileCataloge", "DealInCataloge" + obj.DealersID.ToString());
+                        }
+                        else
+                        {
+                            obj.Cataloge = oldvalue.Cataloge;
+                        }
 
                         db.Entry(obj).State = EntityState.Modified;
                         db.SaveChanges();

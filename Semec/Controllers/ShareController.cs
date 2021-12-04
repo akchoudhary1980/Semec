@@ -39,6 +39,15 @@ namespace Semec.Controllers
         }
 
 
+        // Get City List
+        public JsonResult ItemAutoComplete(string Prefix)
+        {
+            var citylist = db.ItemModels.Where(x => x.ItemName.StartsWith(Prefix))
+                       .Select(x => new { x.ItemID, x.ItemName }).ToList();
+            return Json(citylist, JsonRequestBehavior.AllowGet);
+        }
+
+
 
         /// Get Designation List
         public static List<SelectListItem> GetDesignationList()
