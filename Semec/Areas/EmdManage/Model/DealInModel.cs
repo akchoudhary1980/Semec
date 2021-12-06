@@ -11,12 +11,16 @@ namespace Semec.Areas.EmdManage.Model
     public class DealInModel
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]        
         public int DealInID { get; set; }
 
         [Display(Name = "Item Name")]
+        public string ItemName { get; set; }
+        [Display(Name = "Item ID")]
         public int ItemID { get; set; }
+        [Display(Name = "Dealer ID")]
         public int DealersID { get; set; }
+        
 
     }
 }

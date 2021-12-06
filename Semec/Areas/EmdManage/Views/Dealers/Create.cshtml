@@ -2,30 +2,10 @@
 @{ Layout = "~/Areas/EmdManage/Views/Shared/_EMD.cshtml"; }
 
 <script type="text/javascript">
-    // define array 
-    var mylist = new Array();
-
     GetStateList();
-    GetCityList();
-    GetItemList();
-    function FormValidation() {
-        var deal = '';
-        jQuery.each(mylist, function (i, val) {
-            deal = deal + ',' + val;
-        });
-        $("#DealIn").val(deal);
+    GetCityList();   
+    function FormValidation() {    
     }
-    // add item to container 
-    function AddItems() {
-        var item = $("#DealIn").val();
-        mylist.push(item);
-        var finallist = '';
-        jQuery.each(mylist, function (i, val) {
-            finallist = finallist + '<span class="item-list">' + val + '</span>';
-        });        
-        $("#list-items").first().html(finallist);        
-    }
-
 </script>
 
 <script type="text/javascript">
@@ -58,7 +38,7 @@
         <div class="card-block bg-primary">
             <div class="row ">
                 <div class="col-lg-4">
-                    <h5 class="text-uppercase font-weight-bold">New Product</h5>
+                    <h5 class="text-uppercase font-weight-bold">New Dealer</h5>
                 </div>
                 <div class="col-lg-8 align-items-end">
                     <div class="page-header-breadcrumb">
@@ -67,7 +47,7 @@
                                 <a href="@Url.Action("Index", "Dashboard")"> <i class="icofont icofont-home" style="color:white"></i> </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="@Url.Action("Index", "Dealers")" style="color:white">Home / Masters / New Product</a>
+                                <a href="@Url.Action("Index", "Dealers")" style="color:white">Home / Masters / New Dealer</a>
                             </li>
                         </ul>
                     </div>
@@ -92,7 +72,7 @@
 
             @using (Html.BeginForm("Create", "Dealers", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-               <div class="card-block">
+        <div class="card-block">
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -137,69 +117,80 @@
                 </div>
             </div>
 
-            <h4 class="sub-title" style="color:darkmagenta">Contact Persion 1</h4>
-            <div class="form-group row">
-                @Html.LabelFor(model => model.CP1, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CP1, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CP1, "", new { @class = "text-danger" })
+            <!-- Single Open Accordion start -->
+         
+                <div class="accordion-box" id="single-open">
+                    <a class="accordion-msg">Contact Persion 1</a>
+                    <div class="accordion-desc">
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.CP1, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.CP1, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CP1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.MobileCP1, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.MobileCP1, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.EmailCP1, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.EmailCP1, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <a class="accordion-msg">Contact Persion 2</a>
+                    <div class="accordion-desc">
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.CP2, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.CP2, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CP2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.MobileCP2, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.MobileCP2, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.EmailCP2, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.EmailCP2, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <a class="accordion-msg">Contact Persion 3</a>
+                    <div class="accordion-desc">
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.CP3, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.CP3, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CP2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(model => model.MobileCP3, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.MobileCP3, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.EmailCP3, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.EmailCP3, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                @Html.LabelFor(model => model.MobileCP1, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4">
-                    @Html.EditorFor(model => model.MobileCP1, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
-                </div>
-                @Html.LabelFor(model => model.EmailCP1, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4">
-                    @Html.EditorFor(model => model.EmailCP1, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
-                </div>
-            </div>
+         
+            <!-- Single Open Accordion ends -->
 
-            <h4 class="sub-title" style="color:darkmagenta">Contact Persion 2</h4>
-            <div class="form-group row">
-                @Html.LabelFor(model => model.CP2, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CP2, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CP2, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group row">
-                @Html.LabelFor(model => model.MobileCP2, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4">
-                    @Html.EditorFor(model => model.MobileCP2, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
-                </div>
-                @Html.LabelFor(model => model.EmailCP2, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4">
-                    @Html.EditorFor(model => model.EmailCP2, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <h4 class="sub-title" style="color:darkmagenta">Contact Persion 3</h4>
-            <div class="form-group row">
-                @Html.LabelFor(model => model.CP3, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.CP3, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CP2, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group row">
-                @Html.LabelFor(model => model.MobileCP3, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4">
-                    @Html.EditorFor(model => model.MobileCP3, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
-                </div>
-                @Html.LabelFor(model => model.EmailCP3, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4">
-                    @Html.EditorFor(model => model.EmailCP3, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group row">
+            <div class="form-group row mt-3">
                 @Html.LabelFor(model => model.Cataloge, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
                     <p>Product Cataloge (Size <= 2MB)</p>
@@ -226,25 +217,46 @@
                 <div class="col-md-9">
                     @Html.EditorFor(model => model.DealIn, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.DealIn, "", new { @class = "text-danger" })
+                    @Html.Hidden("ItemID")
                 </div>
                 <div class="col-md-1">
-                    <button type="button" class="btn btn-success float-right" onclick="AddItems()"><i class="icofont icofont-user-alt-3"></i> Add</button>
+                    <button type="button" class="btn btn-success btn-sm float-right" onclick="InsertRow('P');"><i class="icofont icofont-user-alt-3"></i> Add</button>
                 </div>
             </div>
             <div class="form-group row">
+
                 <div id="list-items" class="col-md-12" style="border: 1px solid #D8D8D8; min-height: 100px; padding-top:10px;">
+
+                    <div class='dt-responsive table-responsive'>
+                        <table id='dtTable' class='table table-striped table-bordered nowrap'>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Item Name</th>                                   
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>                       
+                    </div>
+
                 </div>
             </div>
+
+
             <div class="form-group row">
                 <div class="col-sm-12">
                     <input type="submit" value="Create" onclick="FormValidation();" class="btn btn-primary btn-out float-right" />
                 </div>
             </div>
-             </div>
+        </div>
             }
-         </div>
+        </div>
     </div>
 </div>
+<script src="~/Scripts/jquery-app/tr-items.js"></script>
+<script src="~/Content/adminty/js/accordion.js"></script>
 
 
 

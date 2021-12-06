@@ -1,15 +1,18 @@
-﻿using Semec.Areas.EmdManage.Model;
-using System;
+﻿using System;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic;
+using System.Collections.Generic;
 using System.Web.Mvc;
+using Semec.Areas.EmdManage.Model;
 
 namespace Semec.Areas.EmdManage.Controllers
 {
     public class DealersController : Controller
     {
         public MyContext db = new MyContext();
+        public DataTable Trans; // Items Trans 
         public ActionResult Index()
         {
             ViewData["PageTitle"] = "Dealers List";
@@ -68,8 +71,26 @@ namespace Semec.Areas.EmdManage.Controllers
                 return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        public ActionResult View(int id)
+        {
+            ViewData["PageTitle"] = "Dealers Details";
+            var model = db.DealersModels.Where(x => x.DealersID == id).FirstOrDefault();
+            return View(model);            
+        }
         public ActionResult Create()
         {
+            // DataTable 
+            Trans = new DataTable();
+            Trans.Columns.AddRange(new DataColumn[3]
+            {
+                new DataColumn("SerNo", typeof(int)),
+                new DataColumn("ItemID", typeof(int)),
+                new DataColumn("ItemName", typeof(string))
+            });
+            Session.Add("Trans", Trans);
+            // End
+
             ViewData["PageTitle"] = "New Dealer";
             return View();
         }
@@ -88,12 +109,19 @@ namespace Semec.Areas.EmdManage.Controllers
                 }
                 else
                 {
+                    DataTable dt = Session["Trans"] as DataTable;
+                    int DealersID=0;
+
                     int incid = db.DealersModels.DefaultIfEmpty().Max(r => r == null ? 0 : r.DealersID);
                     obj.DealersID = incid + 1;
+                    DealersID = obj.DealersID;
                     obj.Logo = TextLib.UploadFilewithHTMLControl("FileLogo", "DealInLogo" + obj.DealersID.ToString());
                     obj.Cataloge = TextLib.UploadFilewithHTMLControl("FileCataloge", "DealInCataloge" + obj.DealersID.ToString());
+                    obj.DealIn = GetDealInList(dt);
                     db.DealersModels.Add(obj);
                     db.SaveChanges();
+                    // Insert Transaction                     
+                    InsertSaleTrans(DealersID, dt);
                     Session["Create"] = "Yes";
                     return RedirectToAction(nameof(Index));
                 }
@@ -101,6 +129,24 @@ namespace Semec.Areas.EmdManage.Controllers
             else
             {
                 return View();
+            }
+        }
+        public void InsertSaleTrans(int id, DataTable dt)
+        {
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    DealInModel obj = new DealInModel();
+                    int incid = db.DealInModels.DefaultIfEmpty().Max(r => r == null ? 0 : r.DealInID);
+                    obj.DealInID = incid + 1;
+
+                    obj.DealersID = id; // dealer id 
+                    obj.ItemID = Convert.ToInt32(dr["ItemID"].ToString());
+                    obj.ItemName = dr["ItemName"].ToString();
+                    db.DealInModels.Add(obj);
+                    db.SaveChanges();
+                }
             }
         }
         public ActionResult Edit(int id)
@@ -204,5 +250,73 @@ namespace Semec.Areas.EmdManage.Controllers
                 return View();
             }
         }
+
+        // App
+        // Get Item Auto Complete List
+        public JsonResult ItemAutoComplete(string Prefix)
+        {
+            var list = db.ItemModels.Where(x => x.ItemName.Contains(Prefix))
+                       .Select(x => new { x.ItemID, x.ItemName }).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+}
+        // Add Trans Data
+        public JsonResult InsertRow(int iID)
+        {
+            DataTable dt = Session["Trans"] as DataTable;            
+            //Add to Datatable
+            var item = db.ItemModels.Where(x => x.ItemID == iID).SingleOrDefault();           
+            dt.Rows.Add(TextLib.GetMaxDataTableColoumn(dt, "SerNo") + 1,iID, item.ItemName);
+            // for return data
+            List<ItemTrans> list = new List<ItemTrans>();
+            foreach (DataRow dr in dt.Rows)
+            {   
+                list.Add(new ItemTrans(
+                    Convert.ToInt32(dr["SerNo"].ToString()),
+                    Convert.ToInt32(dr["ItemID"].ToString()),
+                    dr["ItemName"].ToString()
+                    ));
+            }
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+        // Remove Trans Data
+        public JsonResult DeleteRow(string iSer)
+        {
+            // Logic for Delete Operation            
+            DataTable dt = Session["Trans"] as DataTable;
+            // for Delete 
+            for (int i = dt.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = dt.Rows[i];
+                if ((dr["SerNo"].ToString().Equals(iSer)))
+                    dr.Delete();
+            }
+            dt.AcceptChanges();
+            // End 
+            // for return data
+            List<ItemTrans> list = new List<ItemTrans>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(new ItemTrans(
+                    Convert.ToInt32(dr["SerNo"].ToString()),
+                    Convert.ToInt32(dr["ItemID"].ToString()),
+                    dr["ItemName"].ToString()
+                    ));
+            }
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public string GetDealInList(DataTable dt)
+        {
+            string list = "";
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    list = list + "," + dr["ItemName"].ToString();
+                }
+                list = list.Substring(1, list.Length-1);
+            }
+            return list;
+        }            
     }
 }

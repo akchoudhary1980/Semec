@@ -198,6 +198,7 @@
     <Compile Include="Areas\EmdManage\Model\BankModel.cs" />
     <Compile Include="Areas\EmdManage\Model\EmdCreateModel.cs" />
     <Compile Include="Areas\EmdManage\Model\OrganisationModel.cs" />
+    <Compile Include="Areas\EmdManage\Model\ItemTrans.cs" />
     <Compile Include="Areas\InvoiceManage\InvoiceManageAreaRegistration.cs" />
     <Compile Include="Areas\InvoiceManage\Model\BinModel.cs" />
     <Compile Include="Areas\InvoiceManage\Model\ColorModel.cs" />
@@ -260,6 +261,10 @@
     <Compile Include="Migrations\202112031210283_DealersModel1.cs" />
     <Compile Include="Migrations\202112031210283_DealersModel1.designer.cs">
       <DependentUpon>202112031210283_DealersModel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112061206502_DealInModel.cs" />
+    <Compile Include="Migrations\202112061206502_DealInModel.designer.cs">
+      <DependentUpon>202112061206502_DealInModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -463,6 +468,7 @@
     <Content Include="Content\adminty\images\widget\wathernature.png" />
     <Content Include="Content\adminty\images\widget\watherstar1.png" />
     <Content Include="Content\adminty\images\widget\watherstar2.png" />
+    <Content Include="Content\adminty\js\accordion.js" />
     <Content Include="Content\adminty\js\bootstrap.min.js" />
     <Content Include="Content\adminty\js\buttons.colVis.min.js" />
     <Content Include="Content\adminty\js\buttons.flash.min.js" />
@@ -704,6 +710,7 @@
     <Content Include="Areas\EmdManage\Views\Dealers\Edit.cshtml" />
     <Content Include="Areas\EmdManage\Views\Dealers\Delete.cshtml" />
     <Content Include="Areas\EmdManage\Views\Dealers\Create.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Dealers\View.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -715,6 +722,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-app\dt-dealer.js" />
     <Content Include="Scripts\jquery-app\dt-item.js" />
+    <Content Include="Scripts\jquery-app\tr-items.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -763,6 +771,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112031210283_DealersModel1.resx">
       <DependentUpon>202112031210283_DealersModel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112061206502_DealInModel.resx">
+      <DependentUpon>202112061206502_DealInModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -39,6 +39,11 @@
             { "data": "Company", "name": "Company", "autoWidth": true },
             { "data": "Brand", "name": "Brand", "autoWidth": true },
             {
+                "render": function (data, type, full) {
+                    return "<a href='/EmdManage/Dealers/View/" + full.DealersID + "' class='btn btn-success btn-mini btn-outline-primary'><i class='icofont icofont-eye-alt'></i></a>";
+                }
+            },
+            {
                 "render": function (data, type, full)
                 {
                     return "<a href='/EmdManage/Dealers/Edit/" + full.DealersID + "' class='btn btn-success btn-mini btn-outline-primary'><i class='icofont icofont-ui-edit'></i></a>";
