@@ -1,5 +1,5 @@
 ﻿// Item Auto Complete
-$(document).ready(function () {
+$(document).ready(function () {   
     $("#DealIn").autocomplete({
         source: function (request, response) {
             $.ajax({
@@ -19,20 +19,23 @@ $(document).ready(function () {
         }
     });
 })
-
-
 // for Add Trans Data
 function InsertRow() {
     itemid = $('#ItemID').val();
-    $.ajax({
-        type: 'POST',
-        url: "/Dealers/InsertRow",
-        dataType: 'json',
-        data: { iID: itemid },
-        success: function (data) {
-            DisplayData(data);
-        }
-    });
+    if (itemid = "") {
+        alert('Please select Item from list');
+    }
+    else {
+        $.ajax({
+            type: 'POST',
+            url: "/Dealers/InsertRow",
+            dataType: 'json',
+            data: { iID: itemid },
+            success: function (data) {
+                DisplayData(data);
+            }
+        });
+    }
 }
 // for Remove Trans Data
 function DeleteRow(serno) {
@@ -62,4 +65,16 @@ function DisplayData(data) {
     });
     // Clear Item
     $('#DealIn').val("");
+}
+// for Looad Data on Edit-- > 
+function FetchRow(itemid) {
+    $.ajax({
+        type: 'POST',
+        url: "/Dealers/FetchRow",
+        dataType: 'json',
+        data: { iID: itemid },
+        success: function (data) {
+            DisplayData(data);
+        }
+    });    
 }

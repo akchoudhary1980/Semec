@@ -778,6 +778,12 @@ namespace Semec
                 return "No";
             }
         }
+
+        public static void DeleteFile(string filename)
+        {
+            string path = HttpContext.Current.Server.MapPath("~/UploadFiles/" +filename);
+            File.Delete(path);
+        }
         public static string SendMail(string toList,string ccList, string subject, string body)
         {
             DataTable dt = new DataTable();

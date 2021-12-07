@@ -71,7 +71,6 @@ namespace Semec.Areas.EmdManage.Controllers
                 return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data }, JsonRequestBehavior.AllowGet);
             }
         }
-
         public ActionResult View(int id)
         {
             ViewData["PageTitle"] = "Dealers Details";
@@ -151,8 +150,18 @@ namespace Semec.Areas.EmdManage.Controllers
         }
         public ActionResult Edit(int id)
         {
+            // DataTable 
+            Trans = new DataTable();
+            Trans.Columns.AddRange(new DataColumn[3]
+            {
+                new DataColumn("SerNo", typeof(int)),
+                new DataColumn("ItemID", typeof(int)),
+                new DataColumn("ItemName", typeof(string))
+            });
+            Session.Add("Trans", Trans);
+            // End
             ViewData["PageTitle"] = "Edit Item";
-            var model = db.DealersModels.Where(x => x.DealersID == id).FirstOrDefault();
+            var model = db.DealersModels.Where(x => x.DealersID == id).FirstOrDefault();           
             return View(model);
         }
         [HttpPost]
@@ -196,6 +205,14 @@ namespace Semec.Areas.EmdManage.Controllers
 
                         db.Entry(obj).State = EntityState.Modified;
                         db.SaveChanges();
+                        
+                        // remove from Deal in 
+                        db.DealInModels.RemoveRange(db.DealInModels.Where(x => x.DealersID == obj.DealersID));
+                        db.SaveChanges();
+                        // Newly  Insert Transaction                     
+                        DataTable dt = Session["Trans"] as DataTable;
+                        InsertSaleTrans(obj.DealersID, dt);
+
                         Session["Edit"] = "Yes";
                         return RedirectToAction(nameof(Index));
                     }
@@ -216,34 +233,35 @@ namespace Semec.Areas.EmdManage.Controllers
         }
         public ActionResult Delete(int id)
         {
-            ViewData["PageTitle"] = "Delete Item";
-            ViewData["Error"] = "Do you want to delete this record !";
-            var model = db.ItemModels.Where(x => x.ItemID == id).FirstOrDefault();
+            ViewData["PageTitle"] = "Delete Dealer";            
+            var model = db.DealersModels.Where(x => x.DealersID == id).FirstOrDefault();
             return View(model);
         }
         [HttpPost]
         public ActionResult Delete(int id, string confirm)
         {
-
-            // if area used
-            string s = confirm;
             if (confirm == "Yes")
             {
-                bool p = db.DealInModels.Any(x => x.ItemID == id);
-                // to do is used in Purchase / Quotation / Sales 
-                if (p == false)
+                var dealer = db.DealersModels.Where(x => x.DealersID == id).SingleOrDefault();
+                // Delete Logo 
+                if(dealer.Logo!="No")
                 {
-                    db.ItemModels.RemoveRange(db.ItemModels.Where(x => x.ItemID == id));
-                    db.SaveChanges();
-                    return RedirectToAction(nameof(Index));
+                   TextLib.DeleteFile(dealer.Logo);
                 }
-                else
+                // Delete Cata
+                if (dealer.Cataloge != "No")
                 {
-                    ViewData["PageTitle"] = "Item Manager";
-                    var model = db.ItemModels.Where(x => x.ItemID == id).FirstOrDefault();
-                    ViewData["Error"] = "You can not delete this record becuase it used !";
-                    return View(model);
+                    TextLib.DeleteFile(dealer.Cataloge);
                 }
+
+                // from Dealer 
+                db.DealersModels.RemoveRange(db.DealersModels.Where(x => x.DealersID == id));
+                db.SaveChanges();
+                // from Deal in 
+                db.DealInModels.RemoveRange(db.DealInModels.Where(x => x.DealersID == id));
+                db.SaveChanges();
+
+                return RedirectToAction(nameof(Index));               
             }
             else
             {
@@ -304,6 +322,33 @@ namespace Semec.Areas.EmdManage.Controllers
             }
             return Json(list, JsonRequestBehavior.AllowGet);
         }
+        // Load Data When Edit 
+        public JsonResult FetchRow(int iID)
+        {
+            List<ItemTrans> list = new List<ItemTrans>();
+            // Get From Database 
+            DataTable DealTrans = DataLib.GetQueryTable("Select * from DealInModels Where DealersID =" + iID);
+            DataTable dt = Session["Trans"] as DataTable;
+            if (dt != null)
+            {
+                dt.Clear();
+                int i = 0;
+                foreach (DataRow dr in DealTrans.Rows)
+                {
+                    dt.Rows.Add(i++, Convert.ToInt32(dr["ItemID"].ToString()), dr["ItemName"].ToString());
+                }
+                // for return data           
+                foreach (DataRow dr in dt.Rows)
+                {
+                    list.Add(new ItemTrans(
+                        Convert.ToInt32(dr["SerNo"].ToString()),
+                        Convert.ToInt32(dr["ItemID"].ToString()),
+                        dr["ItemName"].ToString()
+                        ));
+                }
+            }
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
 
         public string GetDealInList(DataTable dt)
         {
@@ -317,6 +362,24 @@ namespace Semec.Areas.EmdManage.Controllers
                 list = list.Substring(1, list.Length-1);
             }
             return list;
-        }            
+        }
+
+        // Download File 
+        public ActionResult DownloadFile(string filename)
+        {
+            string fullName = Server.MapPath("~/UploadFiles/" + filename);
+            byte[] fileBytes = GetFile(fullName);
+            return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, filename);
+        }
+        public byte[] GetFile(string s)
+        {
+            System.IO.FileStream fs = System.IO.File.OpenRead(s);
+            byte[] data = new byte[fs.Length];
+            int br = fs.Read(data, 0, data.Length);
+            if (br != fs.Length)
+                throw new System.IO.IOException(s);
+            return data;
+        }
+
     }
 }
