@@ -20,7 +20,7 @@ $(document).ready(function () {
     });
 })
 // for Add Trans Data
-function InsertRow() {
+function PushRow() {
     itemid = $('#ItemID').val();
     if (itemid = "") {
         alert('Please select Item from list');
@@ -38,7 +38,7 @@ function InsertRow() {
     }
 }
 // for Remove Trans Data
-function DeleteRow(serno) {
+function PopRow(serno) {
     $.ajax({
         type: 'POST',
         url: "/Dealers/DeleteRow",
@@ -59,7 +59,7 @@ function DisplayData(data) {
         var rows = "<tr>"
             + "<td>" + counter + "</td>"
             + "<td>" + item.ItemName + "</td>"
-            + "<td><button type='button' id=" + item.SerNo + " onclick='DeleteRow(this.id)' class='btn btn-danger btn-mini btn-outline-primary'><i class='icofont icofont-ui-close'></i></button></td>"
+            + "<td><button type='button' id=" + item.SerNo + " onclick='PopRow(this.id)' class='btn btn-danger btn-mini btn-outline-primary'><i class='icofont icofont-ui-close'></i></button></td>"
             + "</tr>";
         $('#dtTable tbody').append(rows);
     });
@@ -67,7 +67,7 @@ function DisplayData(data) {
     $('#DealIn').val("");
 }
 // for Looad Data on Edit-- > 
-function FetchRow(itemid) {
+function LoadRow(itemid) {
     $.ajax({
         type: 'POST',
         url: "/Dealers/FetchRow",

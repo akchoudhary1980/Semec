@@ -36,8 +36,23 @@
         }],
         "columns": [
             { "data": "DealersID", "name": "DealersID", "autoWidth": true },
+            {
+                "data": "Logo", "name": "Logo",
+
+                "render": function (data, type, full, meta) {
+                    return "<img src='../UploadFiles/" + full.Logo + "' height='50'/>";
+                },
+                "orderable": false,
+                "searchable": false
+            },
+
             { "data": "Company", "name": "Company", "autoWidth": true },
             { "data": "Brand", "name": "Brand", "autoWidth": true },
+
+            { "data": "CP1", "name": "CP1", "autoWidth": true },
+            { "data": "MobileCP1", "name": "MobileCP1", "autoWidth": true },
+            { "data": "Website", "name": "Website", "autoWidth": true },
+
             {
                 "render": function (data, type, full) {
                     return "<a href='/EmdManage/Dealers/View/" + full.DealersID + "' class='btn btn-success btn-mini btn-outline-primary'><i class='icofont icofont-eye-alt'></i></a>";

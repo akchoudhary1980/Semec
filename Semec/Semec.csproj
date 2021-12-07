@@ -731,6 +731,7 @@
     <Content Include="Server Details.txt" />
     <Content Include="UploadFiles\CommonFile\cameraIcon.png" />
     <Content Include="UploadFiles\CommonFile\pdfIcon.png" />
+    <Content Include="UploadFiles\No.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

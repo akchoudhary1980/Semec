@@ -763,7 +763,7 @@ namespace Semec
                 }
                 else
                 {
-                    return "No";
+                    return "No.png";
                 }
                 // rename file
                 //if (File.Exists(HttpContext.Current.Server.MapPath("~/TempFiles/" + oldfilename)))
@@ -775,7 +775,7 @@ namespace Semec
             }
             catch
             {
-                return "No";
+                return "No.png";
             }
         }
 
