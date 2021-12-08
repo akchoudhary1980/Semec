@@ -78,3 +78,28 @@ function LoadRow(itemid) {
         }
     });    
 }
+
+
+// for Add Trans Data
+function PushItem() {
+    var itemname = $('#ItemName').val();  
+    if (itemname="") {
+        alert('Please enter item name !');
+    }
+    else {
+        $.ajax({
+            type: 'POST',
+            url: "/EmdManage/Dealers/InsertItem",
+            dataType: 'json',
+            data: { ItemName: itemname },
+            success: function (response) {
+                alert(response.data);
+            }
+        });
+    }
+}
+
+function launchmodel() {
+
+}
+

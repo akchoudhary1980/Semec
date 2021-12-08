@@ -304,6 +304,32 @@ namespace Semec.Areas.EmdManage.Controllers
             }
             return Json(list, JsonRequestBehavior.AllowGet);
         }
+
+        // Add Trans Data
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult InsertItem(string ItemName)
+        {
+            string Message = "";
+            bool isduplicate = db.ItemModels.Any(x => x.ItemName == ItemName);
+            // Check Duplicate              
+            if (isduplicate == true)
+            {
+               Message = "Duplicate Record Found";
+            }
+            else
+            {
+                ItemModel obj = new ItemModel();
+                int incid = db.ItemModels.DefaultIfEmpty().Max(r => r == null ? 0 : r.ItemID);
+                obj.ItemID = incid + 1;
+                obj.ItemName = ItemName;
+                db.ItemModels.Add(obj);
+                db.SaveChanges();
+                Message = "Item Added Successfully";
+            }
+            return Json(Message, JsonRequestBehavior.AllowGet);
+        }
+
         // Remove Trans Data
         public JsonResult DeleteRow(string iSer)
         {

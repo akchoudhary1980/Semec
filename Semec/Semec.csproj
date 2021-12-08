@@ -711,6 +711,7 @@
     <Content Include="Areas\EmdManage\Views\Dealers\Create.cshtml" />
     <Content Include="Areas\EmdManage\Views\Dealers\View.cshtml" />
     <Content Include="Areas\EmdManage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Item\_Create.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
