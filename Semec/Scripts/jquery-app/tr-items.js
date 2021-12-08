@@ -100,6 +100,6 @@ function PushItem() {
 }
 
 function launchmodel() {
-
+    $('#CustomerModel').modal('show');
 }
 

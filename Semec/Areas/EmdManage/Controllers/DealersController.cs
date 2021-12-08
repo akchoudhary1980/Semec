@@ -283,8 +283,7 @@ namespace Semec.Areas.EmdManage.Controllers
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        // Add Trans Data
-        [HttpPost]
+        // Add Trans Data       
         [ValidateAntiForgeryToken]
         public JsonResult InsertRow(int ID)
         {
