@@ -281,14 +281,17 @@ namespace Semec.Areas.EmdManage.Controllers
             var list = db.ItemModels.Where(x => x.ItemName.Contains(Prefix))
                        .Select(x => new { x.ItemID, x.ItemName }).ToList();
             return Json(list, JsonRequestBehavior.AllowGet);
-}
+        }
+
         // Add Trans Data
-        public JsonResult InsertRow(int iID)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public JsonResult InsertRow(int ID)
         {
             DataTable dt = Session["Trans"] as DataTable;            
             //Add to Datatable
-            var item = db.ItemModels.Where(x => x.ItemID == iID).SingleOrDefault();           
-            dt.Rows.Add(TextLib.GetMaxDataTableColoumn(dt, "SerNo") + 1,iID, item.ItemName);
+            var item = db.ItemModels.Where(x => x.ItemID == ID).SingleOrDefault();           
+            dt.Rows.Add(TextLib.GetMaxDataTableColoumn(dt, "SerNo") + 1, ID, item.ItemName);
             // for return data
             List<ItemTrans> list = new List<ItemTrans>();
             foreach (DataRow dr in dt.Rows)

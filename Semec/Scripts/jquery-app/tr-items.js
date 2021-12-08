@@ -3,7 +3,7 @@ $(document).ready(function () {
     $("#DealIn").autocomplete({
         source: function (request, response) {
             $.ajax({
-                url: "/Dealers/ItemAutoComplete",
+                url: "/EmdManage/Dealers/ItemAutoComplete",
                 type: "POST",
                 dataType: "json",
                 data: { Prefix: request.term },
@@ -21,16 +21,16 @@ $(document).ready(function () {
 })
 // for Add Trans Data
 function PushRow() {
-    itemid = $('#ItemID').val();
-    if (itemid = "") {
+    id = $('#ItemID').val();
+    if (id = "") {
         alert('Please select Item from list');
     }
     else {
         $.ajax({
             type: 'POST',
-            url: "/Dealers/InsertRow",
+            url: "/EmdManage/Dealers/InsertRow",
             dataType: 'json',
-            data: { iID: itemid },
+            data: { ID: id },
             success: function (data) {
                 DisplayData(data);
             }
@@ -41,7 +41,7 @@ function PushRow() {
 function PopRow(serno) {
     $.ajax({
         type: 'POST',
-        url: "/Dealers/DeleteRow",
+        url: "/EmdManage/Dealers/DeleteRow",
         dataType: 'json',
         data: { iSer: serno },
         success: function (data) {

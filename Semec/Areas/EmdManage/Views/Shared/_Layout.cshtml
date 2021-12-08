@@ -12,7 +12,7 @@
     <link rel="icon" href="~/favicon.ico" type="image/x-icon">
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
-    
+
     <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/themify-icons.css">
     <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/icofont.css">
@@ -48,6 +48,7 @@
         .requred {
             color: red;
         }
+
         .requred-lavel {
             color: lightseagreen;
         }
@@ -56,10 +57,11 @@
     <!-- Js Require -->
 
     <script src="~/Content/adminty/custome-js/jquery-3.3.1.min.js"></script>
-    <script src="~/Content/adminty/custome-js/jquery-ui-1.10.2.min.js"></script>
-    <script src="~/Content/adminty/custome-js/ajax-modules.js"></script>
-    <script src="~/Content/adminty/custome-js/auto-complete.js"></script>
-    <script src="~/Content/adminty/custome-js/sweetalert.min.js"></script>
+    <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Scripts/jquery-app/ajax-modules.js"></script>
+    <script src="~/Scripts/jquery-app/auto-complete.js"></script>
+    <script src="~/Scripts/jquery-app/sweetalert.min.js"></script>
+
 
     <script type="text/javascript">
         function MessageBox(message) {
@@ -70,45 +72,40 @@
                 closeOnConfirm: true,
                 button: "OK",
             });
-        }
-    </script>
+        }</script>
 
     <!-- For Create Confirm -->
     @if (Session["Create"] != null)
     {
         if (Session["Create"].ToString() == "Yes")
         {
-            <script type="text/javascript">
-                window.onload = function () {
-                    swal({
-                        title: "Record Add!",
-                        text: "New record add successfully!",
-                        icon: "success",
-                        button: "OK",
-                    });
-                };
-            </script>
-            Session["Create"] = "No";
-        }
-    }
+<script type="text/javascript">
+    window.onload = function () {
+        swal({
+            title: "Record Add!",
+            text: "New record add successfully!",
+            icon: "success",
+            button: "OK",
+        });
+    };</script>Session["Create"] = "No";
+                }
+            }
     <!-- For Edit Confirm -->
     @if (Session["Edit"] != null)
     {
         if (Session["Edit"].ToString() == "Yes")
         {
-            <script type="text/javascript">
-                window.onload = function () {
-                    swal({
-                        title: "Record Update!",
-                        text: "Record update successfully!",
-                        icon: "success",
-                        button: "OK",
-                    });
-                };
-            </script>
-            Session["Edit"] = "No";
-        }
-    }
+<script type="text/javascript">
+    window.onload = function () {
+        swal({
+            title: "Record Update!",
+            text: "Record update successfully!",
+            icon: "success",
+            button: "OK",
+        });
+    };</script>Session["Edit"] = "No";
+                }
+            }
     <!-- For Delete Confirm -->
     <script type="text/javascript">
         $(document).ready(function () {
@@ -132,8 +129,7 @@
                     }
                 });
             });
-        });
-    </script>
+        });</script>
 
 
 </head>
@@ -162,10 +158,10 @@
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
             <!-- Top Menu -->
-            @RenderPage("~/Areas/EmdManage/Views/Shared/EMDTopMenu.cshtml")            
+            @RenderPage("~/Areas/EmdManage/Views/Shared/_TopMenu.cshtml")
             <div class="pcoded-main-container mybg">
                 <div class="pcoded-wrapper ">
-                    @Html.Partial("~/Areas/EmdManage/Views/Shared/EMDLeftMenu.cshtml")
+                    @Html.Partial("~/Areas/EmdManage/Views/Shared/_LeftMenu.cshtml")
                     <div class="pcoded-content ">
                         <div class="pcoded-inner-content">
                             <!-- Main-body start -->
@@ -184,7 +180,7 @@
     </div>
 
 
-   
+
 
     <!-- Warning Section Ends -->
     <!-- Required Jquery -->

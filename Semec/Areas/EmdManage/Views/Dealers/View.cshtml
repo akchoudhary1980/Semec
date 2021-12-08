@@ -1,7 +1,7 @@
 ﻿@model Semec.Areas.EmdManage.Model.DealersModel
 @{
     ViewBag.Title = "View";
-    Layout = "~/Areas/EmdManage/Views/Shared/_EMD.cshtml";
+    Layout = "~/Areas/EmdManage/Views/Shared/_Layout.cshtml";
     MyContext db = new MyContext();
     var dealin = db.DealInModels.Where(x => x.DealersID == Model.DealersID).ToList();
 }
@@ -42,19 +42,19 @@
             </div>
             <div class="card-block">
                 <div class='dt-responsive table-responsive'>
-                    <table class="table  table-condensed">                        
+                    <table class="table  table-condensed">
                         <tbody>
                             <tr>
                                 <td>Dealer Name</td>
-                                <td><b>@Model.Company </b></td>                               
-                            </tr> 
+                                <td><b>@Model.Company </b></td>
+                            </tr>
                             <tr>
                                 <td>Brand Name</td>
                                 <td><b>@Model.Brand</b></td>
                             </tr>
                             <tr>
                                 <td>Website</td>
-                                <td><b>@Model.Website</b></td>                               
+                                <td><b>@Model.Website</b></td>
                             </tr>
                             <tr>
                                 <td>Deal In</td>

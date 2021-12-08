@@ -1,5 +1,5 @@
 ﻿@model Semec.Areas.EmdManage.Model.ItemModel
-@{ Layout = "~/Areas/EmdManage/Views/Shared/_EMD.cshtml"; }
+@{ Layout = "~/Areas/EmdManage/Views/Shared/_Layout.cshtml"; }
 
 <div class="page-header">
     <div class="card">
@@ -37,27 +37,25 @@
                     </div>
                 </div>
             </div>
-            <div class="card-block">    
+            <div class="card-block">
                 <h4 class="sub-title">Item Delete</h4>
                 @using (Html.BeginForm("Delete", "Item", FormMethod.Post, htmlAttributes: new { @class = "swa-confirm" }))
                 {
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     @Html.HiddenFor(model => model.ItemID)
-                    <input type="hidden" id="confirm" name="confirm" value="No" />
-                     <div class="form-group row">
-                @Html.LabelFor(model => model.ItemName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <input type="hidden" id="confirm" name="confirm" value="No" />
+                                                    <div class="form-group row">
+                                                        @Html.LabelFor(model => model.ItemName, htmlAttributes: new { @class = "control-label col-md-2" })
                                                         <div class="col-md-10">
-                    @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
-                </div>
-            </div>
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <input type="submit" id="btn_submit" value="Delete" class="btn btn-primary btn-out waves-effect md-trigger float-right" />
-                        </div>
-                    </div>
-                                                                            
-            }
+                                                            @Html.EditorFor(model => model.ItemName, new { htmlAttributes = new { @class = "form-control" } })
+                                                            @Html.ValidationMessageFor(model => model.ItemName, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <div class="col-sm-12">
+                                                                            <input type="submit" id="btn_submit" value="Delete" class="btn btn-primary btn-out waves-effect md-trigger float-right" />
+                                                                        </div>
+                                                                    </div>            }
 
             </div>
         </div>

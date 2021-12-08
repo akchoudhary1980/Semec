@@ -1,0 +1,53 @@
+﻿<nav class="pcoded-navbar" pcoded-header-position="relative">
+    <div class="pcoded-inner-navbar main-menu">
+        <div class="pcoded-navigatio-lavel">EMD Suite</div>
+        <ul class="pcoded-item pcoded-left-item">
+            <li>
+                <a href="@Url.Action("Dashboard", "Admin")">
+                    <span class="pcoded-micon"><i class="feather icon-grid"></i></span>
+                    <span class="pcoded-mtext">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="pcoded-hasmenu">
+                <a href="#">
+                    <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
+                    <span class="pcoded-mtext">EMD Manage</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="@Url.Action("Index", "EMD" , new { area = "EmdManage" }, null)">
+                            <span class="pcoded-mtext">EMD Create</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "Sale")">
+                            <span class="pcoded-mtext">EMD Issue</span>
+                        </a>
+                    </li>
+                </ul>                
+            </li>
+
+            <li class="pcoded-hasmenu">
+                <a href="#">
+                    <span class="pcoded-micon"><i class="feather icon-award"></i></span>
+                    <span class="pcoded-mtext">Dealer Manage</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="@Url.Action("Index", "Dealers" , new { area = "EmdManage" }, null)">
+                            <span class="pcoded-mtext">Dealer List</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="@Url.Action("Index", "Item" , new { area = "EmdManage" }, null)">
+                            <span class="pcoded-mtext">Item List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+        
+    </div>
+</nav>

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Semec.Areas.EmdManage.Model;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -14,6 +16,26 @@ namespace Semec.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+
+        public JsonResult InsertRow(int ID)
+        {
+            DataTable dt = Session["Trans"] as DataTable;
+            //Add to Datatable
+            var item = db.ItemModels.Where(x => x.ItemID == ID).SingleOrDefault();
+            dt.Rows.Add(TextLib.GetMaxDataTableColoumn(dt, "SerNo") + 1, ID, item.ItemName);
+            // for return data
+            List<ItemTrans> list = new List<ItemTrans>();
+            foreach (DataRow dr in dt.Rows)
+            {
+                list.Add(new ItemTrans(
+                    Convert.ToInt32(dr["SerNo"].ToString()),
+                    Convert.ToInt32(dr["ItemID"].ToString()),
+                    dr["ItemName"].ToString()
+                    ));
+            }
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
 
         // Get Country List
