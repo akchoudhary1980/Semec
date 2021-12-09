@@ -19,25 +19,27 @@ $(document).ready(function () {
         }
     });
 })
-// for Add Trans Data https://benohead.com/blog/2014/01/14/asp-net-mvc-the-required-anti-forgery-form-field-__requestverificationtoken-is-not-present/
+
+// for add Trans Data
 function PushRow() {
-    id = $('#ItemID').val();
-    if (id = "") {
+    var itemid = $('#ItemID').val();
+    
+    if (itemid = "") {
         alert('Please select Item from list');
     }
     else {
         $.ajax({
             type: 'POST',
-            //url: '@Url.Action("MyMethod", "MyController", new {area = "MyArea"})',
-            url: @Url.Action("InsertRow", "Dealers", new {area = "EmdManage"}),           
+            url: '/EmdManage/Dealers/InsertRow',
             dataType: 'json',
-            data: { ID: id },
+            data: { 'ID': $('#ItemID').val(), "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
             success: function (data) {
                 DisplayData(data);
             }
         });
     }
 }
+
 // for Remove Trans Data
 function PopRow(serno) {
     $.ajax({

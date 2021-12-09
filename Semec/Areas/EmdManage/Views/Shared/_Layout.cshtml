@@ -55,12 +55,12 @@
     </style>
 
     <!-- Js Require -->
-
     <script src="~/Content/adminty/custome-js/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
     <script src="~/Scripts/jquery-app/ajax-modules.js"></script>
     <script src="~/Scripts/jquery-app/auto-complete.js"></script>
     <script src="~/Scripts/jquery-app/sweetalert.min.js"></script>
+
 
 
     <script type="text/javascript">
@@ -79,33 +79,35 @@
     {
         if (Session["Create"].ToString() == "Yes")
         {
-<script type="text/javascript">
-    window.onload = function () {
-        swal({
-            title: "Record Add!",
-            text: "New record add successfully!",
-            icon: "success",
-            button: "OK",
-        });
-    };</script>Session["Create"] = "No";
-                }
-            }
+            <script type="text/javascript">
+                window.onload = function () {
+                    swal({
+                        title: "Record Add!",
+                        text: "New record add successfully!",
+                        icon: "success",
+                        button: "OK",
+                    });
+                };</script>
+            Session["Create"] = "No";
+        }
+    }
     <!-- For Edit Confirm -->
     @if (Session["Edit"] != null)
     {
         if (Session["Edit"].ToString() == "Yes")
         {
-<script type="text/javascript">
-    window.onload = function () {
-        swal({
-            title: "Record Update!",
-            text: "Record update successfully!",
-            icon: "success",
-            button: "OK",
-        });
-    };</script>Session["Edit"] = "No";
-                }
-            }
+            <script type="text/javascript">
+                window.onload = function () {
+                    swal({
+                        title: "Record Update!",
+                        text: "Record update successfully!",
+                        icon: "success",
+                        button: "OK",
+                    });
+                };</script>
+            Session["Edit"] = "No";
+        }
+    }
     <!-- For Delete Confirm -->
     <script type="text/javascript">
         $(document).ready(function () {
@@ -182,12 +184,16 @@
 
 
 
+
     <!-- Warning Section Ends -->
     <!-- Required Jquery -->
-    <script type="text/javascript" src="~/Content/adminty/js/jquery.min.js"></script>
+    @*<script type="text/javascript" src="~/Content/adminty/js/jquery.min.js"></script>*@
     <script type="text/javascript" src="~/Content/adminty/js/popper.min.js"></script>
     <script type="text/javascript" src="~/Content/adminty/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/Content/adminty/js/jquery-ui.min.js"></script>
+
+
+    
+
 
 
     <!-- jquery slimscroll js -->

@@ -285,12 +285,13 @@ namespace Semec.Areas.EmdManage.Controllers
 
         // Add Trans Data       
         [ValidateAntiForgeryToken]
-        public JsonResult InsertRow(int ID)
+        public JsonResult InsertRow(string ID)
         {
+            int id = Convert.ToInt32(ID);
             DataTable dt = Session["Trans"] as DataTable;            
             //Add to Datatable
-            var item = db.ItemModels.Where(x => x.ItemID == ID).SingleOrDefault();           
-            dt.Rows.Add(TextLib.GetMaxDataTableColoumn(dt, "SerNo") + 1, ID, item.ItemName);
+            var item = db.ItemModels.Where(x => x.ItemID == id).SingleOrDefault();           
+            dt.Rows.Add(TextLib.GetMaxDataTableColoumn(dt, "SerNo") + 1, id, item.ItemName);
             // for return data
             List<ItemTrans> list = new List<ItemTrans>();
             foreach (DataRow dr in dt.Rows)
