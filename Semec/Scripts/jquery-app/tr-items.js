@@ -46,7 +46,7 @@ function PopRow(serno) {
         type: 'POST',
         url: "/EmdManage/Dealers/DeleteRow",
         dataType: 'json',
-        data: { iSer: serno },
+        data: { iSer: serno, "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
         success: function (data) {
             DisplayData(data);
         }
@@ -94,9 +94,9 @@ function PushItem() {
             type: 'POST',
             url: "/EmdManage/Dealers/InsertItem",
             dataType: 'json',
-            data: { ItemName: itemname },
+            data: { 'ItemName': $('#ItemName').val(), "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
             success: function (response) {
-                alert(response.data);
+                alert(response);
             }
         });
     }

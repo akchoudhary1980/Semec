@@ -36,10 +36,21 @@
                 <div class="row">
                     <div class="col-md-9 col-9"><h3>@ViewData["PageTitle"]</h3></div>
                     <div class="col-md-3 col-3">
-                        <h3>@Model.Company</h3>
+                        <a href="@Url.Action("Index", "Dealers")" class="btn btn-primary btn-outline-primary float-right">
+                            <i class="icofont icofont-user-alt-3"></i> Back to List
+                        </a>
                     </div>
                 </div>
             </div>
+
+            @*<div class="card-header">
+                <div class="row">
+                    <div class="col-md-9 col-9"><h3>@ViewData["PageTitle"]</h3></div>
+                    <div class="col-md-3 col-3">
+                        <h3>@Model.Company</h3>
+                    </div>
+                </div>
+            </div>*@
             <div class="card-block">
                 <div class='dt-responsive table-responsive'>
                     <table class="table  table-condensed">

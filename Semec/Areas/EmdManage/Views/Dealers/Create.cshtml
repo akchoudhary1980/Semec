@@ -39,7 +39,7 @@
         <div class="card-block bg-primary">
             <div class="row ">
                 <div class="col-lg-4">
-                    <h5 class="text-uppercase font-weight-bold">New Dealer</h5>
+                    <h5 class="text-uppercase font-weight-bold">New Dealers</h5>
                 </div>
                 <div class="col-lg-8 align-items-end">
                     <div class="page-header-breadcrumb">
@@ -48,7 +48,7 @@
                                 <a href="@Url.Action("Index", "Dashboard")"> <i class="icofont icofont-home" style="color:white"></i> </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="@Url.Action("Index", "Dealers")" style="color:white">Home / Masters / New Dealer</a>
+                                <a href="@Url.Action("Index", "Dealers")" style="color:white">Home / Masters / New Dealers</a>
                             </li>
                         </ul>
                     </div>
@@ -265,8 +265,6 @@
 
 
 <!-- Modal large-->
-<button type="button" class="btn btn-primary waves-effect" data-toggle="modal"  data-target="#large-Modal">Large</button>
-
 <div class="modal fade" id="large-Modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -280,19 +278,7 @@
             </div>
             <div class="modal-body">
                 @RenderPage("~/Areas/EmdManage/Views/Item/_Create.cshtml")                
-            </div>
-            <div class="modal-footer">
-                <button type="button"
-                        class="btn btn-default waves-effect "
-                        data-dismiss="modal">
-                    Close
-                </button>
-                @*<button type="button"
-                        class="btn btn-primary waves-effect waves-light ">
-                    Save
-                    changes
-                </button>*@
-            </div>
+            </div>          
         </div>
     </div>
 </div>

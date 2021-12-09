@@ -189,7 +189,7 @@ namespace Semec.Areas.EmdManage.Controllers
                     {
 
                         // Picture
-                        if (TextLib.UploadFilewithHTMLControl("FileLogo", "DealInLogo" + obj.DealersID.ToString()) != "No")
+                        if (TextLib.UploadFilewithHTMLControl("FileLogo", "DealInLogo" + obj.DealersID.ToString()) != "No.png")
                         {
                             obj.Logo = TextLib.UploadFilewithHTMLControl("FileLogo", "DealInLogo" + obj.DealersID.ToString());
                         }
@@ -199,7 +199,7 @@ namespace Semec.Areas.EmdManage.Controllers
                         }
 
                         // cataloge
-                        if (TextLib.UploadFilewithHTMLControl("FileCataloge", "DealInCataloge" + obj.DealersID.ToString()) != "No")
+                        if (TextLib.UploadFilewithHTMLControl("FileCataloge", "DealInCataloge" + obj.DealersID.ToString()) != "No.png")
                         {
                             obj.Cataloge = TextLib.UploadFilewithHTMLControl("FileCataloge", "DealInCataloge" + obj.DealersID.ToString());
                         }
@@ -225,8 +225,36 @@ namespace Semec.Areas.EmdManage.Controllers
                 else
                 {
 
+                    // Picture
+                    if (TextLib.UploadFilewithHTMLControl("FileLogo", "DealInLogo" + obj.DealersID.ToString()) != "No.png")
+                    {
+                        obj.Logo = TextLib.UploadFilewithHTMLControl("FileLogo", "DealInLogo" + obj.DealersID.ToString());
+                    }
+                    else
+                    {
+                        obj.Logo = oldvalue.Logo;
+                    }
+
+                    // cataloge
+                    if (TextLib.UploadFilewithHTMLControl("FileCataloge", "DealInCataloge" + obj.DealersID.ToString()) != "No.png")
+                    {
+                        obj.Cataloge = TextLib.UploadFilewithHTMLControl("FileCataloge", "DealInCataloge" + obj.DealersID.ToString());
+                    }
+                    else
+                    {
+                        obj.Cataloge = oldvalue.Cataloge;
+                    }
+
                     db.Entry(obj).State = EntityState.Modified;
                     db.SaveChanges();
+
+                    // remove from Deal in 
+                    db.DealInModels.RemoveRange(db.DealInModels.Where(x => x.DealersID == obj.DealersID));
+                    db.SaveChanges();
+                    // Newly  Insert Transaction                     
+                    DataTable dt = Session["Trans"] as DataTable;
+                    InsertSaleTrans(obj.DealersID, dt);
+
                     Session["Edit"] = "Yes";
                     return RedirectToAction(nameof(Index));
                 }

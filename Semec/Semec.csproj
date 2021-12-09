@@ -266,6 +266,10 @@
     <Compile Include="Migrations\202112061206502_DealInModel.designer.cs">
       <DependentUpon>202112061206502_DealInModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112091035315_DealersModel2.cs" />
+    <Compile Include="Migrations\202112091035315_DealersModel2.designer.cs">
+      <DependentUpon>202112091035315_DealersModel2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -794,6 +798,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112061206502_DealInModel.resx">
       <DependentUpon>202112061206502_DealInModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112091035315_DealersModel2.resx">
+      <DependentUpon>202112091035315_DealersModel2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
