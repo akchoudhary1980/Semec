@@ -47,14 +47,31 @@ namespace Semec.Areas.EmdManage.Controllers
                                t1.Brand,
                                t1.CP1,
                                t1.MobileCP1,
-                               t1.Website
+                               t1.Website,
                                // un display items 
-                               
+                               t1.EmailCP1,
+                               t1.CP2,
+                               t1.EmailCP2,
+                               t1.MobileCP2,
+                               t1.CP3,
+                               t1.EmailCP3,
+                               t1.MobileCP3,
+                               t1.DealIn,
+                               t1.City,
+                               t1.State,
+                               t1.Address
                            });
                 // for Sorting
                 if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDir)))
                 {
-                    obj = obj.OrderBy(sortColumn + " " + sortColumnDir);
+                    if(sortColumn.Equals("DealersID"))
+                    {
+                        obj = obj.OrderBy(sortColumn + " " + "desc");
+                    }
+                    else
+                    {
+                        obj = obj.OrderBy(sortColumn + " " + sortColumnDir);
+                    }                    
                 }
                 // searching 
                 if (!string.IsNullOrEmpty(searchValue))
@@ -65,6 +82,19 @@ namespace Semec.Areas.EmdManage.Controllers
                                                      || m.MobileCP1.Contains(searchValue)
                                                      || m.Website.Contains(searchValue)
                                                      // un dispaly items   
+                                                     || m.EmailCP1.Contains(searchValue)
+                                                     || m.CP2.Contains(searchValue)
+                                                     || m.EmailCP2.Contains(searchValue)
+                                                     || m.MobileCP2.Contains(searchValue)
+                                                     || m.CP3.Contains(searchValue)
+                                                     || m.EmailCP3.Contains(searchValue)
+                                                     || m.MobileCP3.Contains(searchValue)
+                                                     || m.DealIn.Contains(searchValue)
+                                                     || m.City.Contains(searchValue)
+                                                     || m.State.Contains(searchValue)
+                                                     || m.Address.Contains(searchValue)
+                                                    
+
                                                      );
 
                 }

@@ -1,0 +1,61 @@
+﻿.whitebox {
+    background-color: white;
+    height: 500px;
+    min-height: 500px;
+    margin-top: 7%;
+}
+
+@media only screen and (max-width: 500px) {
+    .whitebox {
+        margin-top: 0px;
+    }
+}
+
+.loginside {
+    background-color: white;
+    padding: 0px;
+    min-height: 500px;
+}
+
+.loginheader {
+    background-color: #21abcd;
+    height: 100px;
+}
+
+.loginbody {
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+
+.picside {
+    background-image: url('../../UploadFiles/CommonFile/side-picture.jpg');
+    background-color: gold;
+    opacity: 0.9;
+    padding: 0px;
+    min-height: 500px;
+}
+
+.picsidefooter {
+    background-color: #4682b4;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    padding: 20px;
+    color: white;
+}
+
+.sitelink {
+    text-decoration: none;
+    text-decoration-style: none;
+    color: white;
+}
+
+    .sitelink:hover {
+        text-decoration: none;
+        text-decoration-style: none;
+        color: #FCC133;
+    }

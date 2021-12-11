@@ -611,6 +611,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\login-style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -755,6 +756,8 @@
     <Content Include="Server Details.txt" />
     <Content Include="UploadFiles\CommonFile\cameraIcon.png" />
     <Content Include="UploadFiles\CommonFile\pdfIcon.png" />
+    <Content Include="UploadFiles\CommonFile\semec-login.png" />
+    <Content Include="UploadFiles\CommonFile\side-picture.jpg" />
     <Content Include="UploadFiles\No.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -766,13 +769,19 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Login\Challenge.cshtml" />
+    <Content Include="Views\Login\LoginOTP.cshtml" />
+    <Content Include="Views\Login\LoginPassword.cshtml" />
+    <Content Include="Views\Login\LoginTest.cshtml" />
+    <Content Include="Views\Login\PasswordRecovery.cshtml" />
+    <Content Include="Views\Login\PasswordReset.cshtml" />
+    <Content Include="Views\Login\SignIn.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\AdminManage\Controllers\" />

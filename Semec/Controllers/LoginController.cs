@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Semec.Controllers
@@ -10,10 +11,69 @@ namespace Semec.Controllers
     {
         public MyContext db = new MyContext();
 
-        [HttpPost]        
-        public ActionResult LoginValidation(string mobile,string password)
-        {   
-            return RedirectToAction("Index","Dealers", new { Area = "EmdManage" });
+
+        public ActionResult Challenge()
+        {
+            Session["CaptchaCode"] = TextLib.GetCaptcha();
+            TextLib.DrawCaptch(Session["CaptchaCode"].ToString());
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Challenge(FormCollection form)
+        {
+            string mobile = form["Mobile"];
+            string password = form["Password"];
+            string captchacode = form["CaptchaCode"];
+            string capCode = Session["CaptchaCode"].ToString();
+
+            if (capCode == captchacode)
+            {
+                var cus = db.CustomerModels.Where(x => x.Mobile == mobile && x.Address == password).FirstOrDefault();
+                try
+                {
+                    Session["CustomerID"] = cus.CustomerID; // Session of Customer
+                    Session["CustomerName"] = cus.CustomerName;
+                    Session["cLoginStatus"] = "Yes";
+
+                    if (Session["LoginCheckout"] != null)
+                    {
+                        Session.Remove("LoginCheckout");
+                        return RedirectToAction("DeliveryDetails", "Home");
+                    }
+                    else
+                    {
+                        // check the condition 
+                        if (cus.ProfessionID < 100)
+                        {
+                            // profile page 
+                            return RedirectToAction("MyProfile", "Customer");
+                        }
+                        else
+                        {
+                            // Customer Dashboard
+                            return RedirectToAction("Dashboard", "Customer");
+                        }
+                    }
+
+                }
+                catch
+                {
+                    Session["LoginError"] = "Invalid user name or password !";
+                    //// Call Java Script  
+                    //string message = "Invalid user name or password !";
+                    //ViewBag.SweetMessage = string.Format("ShowMessage('{0}');", message);
+                    return View();
+                }
+            }
+            else
+            {
+                Session["LoginError"] = "Invalid Captcha Code !";
+
+                // Call Java Script  
+                //string message = "Invalid Captcha Code !";
+                //ViewBag.SweetMessage = string.Format("ShowMessage('{0}');", message);
+                return View();
+            }
         }
 
         public ActionResult LoginTest()
@@ -207,69 +267,7 @@ namespace Semec.Controllers
         }
 
         // Customer Login 
-        public ActionResult Index()
-        {
-            Session["CaptchaCode"] = TextLib.GetCaptcha();
-            TextLib.DrawCaptch(Session["CaptchaCode"].ToString());
-            return View();
-        }   
-        [HttpPost]
-        public ActionResult Index(FormCollection form)
-        {
-            string mobile = form["Mobile"];
-            string password = form["Password"];
-            string captchacode = form["CaptchaCode"];
-            string capCode = Session["CaptchaCode"].ToString();
-
-            if (capCode == captchacode)
-            {
-                var cus = db.CustomerModels.Where(x => x.Mobile == mobile && x.Address == password).FirstOrDefault();
-                try
-                {
-                    Session["CustomerID"] = cus.CustomerID; // Session of Customer
-                    Session["CustomerName"] = cus.CustomerName;
-                    Session["cLoginStatus"] = "Yes";
-
-                    if (Session["LoginCheckout"]!=null)
-                    {
-                        Session.Remove("LoginCheckout");
-                        return RedirectToAction("DeliveryDetails", "Home");
-                    }
-                    else
-                    {
-                        // check the condition 
-                        if (cus.ProfessionID < 100)
-                        {
-                            // profile page 
-                            return RedirectToAction("MyProfile", "Customer");
-                        }
-                        else
-                        {
-                            // Customer Dashboard
-                            return RedirectToAction("Dashboard", "Customer");
-                        }
-                    }                   
-                    
-                }
-                catch
-                {
-                    Session["LoginError"] = "Invalid user name or password !";
-                    //// Call Java Script  
-                    //string message = "Invalid user name or password !";
-                    //ViewBag.SweetMessage = string.Format("ShowMessage('{0}');", message);
-                    return View();
-                }
-            }
-            else
-            {
-                Session["LoginError"] = "Invalid Captcha Code !";
-
-                // Call Java Script  
-                //string message = "Invalid Captcha Code !";
-                //ViewBag.SweetMessage = string.Format("ShowMessage('{0}');", message);
-                return View();
-            }
-        }
+        
 
         /// Customer Sign In
         /// 
