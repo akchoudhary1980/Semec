@@ -183,6 +183,7 @@
     <Compile Include="Areas\CommonManage\Model\StateModel.cs" />
     <Compile Include="Areas\CommonManage\Model\UnitModel.cs" />
     <Compile Include="Areas\CommonManage\Model\UserModel.cs" />
+    <Compile Include="Areas\EmdManage\Controllers\DashboardController.cs" />
     <Compile Include="Areas\EmdManage\Controllers\DealersController.cs" />
     <Compile Include="Areas\EmdManage\Controllers\ItemController.cs" />
     <Compile Include="Areas\EmdManage\EmdManageAreaRegistration.cs" />
@@ -718,6 +719,7 @@
     <Content Include="Areas\EmdManage\Views\Dealers\View.cshtml" />
     <Content Include="Areas\EmdManage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\EmdManage\Views\Item\_Create.cshtml" />
+    <Content Include="Areas\EmdManage\Views\Dashboard\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />

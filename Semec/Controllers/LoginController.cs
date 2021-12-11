@@ -10,8 +10,6 @@ namespace Semec.Controllers
     public class LoginController : Controller
     {
         public MyContext db = new MyContext();
-
-
         public ActionResult Challenge()
         {
             Session["CaptchaCode"] = TextLib.GetCaptcha();
@@ -28,50 +26,23 @@ namespace Semec.Controllers
 
             if (capCode == captchacode)
             {
-                var cus = db.CustomerModels.Where(x => x.Mobile == mobile && x.Address == password).FirstOrDefault();
-                try
+                var user = db.UserModels.Where(x => x.Mobile == mobile && x.Password == password).FirstOrDefault();
+                if (user != null)
                 {
-                    Session["CustomerID"] = cus.CustomerID; // Session of Customer
-                    Session["CustomerName"] = cus.CustomerName;
+                    Session["UserID"] = user.UserID; // Session of user
+                    Session["CustomerName"] = user.DisplayName;
                     Session["cLoginStatus"] = "Yes";
-
-                    if (Session["LoginCheckout"] != null)
-                    {
-                        Session.Remove("LoginCheckout");
-                        return RedirectToAction("DeliveryDetails", "Home");
-                    }
-                    else
-                    {
-                        // check the condition 
-                        if (cus.ProfessionID < 100)
-                        {
-                            // profile page 
-                            return RedirectToAction("MyProfile", "Customer");
-                        }
-                        else
-                        {
-                            // Customer Dashboard
-                            return RedirectToAction("Dashboard", "Customer");
-                        }
-                    }
-
+                    return RedirectToAction("Index", "Dashboard", new { area = "EmdManage" });                   
                 }
-                catch
+                else
                 {
                     Session["LoginError"] = "Invalid user name or password !";
-                    //// Call Java Script  
-                    //string message = "Invalid user name or password !";
-                    //ViewBag.SweetMessage = string.Format("ShowMessage('{0}');", message);
                     return View();
                 }
             }
             else
             {
                 Session["LoginError"] = "Invalid Captcha Code !";
-
-                // Call Java Script  
-                //string message = "Invalid Captcha Code !";
-                //ViewBag.SweetMessage = string.Format("ShowMessage('{0}');", message);
                 return View();
             }
         }
