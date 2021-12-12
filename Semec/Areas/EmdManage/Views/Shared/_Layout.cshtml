@@ -31,11 +31,11 @@
     <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/style.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/Common.css" />
 
-
-    <style>
-        /*input.ng-pristine {
-            border: 1px solid green;
-        }*/
+    <style type="text/css">
+        .error, textarea.error, input.error {
+            color: #FF0000;
+            font-size: small;
+        }
 
         input.ng-touched.ng-invalid {
             border: 1px solid red;
@@ -59,6 +59,7 @@
     <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
     <script src="~/Scripts/jquery-app/ajax-modules.js"></script>
     <script src="~/Scripts/jquery-app/auto-complete.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery-app/sweetalert.min.js"></script>
 
 

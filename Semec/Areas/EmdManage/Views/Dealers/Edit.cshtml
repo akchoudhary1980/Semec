@@ -3,6 +3,7 @@
 
 <script src="~/Scripts/jquery-app/tr-items.js"></script>
 <script src="~/Content/adminty/js/accordion.js"></script>
+<script src="~/Scripts/jquery-app/vl-dealer.js"></script>
 
 <script type="text/javascript">
     GetStateList();
@@ -62,7 +63,7 @@
                 </div>
             </div>
 
-            @using (Html.BeginForm("Edit", "Dealers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("Edit", "Dealers", FormMethod.Post, new { enctype = "multipart/form-data", id = "dealerform", name = "dealerform" }))
             {
                 <div class="card-block">
                     <h4 class="sub-title">Item Update</h4>
@@ -126,7 +127,7 @@
                             <div class="form-group row">
                                 @Html.LabelFor(model => model.MobileCP1, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-4">
-                                    @Html.EditorFor(model => model.MobileCP1, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.MobileCP1, new { htmlAttributes = new { @class = "form-control" , maxlength = "10", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
                                 </div>
                                 @Html.LabelFor(model => model.EmailCP1, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -148,7 +149,7 @@
                             <div class="form-group row">
                                 @Html.LabelFor(model => model.MobileCP2, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-4">
-                                    @Html.EditorFor(model => model.MobileCP2, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.MobileCP2, new { htmlAttributes = new { @class = "form-control", maxlength = "10", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
                                 </div>
                                 @Html.LabelFor(model => model.EmailCP2, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -170,7 +171,7 @@
                             <div class="form-group row">
                                 @Html.LabelFor(model => model.MobileCP3, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-4">
-                                    @Html.EditorFor(model => model.MobileCP3, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.MobileCP3, new { htmlAttributes = new { @class = "form-control", maxlength = "10", autocomplete = "off" } })
                                     @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
                                 </div>
                                 @Html.LabelFor(model => model.EmailCP3, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -220,7 +221,7 @@
                             <button type="button" class="btn btn-success btn-sm float-right" onclick="PushRow();"><i class="icofont icofont-plus"></i></button>
                         </div>
                         <div class="col-md-1 col-2">
-                            <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#large-Modal"><i class="icofont icofont-cart"></i></button>
+                            <button type="button" class="btn btn-primary btn-sm float-right" onclick="ShowModel();"><i class="icofont icofont-tick-mark"></i></button>
                         </div>
                     </div>
 
@@ -276,6 +277,9 @@
             </div>
             <div class="modal-body">
                 @RenderPage("~/Areas/EmdManage/Views/Item/_Create.cshtml")
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

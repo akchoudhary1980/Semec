@@ -171,7 +171,7 @@ namespace Semec.Areas.EmdManage.Controllers
                 {
                     ViewData["PageTitle"] = "Item Manager";
                     var model = db.ItemModels.Where(x => x.ItemID == id).FirstOrDefault();
-                    ViewData["Error"] = "You can not delete this record becuase it used !";
+                    ModelState.AddModelError("ItemName", "You can not delete this record becuase it used !");                   
                     return View(model);
                 }
             }

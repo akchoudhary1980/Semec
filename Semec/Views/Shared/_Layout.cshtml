@@ -27,27 +27,7 @@
 
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
-
-    <!-- =======================================================
-    * Template Name: Medilab - v4.6.0
-    * Template URL: https://bootstrapmade.com/medilab-free-medical-bootstrap-theme/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
-    <script type="text/javascript">
-        function Login() {
-            $.ajax({
-                type: 'POST',
-                url: '/Login/LoginValidation',
-                dataType: 'json',
-                data: { 'mobile': $('#Mobile').val(), 'password': $('#Password').val(), "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
-                success: function (data) {
-                    DisplayData(data);
-                }
-            });
-        }
-    </script>
-
+ 
 </head>
 <body>
     <!-- ======= Topbar ======= -->

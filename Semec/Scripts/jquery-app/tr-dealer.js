@@ -86,23 +86,28 @@ function LoadRow(itemid) {
 // for Add Trans Data
 function PushItem() {
     var itemname = $('#ItemName').val();  
-    if (itemname="") {
-        alert('Please enter item name !');
+    if (!itemname.trim()) {
+        $('#item').text('Please enter item name !');
     }
-    else {
+    else {       
         $.ajax({
             type: 'POST',
             url: "/EmdManage/Dealers/InsertItem",
             dataType: 'json',
             data: { 'ItemName': $('#ItemName').val(), "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
             success: function (response) {
-                alert(response);
+                alert('Item Added Successfully !');
+                $('#large-Modal').modal('hide');  
+                // logic for set value
+                var myArray = response.split('^');
+                $('#ItemID').val(myArray[0]);  
+                $('#DealIn').val(myArray[1]); 
             }
         });
     }
 }
 
-function launchmodel() {
-    $('#CustomerModel').modal('show');
+function ShowModel() {
+    $('#large-Modal').modal('show');
 }
 

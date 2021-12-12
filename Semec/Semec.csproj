@@ -731,11 +731,13 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-app\ajax-modules.js" />
     <Content Include="Scripts\jquery-app\auto-complete.js" />
-    <Content Include="Scripts\jquery-app\challange.js" />
+    <Content Include="Scripts\jquery-app\vl-item.js" />
+    <Content Include="Scripts\jquery-app\vl-dealer.js" />
+    <Content Include="Scripts\jquery-app\vl-challange.js" />
     <Content Include="Scripts\jquery-app\dt-dealer.js" />
     <Content Include="Scripts\jquery-app\dt-item.js" />
     <Content Include="Scripts\jquery-app\sweetalert.min.js" />
-    <Content Include="Scripts\jquery-app\tr-items.js" />
+    <Content Include="Scripts\jquery-app\tr-dealer.js" />
     <Content Include="Scripts\jquery-ui\external\jquery\jquery.js" />
     <Content Include="Scripts\jquery-ui\images\ui-icons_444444_256x240.png" />
     <Content Include="Scripts\jquery-ui\images\ui-icons_555555_256x240.png" />

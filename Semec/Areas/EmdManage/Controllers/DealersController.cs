@@ -383,7 +383,7 @@ namespace Semec.Areas.EmdManage.Controllers
                 obj.ItemName = ItemName;
                 db.ItemModels.Add(obj);
                 db.SaveChanges();
-                Message = "Item Added Successfully";
+                Message = obj.ItemID +"^"+ obj.ItemName;
             }
             return Json(Message, JsonRequestBehavior.AllowGet);
         }
