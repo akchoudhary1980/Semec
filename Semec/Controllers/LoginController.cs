@@ -14,6 +14,7 @@ namespace Semec.Controllers
         {
             Session["CaptchaCode"] = TextLib.GetCaptcha();
             TextLib.DrawCaptch(Session["CaptchaCode"].ToString());
+            Session["LoginError"] = null;
             return View();
         }
         [HttpPost]
@@ -23,6 +24,7 @@ namespace Semec.Controllers
             string password = form["Password"];
             string captchacode = form["CaptchaCode"];
             string capCode = Session["CaptchaCode"].ToString();
+           
 
             if (capCode == captchacode)
             {

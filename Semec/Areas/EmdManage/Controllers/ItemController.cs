@@ -44,7 +44,14 @@ namespace Semec.Areas.EmdManage.Controllers
                 // for Sorting
                 if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDir)))
                 {
-                    obj = obj.OrderBy(sortColumn + " " + sortColumnDir);
+                    if (sortColumn.Equals("ItemID"))
+                    {
+                        obj = obj.OrderBy(sortColumn + " " + "desc");
+                    }
+                    else
+                    {
+                        obj = obj.OrderBy(sortColumn + " " + sortColumnDir);
+                    }                     
                 }
                 // searching 
                 if (!string.IsNullOrEmpty(searchValue))

@@ -731,6 +731,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-app\ajax-modules.js" />
     <Content Include="Scripts\jquery-app\auto-complete.js" />
+    <Content Include="Scripts\jquery-app\challange.js" />
     <Content Include="Scripts\jquery-app\dt-dealer.js" />
     <Content Include="Scripts\jquery-app\dt-item.js" />
     <Content Include="Scripts\jquery-app\sweetalert.min.js" />
