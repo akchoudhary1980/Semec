@@ -183,6 +183,7 @@
     <Compile Include="Areas\CommonManage\Model\StateModel.cs" />
     <Compile Include="Areas\CommonManage\Model\UnitModel.cs" />
     <Compile Include="Areas\CommonManage\Model\UserModel.cs" />
+    <Compile Include="Areas\DealersManage\DealersManageAreaRegistration.cs" />
     <Compile Include="Areas\EmdManage\Controllers\DashboardController.cs" />
     <Compile Include="Areas\EmdManage\Controllers\DealersController.cs" />
     <Compile Include="Areas\EmdManage\Controllers\ItemController.cs" />
@@ -235,6 +236,9 @@
     <Compile Include="Areas\InvoiceManage\Model\Transaction.cs" />
     <Compile Include="Areas\InvoiceManage\Model\VenderModel.cs" />
     <Compile Include="Areas\InvoiceManage\Model\VenderPaymentModel.cs" />
+    <Compile Include="Areas\TenderLinkManage\TenderLinkManageAreaRegistration.cs" />
+    <Compile Include="Areas\WebsiteManage\WebsiteManageAreaRegistration.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SetupController.cs" />
@@ -720,6 +724,9 @@
     <Content Include="Areas\EmdManage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\EmdManage\Views\Item\_Create.cshtml" />
     <Content Include="Areas\EmdManage\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\DealersManage\Views\web.config" />
+    <Content Include="Areas\TenderLinkManage\Views\web.config" />
+    <Content Include="Areas\WebsiteManage\Views\web.config" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -787,11 +794,24 @@
     <Content Include="Views\Login\PasswordReset.cshtml" />
     <Content Include="Views\Login\SignIn.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Views\Shared\_LeftMenu.cshtml" />
+    <Content Include="Views\Shared\_TopMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\AdminManage\Controllers\" />
     <Folder Include="Areas\CommonManage\Views\Default\" />
+    <Folder Include="Areas\DealersManage\Controllers\" />
+    <Folder Include="Areas\DealersManage\Data\" />
+    <Folder Include="Areas\DealersManage\Views\Shared\" />
     <Folder Include="Areas\InvoiceManage\Controllers\" />
+    <Folder Include="Areas\TenderLinkManage\Controllers\" />
+    <Folder Include="Areas\TenderLinkManage\Data\" />
+    <Folder Include="Areas\TenderLinkManage\Views\Shared\" />
+    <Folder Include="Areas\WebsiteManage\Controllers\" />
+    <Folder Include="Areas\WebsiteManage\Data\" />
+    <Folder Include="Areas\WebsiteManage\Views\Shared\" />
     <Folder Include="Models\" />
     <Folder Include="TempFiles\" />
   </ItemGroup>

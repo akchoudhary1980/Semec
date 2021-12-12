@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="#">
+    <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="#">
+    <!-- Favicon icon -->
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/icofont.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/feather.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/prism.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/component.css">
+
+    <!-- Data Table Css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/buttons.dataTables.min.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/adminty/css/Common.css" />
+
+    <style type="text/css">
+        .error, textarea.error, input.error {
+            color: #FF0000;
+            font-size: small;
+        }
+
+        input.ng-touched.ng-invalid {
+            border: 1px solid red;
+        }
+
+        input.ng-touched.ng-valid {
+            background-color: white;
+        }
+
+        .requred {
+            color: red;
+        }
+
+        .requred-lavel {
+            color: lightseagreen;
+        }
+    </style>
+
+    <!-- Js Require -->
+    <script src="~/Content/adminty/custome-js/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
+    <script src="~/Scripts/jquery-app/ajax-modules.js"></script>
+    <script src="~/Scripts/jquery-app/auto-complete.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery-app/sweetalert.min.js"></script>
+
+
+
+    <script type="text/javascript">
+        function MessageBox(message) {
+            return swal({
+                title: "Message",
+                text: message,
+                icon: "success",
+                closeOnConfirm: true,
+                button: "OK",
+            });
+        }</script>
+
+    <!-- For Create Confirm -->
+    @if (Session["Create"] != null)
+    {
+        if (Session["Create"].ToString() == "Yes")
+        {
+            <script type="text/javascript">
+                window.onload = function () {
+                    swal({
+                        title: "Record Add!",
+                        text: "New record add successfully!",
+                        icon: "success",
+                        button: "OK",
+                    });
+                };</script>
+            Session["Create"] = "No";
+        }
+    }
+    <!-- For Edit Confirm -->
+    @if (Session["Edit"] != null)
+    {
+        if (Session["Edit"].ToString() == "Yes")
+        {
+            <script type="text/javascript">
+                window.onload = function () {
+                    swal({
+                        title: "Record Update!",
+                        text: "Record update successfully!",
+                        icon: "success",
+                        button: "OK",
+                    });
+                };</script>
+            Session["Edit"] = "No";
+        }
+    }
+    <!-- For Delete Confirm -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btn_submit").click(function (e) {
+                e.preventDefault(); //prevent submit
+                swal({
+                    title: "Are you sure?",
+                    text: "Once deleted, you will not be able to recover this record!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        $('#confirm').val("Yes");
+                        swal("Poof! Your record has been deleted!", { icon: "success", });
+                        $('.swa-confirm').submit();
+                    } else {
+                        $('#confirm').val("No");
+                        swal("Your record is safe!");
+                    }
+                });
+            });
+        });</script>
+
+
+</head>
+<!-- Menu sidebar layout -->
+<body>
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class='contain'>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu header start -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+            <!-- Top Menu -->
+            @RenderPage("~/Views/Shared/_TopMenu.cshtml")
+            <div class="pcoded-main-container mybg">
+                <div class="pcoded-wrapper ">
+                    @Html.Partial("~/Views/Shared/_LeftMenu.cshtml")
+                    <div class="pcoded-content ">
+                        <div class="pcoded-inner-content">
+                            <!-- Main-body start -->
+                            <div class="main-body">
+                                <div class="page-wrapper ">
+                                    <div class="page-body">
+                                        @RenderBody()
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Warning Section Ends -->
+    <!-- Required Jquery -->
+    @*<script type="text/javascript" src="~/Content/adminty/js/jquery.min.js"></script>*@
+    <script type="text/javascript" src="~/Content/adminty/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/bootstrap.min.js"></script>
+
+
+    
+
+
+
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="~/Content/adminty/js/jquery.slimscroll.js"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="~/Content/adminty/js/modernizr.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/css-scrollbars.js"></script>
+    <!-- Syntax highlighter prism js -->
+    <script type="text/javascript" src="~/Content/adminty/js/custom-prism.js"></script>
+    <!-- Custom js -->
+    <script type="text/javascript" src="~/Content/adminty/js/pcoded.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/menu-sidebar-fixed.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/script.js"></script>
+
+    <!-- modalEffects js nifty modal window effects -->
+    <script type="text/javascript" src="~/Content/adminty/js/modalEffects.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/classie.js"></script>
+
+    <!-- data-table js -->
+    <script type="text/javascript" src="~/Content/adminty/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/dataTables.buttons.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/adminty/js/jszip.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/pdfmake.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/vfs_fonts.js"></script>
+
+    <script type="text/javascript" src="~/Content/adminty/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/buttons.flash.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/jszip.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/vfs_fonts.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/buttons.colVis.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/adminty/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/buttons.html5.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/adminty/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/responsive.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="~/Content/adminty/js/extension-btns-custom.js"></script>
+
+</body>
+</html>
