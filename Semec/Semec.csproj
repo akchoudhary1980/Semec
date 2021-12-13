@@ -188,6 +188,8 @@
     <Compile Include="Areas\EmdManage\Controllers\DealersController.cs" />
     <Compile Include="Areas\EmdManage\Controllers\ItemController.cs" />
     <Compile Include="Areas\EmdManage\EmdManageAreaRegistration.cs" />
+    <Compile Include="Areas\EmdManage\Model\DepartmentCategoryModel.cs" />
+    <Compile Include="Areas\EmdManage\Model\TenderLinkModel.cs" />
     <Compile Include="Areas\EmdManage\Model\ItemModel.cs" />
     <Compile Include="Areas\EmdManage\Model\DealInModel.cs" />
     <Compile Include="Areas\EmdManage\Model\DealersModel.cs" />

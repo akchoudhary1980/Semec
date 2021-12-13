@@ -111,3 +111,15 @@ function ShowModel() {
     $('#large-Modal').modal('show');
 }
 
+function ShowZoomModel(name, mobile) {
+    $('#cpname').text(name); 
+
+    $('#part1').text(mobile.substring(0, 2)); 
+    $('#part2').text(mobile.substring(2, 4)); 
+    $('#part3').text(mobile.substring(4, 6)); 
+    $('#part4').text(mobile.substring(6, 8)); 
+    $('#part5').text(mobile.substring(8,10));
+
+    $('#zoom-Modal').modal('show');
+}
+

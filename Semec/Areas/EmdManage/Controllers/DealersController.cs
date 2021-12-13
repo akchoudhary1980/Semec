@@ -238,14 +238,18 @@ namespace Semec.Areas.EmdManage.Controllers
                             obj.Cataloge = oldvalue.Cataloge;
                         }
 
+                        DataTable dt = Session["Trans"] as DataTable;
+                        obj.DealIn = GetDealInList(dt);
+
                         db.Entry(obj).State = EntityState.Modified;
                         db.SaveChanges();
                         
                         // remove from Deal in 
                         db.DealInModels.RemoveRange(db.DealInModels.Where(x => x.DealersID == obj.DealersID));
+
                         db.SaveChanges();
                         // Newly  Insert Transaction                     
-                        DataTable dt = Session["Trans"] as DataTable;
+                        
                         InsertSaleTrans(obj.DealersID, dt);
 
                         Session["Edit"] = "Yes";
@@ -275,14 +279,16 @@ namespace Semec.Areas.EmdManage.Controllers
                         obj.Cataloge = oldvalue.Cataloge;
                     }
 
+                    DataTable dt = Session["Trans"] as DataTable;
+                    obj.DealIn = GetDealInList(dt);
+
                     db.Entry(obj).State = EntityState.Modified;
                     db.SaveChanges();
 
                     // remove from Deal in 
                     db.DealInModels.RemoveRange(db.DealInModels.Where(x => x.DealersID == obj.DealersID));
                     db.SaveChanges();
-                    // Newly  Insert Transaction                     
-                    DataTable dt = Session["Trans"] as DataTable;
+                    // Newly  Insert Transaction
                     InsertSaleTrans(obj.DealersID, dt);
 
                     Session["Edit"] = "Yes";

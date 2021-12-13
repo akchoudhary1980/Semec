@@ -5,6 +5,9 @@
     MyContext db = new MyContext();
     var dealin = db.DealInModels.Where(x => x.DealersID == Model.DealersID).ToList();
 }
+ 
+<script src="~/Scripts/jquery-app/tr-dealer.js"></script>
+
 <div class="page-header animated bounceInRight">
     <div class="card">
         <div class="card-block bg-primary">
@@ -42,38 +45,186 @@
                     </div>
                 </div>
             </div>
+            <div class="card-block">
 
-            @*<div class="card-header">
                 <div class="row">
-                    <div class="col-md-9 col-9"><h3>@ViewData["PageTitle"]</h3></div>
-                    <div class="col-md-3 col-3">
-                        <h3>@Model.Company</h3>
+                    <div class="col-md-3 col-12">
+                        <img src="~/UploadFiles/@Url.Content(Model.Logo)" alt="" class="img-fluid img-thumbnail" />
+                    </div>
+                    <div class="col-md-9 col-12">
+                        <h3 style="color:darkred;font-weight:900" class="justify-content-md-end">@Model.Company</h3>
+                        <div class='dt-responsive table-responsive mt-3'>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td>Company Cataloge</td>
+                                        <td>
+                                            <img src="~/UploadFiles/CommonFile/pdfIcon.png" height="40" />
+                                            <a href="~/Dealers/DownloadFile?filename=@Model.Cataloge"> <b>Download File</b>  <i class="icofont icofont-download"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>*@
-            <div class="card-block">
-                <div class='dt-responsive table-responsive'>
-                    <table class="table  table-condensed">
-                        <tbody>
-                            <tr>
-                                <td>Dealer Name</td>
-                                <td><b>@Model.Company </b></td>
-                            </tr>
-                            <tr>
-                                <td>Brand Name</td>
-                                <td><b>@Model.Brand</b></td>
-                            </tr>
-                            <tr>
-                                <td>Website</td>
-                                <td><b>@Model.Website</b></td>
-                            </tr>
-                            <tr>
-                                <td>Deal In</td>
-                                <td><b>@Model.DealIn</b></td>
-                            </tr>
-                        </tbody>
-                    </table>
+
+                <div class="row mt-3">
+                    <div class="col-md-12 col-12">
+                        <h6 style="color:blueviolet">Basic Details</h6>
+                    </div>
+                    
+                    <div class="col-md-12 col-12">
+                        <div class='dt-responsive table-responsive'>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td>Brand Name</td>
+                                        <td><b>@Model.Brand</b></td>
+                                        <td>Website</td>
+                                        <td><a style="color:blue;font-size:medium" href="@Model.Website">@Model.Website</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">Deal In</td>
+                                        <td colspan="3"><b>@Model.DealIn</b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <h6 style="color:blueviolet">Dealer Location</h6>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <div class='dt-responsive table-responsive'>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td>State</td>
+                                        <td><b>@Model.State</b></td>
+                                        <td>City</td>
+                                        <td><b>@Model.City</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">Address</td>
+                                        <td colspan="3"><b>@Model.Address</b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <h6 style="color:blueviolet">Contact Person 1</h6>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <a class="text-right" style="color:blueviolet;font-size:medium">Email to all</a>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <div class='dt-responsive table-responsive'>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td><b>@Model.CP1</b></td>
+                                        <td>Mobile</td>
+                                        <td><button class="btn btn-sm btn-primary" onclick="ShowZoomModel('@Model.CP1','@Model.MobileCP1')"><i class="icofont icofont-2x icofont-ui-zoom-in"></i></button> <b>@Model.MobileCP1 </b>   </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">Email</td>
+                                        <td colspan="2"><b>@Model.EmailCP1</b></td>
+                                        <td colspan="1">
+                                            <a href="mailto:@Model.EmailCP1?Subject=Tender20%Enquiry20%for&Body=Hello" class="btn btn-sm btn-primary"><i class="icofont icofont-2x icofont-email"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <h6 style="color:blueviolet">Contact Person 2</h6>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <div class='dt-responsive table-responsive'>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td><b>@Model.CP2</b></td>
+                                        <td>Mobile</td>
+                                        <td><button class="btn btn-sm btn-primary" onclick="ShowZoomModel('@Model.CP2','@Model.MobileCP2')"><i class="icofont icofont-2x icofont-ui-zoom-in"></i></button> <b>@Model.MobileCP2 </b></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">Email</td>
+                                        <td colspan="2"><b>@Model.EmailCP2</b></td>
+                                        <td colspan="1">
+                                            <a href="mailto:@Model.EmailCP2?Subject=Tender20%Enquiry20%for&Body=Hello" class="btn btn-sm btn-primary"><i class="icofont icofont-2x icofont-email"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-12">
+                        <h6 style="color:blueviolet">Contact Person 3</h6>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <div class='dt-responsive table-responsive'>
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td><b>@Model.CP3</b></td>
+                                        <td>Mobile</td>
+                                        <td><button class="btn btn-sm btn-primary" onclick="ShowZoomModel('@Model.CP3','@Model.MobileCP3')"><i class="icofont icofont-2x icofont-ui-zoom-in"></i></button> <b>@Model.MobileCP3 </b></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="1">Email</td>
+                                        <td colspan="2"><b>@Model.EmailCP3</b></td>
+                                        <td colspan="1">
+                                            <a href="mailto:@Model.EmailCP3?Subject=Tender20%Enquiry20%for&Body=Hello" class="btn btn-sm btn-primary"><i class="icofont icofont-2x icofont-email"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal large-->
+<div class="modal fade" id="zoom-Modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Mobile</h4>
+                <button type="button" class="close"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <h2><span id="cpname"></span></h2>
+                <h1 style="font-weight:900"><span style="color:darkred" id="part1"></span><span style="color:darkgreen"id="part2"></span><span style="color:deeppink"id="part3"></span><span style="color:darkblue"id="part4"></span><span style="color:black"id="part5"></span>  </h1>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
