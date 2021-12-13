@@ -9,8 +9,8 @@ using Semec.Areas.CommonManage.Model;
 using Semec.Areas.AdminManage.Model;
 using Semec.Areas.EmdManage.Model;
 using Semec.Areas.InvoiceManage.Model;
-using Semec.Areas.TenderLinkManage.Model;
 using Semec.Areas.DealersManage.Model;
+using Semec.Areas.TenderSearchManage.Model;
 
 namespace Semec
 {

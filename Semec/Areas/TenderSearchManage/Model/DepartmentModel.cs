@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Semec.Areas.TenderLinkManage.Model
+namespace Semec.Areas.TenderSearchManage.Model
 {
     public class DepartmentModel
     {
