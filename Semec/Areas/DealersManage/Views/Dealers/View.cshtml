@@ -1,7 +1,7 @@
-﻿@model Semec.Areas.EmdManage.Model.DealersModel
+﻿@model Semec.Areas.DealersManage.Model.DealersModel
 @{
     ViewBag.Title = "View";
-    Layout = "~/Areas/EmdManage/Views/Shared/_Layout.cshtml";
+    Layout = "~/Areas/DealersManage/Views/Shared/_Layout.cshtml";
     MyContext db = new MyContext();
     var dealin = db.DealInModels.Where(x => x.DealersID == Model.DealersID).ToList();
 

@@ -1,5 +1,5 @@
-﻿@model Semec.Areas.EmdManage.Model.DealersModel
-@{ Layout = "~/Areas/EmdManage/Views/Shared/_Layout.cshtml"; }
+﻿@model Semec.Areas.DealersManage.Model.DealersModel
+@{ Layout = "~/Areas/DealersManage/Views/Shared/_Layout.cshtml"; }
 <script src="~/Scripts/jquery-app/tr-dealer.js"></script> 
 <script src="~/Content/adminty/js/accordion.js"></script>
 <script src="~/Scripts/jquery-app/vl-dealer.js"></script>
@@ -257,10 +257,6 @@
     </div>
 </div>
 
-@*<script src="~/Scripts/jquery-app/tr-dealer.js"></script> 
-<script src="~/Content/adminty/js/accordion.js"></script>*@
-
-
 <!-- Modal large-->
 <div class="modal fade" id="large-Modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg" role="document">
@@ -274,7 +270,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                @RenderPage("~/Areas/EmdManage/Views/Item/_Create.cshtml")
+                @RenderPage("~/Areas/DealersManage/Views/Item/_Create.cshtml")
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">Close</button>

@@ -183,6 +183,7 @@
     <Compile Include="Areas\CommonManage\Model\StateModel.cs" />
     <Compile Include="Areas\CommonManage\Model\UnitModel.cs" />
     <Compile Include="Areas\CommonManage\Model\UserModel.cs" />
+    <Compile Include="Areas\DealersManage\Controllers\ReportsController.cs" />
     <Compile Include="Areas\DealersManage\DealersManageAreaRegistration.cs" />
     <Compile Include="Areas\DealersManage\Controllers\DashboardController.cs" />
     <Compile Include="Areas\DealersManage\Controllers\DealersController.cs" />
@@ -734,6 +735,8 @@
     <Content Include="Areas\DealersManage\Views\web.config" />
     <Content Include="Areas\TenderLinkManage\Views\web.config" />
     <Content Include="Areas\WebsiteManage\Views\web.config" />
+    <Content Include="Areas\DealersManage\Views\Reports\NoWebsite.cshtml" />
+    <Content Include="Areas\DealersManage\Views\Reports\NoBrand.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -745,6 +748,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-app\ajax-modules.js" />
     <Content Include="Scripts\jquery-app\auto-complete.js" />
+    <Content Include="Scripts\jquery-app\dt-no-brand.js" />
+    <Content Include="Scripts\jquery-app\dt-no-website.js" />
     <Content Include="Scripts\jquery-app\vl-item.js" />
     <Content Include="Scripts\jquery-app\vl-dealer.js" />
     <Content Include="Scripts\jquery-app\vl-challange.js" />

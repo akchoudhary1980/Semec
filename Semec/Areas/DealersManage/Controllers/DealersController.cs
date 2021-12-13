@@ -4,8 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic;
 using System.Collections.Generic;
-using System.Web.Mvc;
-using Semec.Areas.EmdManage.Model;
+using System.Web.Mvc; 
 using Semec.Areas.DealersManage.Model;
 
 namespace Semec.Areas.DealersManage.Controllers

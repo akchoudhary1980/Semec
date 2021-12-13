@@ -3,7 +3,7 @@
         <div class="pcoded-navigatio-lavel">EMD Suite</div>
         <ul class="pcoded-item pcoded-left-item">
             <li>
-                <a href="@Url.Action("Index", "Dashboard" , new { area = "EmdManage" }, null)">
+                <a href="@Url.Action("Index", "Dashboard" , new { area = "DealersManage" }, null)">
                     <span class="pcoded-micon"><i class="feather icon-grid"></i></span>
                     <span class="pcoded-mtext">Dashboard</span>
                 </a>
@@ -15,13 +15,13 @@
                     <span class="pcoded-mtext">Dealer Manage</span>
                 </a>
                 <ul class="pcoded-submenu">
-                    <li class="">
-                        <a href="@Url.Action("Index", "Dealers" , new { area = "EmdManage" }, null)">
+                    <li>
+                        <a href="@Url.Action("Index", "Dealers" , new { area = "DealersManage" }, null)">
                             <span class="pcoded-mtext">Dealer List</span>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="@Url.Action("Index", "Item" , new { area = "EmdManage" }, null)">
+                    <li>
+                        <a href="@Url.Action("Index", "Item" , new { area = "DealersManage" }, null)">
                             <span class="pcoded-mtext">Item List</span>
                         </a>
                     </li>
@@ -31,34 +31,35 @@
             <li class="pcoded-hasmenu">
                 <a href="#">
                     <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
-                    <span class="pcoded-mtext">EMD Manage</span>
+                    <span class="pcoded-mtext">Reports</span>
                 </a>
                 <ul class="pcoded-submenu">
-                    <li class="">
-                        <a href="@Url.Action("Index", "EMDCreate" , new { area = "EmdManage" }, null)">
-                            <span class="pcoded-mtext">EMD Create</span>
+                    <li>
+                        <a href="@Url.Action("NoWebsite", "Reports" , new { area = "DealersManage" }, null)">
+                            <span class="pcoded-mtext">No Website</span>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="@Url.Action("Index", "EMDCancel" , new { area = "EmdManage" }, null)">
-                            <span class="pcoded-mtext">EMD Cancel</span>
+                    <li>
+                        <a href="@Url.Action("NoBrand", "Reports" , new { area = "DealersManage" }, null)">
+                            <span class="pcoded-mtext">No Brand</span>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="@Url.Action("Index", "EMDIssue" , new { area = "EmdManage" }, null)">
-                            <span class="pcoded-mtext">EMD Issue</span>
+                    <li>
+                        <a href="@Url.Action("NoDealIn", "Reports" , new { area = "DealersManage" }, null)">
+                            <span class="pcoded-mtext">No Deal In</span>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="@Url.Action("Index", "EMDRefund" , new { area = "EmdManage" }, null)">
-                            <span class="pcoded-mtext">EMD Refund</span>
+                    <li>
+                        <a href="@Url.Action("NoCatelog", "Reports" , new { area = "DealersManage" }, null)">
+                            <span class="pcoded-mtext">No Catelog</span>
                         </a>
                     </li>
-                    <li class="">
-                        <a href="@Url.Action("Index", "EMDReports" , new { area = "EmdManage" }, null)">
-                            <span class="pcoded-mtext">EMD Reports</span>
+                    <li>
+                        <a href="@Url.Action("NoLogo", "Reports" , new { area = "DealersManage" }, null)">
+                            <span class="pcoded-mtext">No Logo</span>
                         </a>
                     </li>
+
                 </ul>
             </li>
 

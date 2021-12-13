@@ -1,5 +1,5 @@
-﻿@model Semec.Areas.EmdManage.Model.DealersModel
-@{ Layout = "~/Areas/EmdManage/Views/Shared/_Layout.cshtml"; }
+﻿@model Semec.Areas.DealersManage.Model.DealersModel
+@{ Layout = "~/Areas/DealersManage/Views/Shared/_Layout.cshtml"; }
 <script src="~/Scripts/jquery-app/vl-dealer.js"></script>
 
 <style type="text/css">
@@ -255,10 +255,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                @RenderPage("~/Areas/EmdManage/Views/Item/_Create.cshtml")
+                @RenderPage("~/Areas/DealersManage/Views/Item/_Create.cshtml")
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary rounded-0" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

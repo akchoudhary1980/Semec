@@ -3,7 +3,7 @@ $(document).ready(function () {
     $("#DealIn").autocomplete({
         source: function (request, response) {
             $.ajax({
-                url: "/EmdManage/Dealers/ItemAutoComplete",
+                url: "/DealersManage/Dealers/ItemAutoComplete",
                 type: "POST",
                 dataType: "json",
                 data: { Prefix: request.term },
@@ -30,7 +30,7 @@ function PushRow() {
     else {
         $.ajax({
             type: 'POST',
-            url: '/EmdManage/Dealers/InsertRow',
+            url: '/DealersManage/Dealers/InsertRow',
             dataType: 'json',
             data: { 'ID': $('#ItemID').val(), "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
             success: function (data) {
@@ -44,7 +44,7 @@ function PushRow() {
 function PopRow(serno) {
     $.ajax({
         type: 'POST',
-        url: "/EmdManage/Dealers/DeleteRow",
+        url: "/DealersManage/Dealers/DeleteRow",
         dataType: 'json',
         data: { iSer: serno, "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
         success: function (data) {
@@ -73,7 +73,7 @@ function DisplayData(data) {
 function LoadRow(itemid) {
     $.ajax({
         type: 'POST',
-        url: "/Dealers/FetchRow",
+        url: "/DealersManage/Dealers/FetchRow",
         dataType: 'json',
         data: { iID: itemid },
         success: function (data) {
@@ -92,7 +92,7 @@ function PushItem() {
     else {       
         $.ajax({
             type: 'POST',
-            url: "/EmdManage/Dealers/InsertItem",
+            url: "/DealersManage/Dealers/InsertItem",
             dataType: 'json',
             data: { 'ItemName': $('#ItemName').val(), "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
             success: function (response) {

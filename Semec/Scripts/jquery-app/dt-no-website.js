@@ -25,7 +25,7 @@
         "filter": true,
 
         "ajax": {
-            "url": "/Dealers/GetIndex",
+            "url": "/Reports/GetNoWebsite",
             "type": "POST",
             "datatype": "json"
         },
