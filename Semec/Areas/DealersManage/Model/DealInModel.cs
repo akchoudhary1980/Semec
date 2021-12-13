@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Semec.Areas.EmdManage.Model
+namespace Semec.Areas.DealersManage.Model
 {
     public class DealInModel
     {

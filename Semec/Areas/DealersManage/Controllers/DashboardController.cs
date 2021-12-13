@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Semec.Areas.EmdManage.Controllers
+namespace Semec.Areas.DealersManage.Controllers
 {
     public class DashboardController : Controller
     {

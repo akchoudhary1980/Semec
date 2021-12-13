@@ -1,4 +1,5 @@
-﻿using Semec.Areas.EmdManage.Model;
+﻿using Semec.Areas.DealersManage.Model;
+using Semec.Areas.EmdManage.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;

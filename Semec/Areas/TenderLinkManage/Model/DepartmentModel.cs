@@ -6,16 +6,17 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Semec.Areas.EmdManage.Model
+namespace Semec.Areas.TenderLinkManage.Model
 {
-    public class ItemModel
+    public class DepartmentModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ItemID { get; set; }
+        public int DepartmentID { get; set; }
 
-        [Display(Name = "Item Name")]
-        public string ItemName { get; set; }        
-
+        [Required(ErrorMessage = "Please Enter Department Name")]
+        [Display(Name = "Department Name")]
+        public string DepartmentName { get; set; }
+        
     }
 }

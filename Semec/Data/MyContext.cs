@@ -9,6 +9,8 @@ using Semec.Areas.CommonManage.Model;
 using Semec.Areas.AdminManage.Model;
 using Semec.Areas.EmdManage.Model;
 using Semec.Areas.InvoiceManage.Model;
+using Semec.Areas.TenderLinkManage.Model;
+using Semec.Areas.DealersManage.Model;
 
 namespace Semec
 {
@@ -66,16 +68,23 @@ namespace Semec
         // EMD Modules Class        
         public DbSet<BankModel> BankModels { get; set; }
         public DbSet<OrganisationModel> OrganisationModels { get; set; }
-        public DbSet<EMDDocumentsTypeModel> EMDDocumentsTypeModels { get; set; }
-        //public DbSet<EMDDocumentsModel> EMDDocumentsModels { get; set; }
+        public DbSet<EMDDocumentsTypeModel> EMDDocumentsTypeModels { get; set; }        
         public DbSet<EMDCreatModel> EMDCreatModels { get; set; }
         public DbSet<EMDCancelModel> EMDCancelModels { get; set; }
         public DbSet<EMDIssueModel> EMDIssueModels { get; set; }
         public DbSet<EMDExtendedModel> EMDextendedModel { get; set; }
         public DbSet<EMDReceiptModel> EMDReceiptModels { get; set; }
+
+
+        // Dealers Manaage App
         public DbSet<DealersModel> DealersModels { get; set; }
         public DbSet<DealInModel> DealInModels { get; set; }
         public DbSet<ItemModel> ItemModels { get; set; }
+
+        // Tender Search App 
+        public DbSet<TenderSearchLinkModel> TenderSearchLinkModels { get; set; }
+        public DbSet<DepartmentCategoryModel> DepartmentCategoryModels { get; set; }
+        public DbSet<DepartmentModel> DepartmentModels { get; set; }
 
         // Invoice Modules Class 
 

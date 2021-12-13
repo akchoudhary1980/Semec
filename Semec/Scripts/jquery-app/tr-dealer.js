@@ -101,7 +101,8 @@ function PushItem() {
                 // logic for set value
                 var myArray = response.split('^');
                 $('#ItemID').val(myArray[0]);  
-                $('#DealIn').val(myArray[1]); 
+                $('#DealIn').val(myArray[1]);
+                $('#ItemName').val("");
             }
         });
     }

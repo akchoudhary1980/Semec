@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Semec.Areas.EmdManage.Model
+namespace Semec.Areas.DealersManage.Model
 {
     public class ItemTrans
     {       

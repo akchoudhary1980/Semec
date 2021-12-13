@@ -1,11 +1,12 @@
-﻿using Semec.Areas.EmdManage.Model;
+﻿using Semec.Areas.DealersManage.Model;
+using Semec.Areas.EmdManage.Model;
 using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Dynamic;
 using System.Web.Mvc;
 
-namespace Semec.Areas.EmdManage.Controllers
+namespace Semec.Areas.DealersManage.Controllers
 {
     public class ItemController : Controller
     {

@@ -6,8 +6,9 @@ using System.Linq.Dynamic;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Semec.Areas.EmdManage.Model;
+using Semec.Areas.DealersManage.Model;
 
-namespace Semec.Areas.EmdManage.Controllers
+namespace Semec.Areas.DealersManage.Controllers
 {
     public class DealersController : Controller
     {
@@ -110,6 +111,28 @@ namespace Semec.Areas.EmdManage.Controllers
         {
             ViewData["PageTitle"] = "Dealers Details";
             var model = db.DealersModels.Where(x => x.DealersID == id).FirstOrDefault();
+            
+            string EmailTo = "";
+            string Subject = "Tender Enqury for -- due on -- .";
+            var msg = new System.Net.Mail.MailMessage();
+            msg.Body = "Dear Sir,\r\n\nPlease find attached GEM tender for -- from-- due on --.</p>" + "<br/>"
+                + "Kindly suggest us suitable product / model." + "<br/>"
+                + "Thanks";
+
+            EmailTo = model.EmailCP1+";";
+
+            if(model.EmailCP2!=null)
+            {
+                EmailTo = EmailTo + model.EmailCP2 + ";";
+            }
+            if (model.EmailCP3 != null)
+            {
+                EmailTo = EmailTo + model.EmailCP3 + ";";
+            }
+
+            ViewData["EmailTo"] = EmailTo;
+            ViewData["Subject"] = Subject;
+            ViewData["Body"] = msg.Body;
             return View(model);            
         }
         public ActionResult Create()

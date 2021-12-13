@@ -34,7 +34,7 @@ namespace Semec.Controllers
                     Session["UserID"] = user.UserID; // Session of user
                     Session["CustomerName"] = user.DisplayName;
                     Session["cLoginStatus"] = "Yes";
-                    return RedirectToAction("Index", "Dashboard", new { area = "EmdManage" });                   
+                    return RedirectToAction("Index", "Dashboard", new { area = "DealersManage" });                   
                 }
                 else
                 {

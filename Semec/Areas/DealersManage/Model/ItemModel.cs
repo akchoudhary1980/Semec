@@ -6,17 +6,16 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Semec.Areas.EmdManage.Model
+namespace Semec.Areas.DealersManage.Model
 {
-    public class DepartmentCategoryModel
+    public class ItemModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int DepartmentCategoryID { get; set; }
+        public int ItemID { get; set; }
 
-        [Display(Name = "Department Category")]
+        [Display(Name = "Item Name")]
+        public string ItemName { get; set; }        
 
-        public int DepartmentCategory { get; set; }
-        
     }
 }
