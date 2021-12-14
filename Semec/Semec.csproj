@@ -191,7 +191,7 @@
     <Compile Include="Areas\EmdManage\EmdManageAreaRegistration.cs" />
     <Compile Include="Areas\TenderSearchManage\Controllers\DepartmentCategoryController.cs" />
     <Compile Include="Areas\TenderSearchManage\Controllers\DepartmentController.cs" />
-    <Compile Include="Areas\TenderSearchManage\Controllers\TenderSearchController.cs" />
+    <Compile Include="Areas\TenderSearchManage\Controllers\TenderSearchLinkController.cs" />
     <Compile Include="Areas\TenderSearchManage\Model\DepartmentModel.cs" />
     <Compile Include="Areas\TenderSearchManage\Model\DepartmentCategoryModel.cs" />
     <Compile Include="Areas\TenderSearchManage\Model\TenderSearchLinkModel.cs" />
@@ -753,6 +753,10 @@
     <Content Include="Areas\TenderSearchManage\Views\DepartmentCategory\Delete.cshtml" />
     <Content Include="Areas\TenderSearchManage\Views\DepartmentCategory\Edit.cshtml" />
     <Content Include="Areas\TenderSearchManage\Views\DepartmentCategory\Index.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\TenderSearchLink\Index.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\TenderSearchLink\Edit.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\TenderSearchLink\Delete.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\TenderSearchLink\Create.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -836,7 +840,6 @@
     <Folder Include="Areas\CommonManage\Views\Default\" />
     <Folder Include="Areas\EmdManage\Controllers\" />
     <Folder Include="Areas\InvoiceManage\Controllers\" />
-    <Folder Include="Areas\TenderSearchManage\Views\TenderSearch\" />
     <Folder Include="Areas\WebsiteManage\Controllers\" />
     <Folder Include="Areas\WebsiteManage\Data\" />
     <Folder Include="Areas\WebsiteManage\Views\Shared\" />

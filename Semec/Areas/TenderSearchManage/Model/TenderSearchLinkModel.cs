@@ -16,7 +16,7 @@ namespace Semec.Areas.TenderSearchManage.Model
 
         [Required(ErrorMessage = "Please Enter Department Name")]
         [Display(Name = "Department Name")]
-        public string DepartmentName { get; set; }
+        public int DepartmentID { get; set; }
 
         [Required(ErrorMessage = "Please Enter Department Category")]
         [Display(Name = "Department Category")]
