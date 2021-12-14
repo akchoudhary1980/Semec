@@ -159,19 +159,19 @@ namespace Semec.Areas.TenderSearchManage.Controllers
             string s = confirm;
             if (confirm == "Yes")
             {
-                bool p = db.DealInModels.Any(x => x.ItemID == id);
-                // to do is used in Purchase / Quotation / Sales 
+                bool p = db.TenderSearchLinkModels.Any(x => x.DepartmentCategoryID == id);
+                // to do is used in logic ?
                 if (p == false)
                 {
-                    db.ItemModels.RemoveRange(db.ItemModels.Where(x => x.ItemID == id));
+                    db.DepartmentModels.RemoveRange(db.DepartmentModels.Where(x => x.DepartmentID == id));
                     db.SaveChanges();
                     return RedirectToAction(nameof(Index));
                 }
                 else
                 {
                     ViewData["PageTitle"] = "Item Manager";
-                    var model = db.ItemModels.Where(x => x.ItemID == id).FirstOrDefault();
-                    ModelState.AddModelError("ItemName", "You can not delete this record becuase it used !");
+                    var model = db.DepartmentModels.Where(x => x.DepartmentID == id).FirstOrDefault();
+                    ModelState.AddModelError("DepartmentName", "You can not delete this record becuase it used !");
                     return View(model);
                 }
             }

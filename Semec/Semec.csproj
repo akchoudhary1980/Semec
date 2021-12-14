@@ -743,6 +743,16 @@
     <Content Include="Areas\TenderSearchManage\Views\Shared\_TopMenu.cshtml" />
     <Content Include="Areas\TenderSearchManage\Views\Shared\_LeftMenu.cshtml" />
     <Content Include="Areas\TenderSearchManage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\Department\Index.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\Department\Edit.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\Department\Delete.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\Department\Create.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\Department\_Create.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\DepartmentCategory\_Create.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\DepartmentCategory\Create.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\DepartmentCategory\Delete.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\DepartmentCategory\Edit.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\DepartmentCategory\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -754,8 +764,10 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-app\ajax-modules.js" />
     <Content Include="Scripts\jquery-app\auto-complete.js" />
+    <Content Include="Scripts\jquery-app\dt-department.js" />
     <Content Include="Scripts\jquery-app\dt-no-brand.js" />
     <Content Include="Scripts\jquery-app\dt-no-website.js" />
+    <Content Include="Scripts\jquery-app\vl-departmentform.js" />
     <Content Include="Scripts\jquery-app\vl-item.js" />
     <Content Include="Scripts\jquery-app\vl-dealer.js" />
     <Content Include="Scripts\jquery-app\vl-challange.js" />
@@ -822,8 +834,6 @@
     <Folder Include="Areas\CommonManage\Views\Default\" />
     <Folder Include="Areas\EmdManage\Controllers\" />
     <Folder Include="Areas\InvoiceManage\Controllers\" />
-    <Folder Include="Areas\TenderSearchManage\Views\DepartmentCategory\" />
-    <Folder Include="Areas\TenderSearchManage\Views\Department\" />
     <Folder Include="Areas\TenderSearchManage\Views\TenderSearch\" />
     <Folder Include="Areas\WebsiteManage\Controllers\" />
     <Folder Include="Areas\WebsiteManage\Data\" />
