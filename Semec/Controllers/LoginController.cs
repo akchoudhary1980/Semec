@@ -14,12 +14,28 @@ namespace Semec.Controllers
         {
             Session["CaptchaCode"] = TextLib.GetCaptcha();
             TextLib.DrawCaptch(Session["CaptchaCode"].ToString());
-            Session["LoginError"] = null;
+            ViewData["LoginError"] = null;
             return View();
         }
         [HttpPost]
         public ActionResult Challenge(FormCollection form)
         {
+
+            //string cookievalue;
+            //if (Request.Cookies["cookie"] != null)
+            //{
+            //    cookievalue = Request.Cookies["cookie"].Value.ToString();
+            //}
+            //else
+            //{
+            //    Response.Cookies["cookie"].Value = "cookie value";
+            //}
+            // for remove cookies
+            //if (Request.Cookies["cookie"] != null)
+            //{
+            //    Response.Cookies["cookie"].Expires = DateTime.Now.AddDays(-1);
+            //}
+
             string mobile = form["Mobile"];
             string password = form["Password"];
             string captchacode = form["CaptchaCode"];
@@ -31,20 +47,20 @@ namespace Semec.Controllers
                 var user = db.UserModels.Where(x => x.Mobile == mobile && x.Password == password).FirstOrDefault();
                 if (user != null)
                 {
-                    Session["UserID"] = user.UserID; // Session of user
-                    Session["CustomerName"] = user.DisplayName;
-                    Session["cLoginStatus"] = "Yes";
+                    Response.Cookies["UserID"].Value = user.UserID.ToString(); // Session of user
+                    Response.Cookies["DisplayName"].Value  = user.DisplayName;
+                    Response.Cookies["cLoginStatus"].Value = "Yes";
                     return RedirectToAction("Index", "Dashboard", new { area = "DealersManage" });                   
                 }
                 else
                 {
-                    Session["LoginError"] = "Invalid user name or password !";
+                    ViewData["LoginError"] = "Invalid user name or password !";
                     return View();
                 }
             }
             else
             {
-                Session["LoginError"] = "Invalid Captcha Code !";
+                ViewData["LoginError"] = "Invalid Captcha Code !";
                 return View();
             }
         }

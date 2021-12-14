@@ -15,6 +15,15 @@ namespace Semec.Areas.DealersManage.Controllers
             int dealer = db.DealersModels.Count();
             ViewData["ItemCount"] = item;
             ViewData["DealerCount"] = dealer;
+            string Disp = "";
+            ViewData["DisplayName"] = "";
+
+            if (Request.Cookies["DisplayName"] != null)
+            {
+                Disp = Request.Cookies["DisplayName"].Value.ToString();
+            }
+            ViewData["DisplayName"] = Disp;
+
             return View();
         }
     }
