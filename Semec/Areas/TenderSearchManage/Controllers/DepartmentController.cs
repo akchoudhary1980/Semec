@@ -147,7 +147,7 @@ namespace Semec.Areas.TenderSearchManage.Controllers
         }
         public ActionResult Delete(int id)
         {
-            ViewData["PageTitle"] = "Delete DepartmentName";           
+            ViewData["PageTitle"] = "Delete Department";           
             var model = db.DepartmentModels.Where(x => x.DepartmentID == id).FirstOrDefault();
             return View(model);
         }
