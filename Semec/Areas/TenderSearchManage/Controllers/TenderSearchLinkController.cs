@@ -60,7 +60,7 @@ namespace Semec.Areas.TenderSearchManage.Controllers
                 // searching 
                 if (!string.IsNullOrEmpty(searchValue))
                 {
-                    obj = obj.Where(m => m.DepartmentName.Contains(searchValue));
+                    obj = obj.Where(m => m.City.Contains(searchValue));
                 }
 
 

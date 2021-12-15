@@ -287,6 +287,10 @@
     <Compile Include="Migrations\202112131305061_UnitModel.designer.cs">
       <DependentUpon>202112131305061_UnitModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112141757524_TenderSearchModel.cs" />
+    <Compile Include="Migrations\202112141757524_TenderSearchModel.designer.cs">
+      <DependentUpon>202112141757524_TenderSearchModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -870,6 +874,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112131305061_UnitModel.resx">
       <DependentUpon>202112131305061_UnitModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112141757524_TenderSearchModel.resx">
+      <DependentUpon>202112141757524_TenderSearchModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
