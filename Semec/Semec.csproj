@@ -730,7 +730,6 @@
     <Content Include="Areas\DealersManage\Views\Item\Edit.cshtml" />
     <Content Include="Areas\DealersManage\Views\Item\Index.cshtml" />
     <Content Include="Areas\DealersManage\Views\Shared\_LeftMenu.cshtml" />
-    <Content Include="Areas\DealersManage\Views\Shared\_TopMenu.cshtml" />
     <Content Include="Areas\DealersManage\Views\Dealers\Index.cshtml" />
     <Content Include="Areas\DealersManage\Views\Dealers\Edit.cshtml" />
     <Content Include="Areas\DealersManage\Views\Dealers\Delete.cshtml" />
@@ -824,8 +823,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_Menu.cshtml" />
-    <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Login\Challenge.cshtml" />
     <Content Include="Views\Login\LoginOTP.cshtml" />
     <Content Include="Views\Login\LoginPassword.cshtml" />
@@ -836,7 +833,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Shared\_Admin.cshtml" />
-    <Content Include="Views\Shared\_LeftMenu.cshtml" />
+    <Content Include="Views\Shared\_LMenu.cshtml" />
     <Content Include="Views\Shared\_TopMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>

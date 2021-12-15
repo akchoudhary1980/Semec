@@ -15,9 +15,14 @@ namespace Semec.Areas.DealersManage
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
+                //"DealersManage_default",
+                //"DealersManage/{controller}/{action}/{id}",
+                //new { action = "Index", id = UrlParameter.Optional }
                 "DealersManage_default",
                 "DealersManage/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { "Semec.Areas.DealersManage.Controllers" }
+
             );
         }
     }

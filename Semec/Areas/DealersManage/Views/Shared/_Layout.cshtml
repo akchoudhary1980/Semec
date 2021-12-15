@@ -1,13 +1,4 @@
-﻿@{ 
-    ViewData["DisplayName"] = "";
-
-    if (Request.Cookies["DisplayName"] != null)
-    {
-        ViewData["DisplayName"] = Request.Cookies["DisplayName"].Value.ToString();
-    }
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Welcome Admin</title>
@@ -170,7 +161,7 @@
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
             <!-- Top Menu -->
-            @RenderPage("~/Areas/DealersManage/Views/Shared/_TopMenu.cshtml")
+            @RenderPage("~/Views/Shared/_TopMenu.cshtml")
             <div class="pcoded-main-container mybg">
                 <div class="pcoded-wrapper ">
                     @Html.Partial("~/Areas/DealersManage/Views/Shared/_LeftMenu.cshtml")
