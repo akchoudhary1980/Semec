@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    ViewData["DisplayName"] = "";
+
+    if (Request.Cookies["DisplayName"] != null)
+    {
+        ViewData["DisplayName"] = Request.Cookies["DisplayName"].Value.ToString();
+    }
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Welcome Admin</title>

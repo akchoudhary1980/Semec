@@ -11,36 +11,20 @@ namespace Semec.Controllers
     {
         public MyContext db = new MyContext();
         public ActionResult Challenge()
-        {
-            Session["CaptchaCode"] = TextLib.GetCaptcha();
-            TextLib.DrawCaptch(Session["CaptchaCode"].ToString());
+        {         
+            Response.Cookies["CaptchaCode"].Value = TextLib.GetCaptcha(); 
+            TextLib.DrawCaptch(Request.Cookies["CaptchaCode"].Value);
             ViewData["LoginError"] = null;
             return View();
         }
         [HttpPost]
         public ActionResult Challenge(FormCollection form)
         {
-
-            //string cookievalue;
-            //if (Request.Cookies["cookie"] != null)
-            //{
-            //    cookievalue = Request.Cookies["cookie"].Value.ToString();
-            //}
-            //else
-            //{
-            //    Response.Cookies["cookie"].Value = "cookie value";
-            //}
-            // for remove cookies
-            //if (Request.Cookies["cookie"] != null)
-            //{
-            //    Response.Cookies["cookie"].Expires = DateTime.Now.AddDays(-1);
-            //}
-
             string mobile = form["Mobile"];
             string password = form["Password"];
-            string captchacode = form["CaptchaCode"];
-            string capCode = Session["CaptchaCode"].ToString();
-           
+            string captchacode = form["CaptchaCode"];           
+            string capCode = Request.Cookies["CaptchaCode"].Value.ToString();
+
 
             if (capCode == captchacode)
             {
@@ -63,18 +47,11 @@ namespace Semec.Controllers
                 ViewData["LoginError"] = "Invalid Captcha Code !";
                 return View();
             }
-        }
-
-        public ActionResult LoginTest()
-        {
-            Session["CaptchaCode"] = TextLib.GetCaptcha();
-            TextLib.DrawCaptch(Session["CaptchaCode"].ToString());
-            return View();
-        }
+        }       
         public ActionResult PasswordRecovery()
         {
-            Session["CaptchaCode"] = TextLib.GetCaptcha();
-            TextLib.DrawCaptch(Session["CaptchaCode"].ToString());
+            Response.Cookies["CaptchaCode"].Value = TextLib.GetCaptcha();
+            TextLib.DrawCaptch(Request.Cookies["CaptchaCode"].Value.ToString());
             return View();
         }
         [HttpPost]
