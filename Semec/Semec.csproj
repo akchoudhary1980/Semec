@@ -744,7 +744,6 @@
     <Content Include="Areas\DealersManage\Views\Reports\NoWebsite.cshtml" />
     <Content Include="Areas\DealersManage\Views\Reports\NoBrand.cshtml" />
     <Content Include="Areas\TenderSearchManage\Views\web.config" />
-    <Content Include="Areas\TenderSearchManage\Views\Shared\_TopMenu.cshtml" />
     <Content Include="Areas\TenderSearchManage\Views\Shared\_LeftMenu.cshtml" />
     <Content Include="Areas\TenderSearchManage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\TenderSearchManage\Views\Department\Index.cshtml" />
@@ -776,6 +775,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-app\ajax-modules.js" />
     <Content Include="Scripts\jquery-app\auto-complete.js" />
+    <Content Include="Scripts\jquery-app\dt-department-tender-search.js" />
     <Content Include="Scripts\jquery-app\dt-department-category.js" />
     <Content Include="Scripts\jquery-app\dt-department.js" />
     <Content Include="Scripts\jquery-app\dt-no-brand.js" />
