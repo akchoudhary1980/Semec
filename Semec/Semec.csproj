@@ -189,6 +189,7 @@
     <Compile Include="Areas\DealersManage\Controllers\DealersController.cs" />
     <Compile Include="Areas\DealersManage\Controllers\ItemController.cs" />
     <Compile Include="Areas\EmdManage\EmdManageAreaRegistration.cs" />
+    <Compile Include="Areas\TenderSearchManage\Controllers\DashboardController.cs" />
     <Compile Include="Areas\TenderSearchManage\Controllers\DepartmentCategoryController.cs" />
     <Compile Include="Areas\TenderSearchManage\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\TenderSearchManage\Controllers\TenderSearchLinkController.cs" />
@@ -763,6 +764,7 @@
     <Content Include="Areas\DealersManage\Views\Reports\NoDealIn.cshtml" />
     <Content Include="Areas\DealersManage\Views\Reports\NoCatelog.cshtml" />
     <Content Include="Areas\DealersManage\Views\Reports\NoLogo.cshtml" />
+    <Content Include="Areas\TenderSearchManage\Views\Dashboard\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />

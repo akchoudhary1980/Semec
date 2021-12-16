@@ -15,9 +15,13 @@ namespace Semec.Areas.TenderSearchManage
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
+                //"TenderSearchManage_default",
+                //"TenderSearchManage/{controller}/{action}/{id}",
+                //new { action = "Index", id = UrlParameter.Optional }
                 "TenderSearchManage_default",
                 "TenderSearchManage/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+                new[] { "Semec.Areas.TenderSearchManage.Controllers" }
             );
         }
     }
