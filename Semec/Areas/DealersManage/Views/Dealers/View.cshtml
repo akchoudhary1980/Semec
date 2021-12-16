@@ -8,6 +8,25 @@
 
     ViewBag.Title = "View";
 }
+
+<style type="text/css">
+    .mybtn {
+        border: none;
+        background-color: #008080;
+        color: white;
+        font-size: medium;
+        padding-left: 5px;
+        padding-right: 5px;
+        line-height: 25px;
+        vertical-align: middle;
+        transition: all 0.5s;
+    }
+        .mybtn:hover {
+            background-color: #40B5AD;
+            color: white;
+        }
+</style>
+
  
 <script src="~/Scripts/jquery-app/tr-dealer.js"></script>
 
@@ -92,7 +111,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="1">Deal In</td>
-                                        <td colspan="3"><b>@Model.DealIn</b></td>
+                                        <td colspan="3" style="color:green"><b>@Model.DealIn</b></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -122,13 +141,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+
+                <div class="row mb-3">
                     <div class="col-md-6 col-12">
                         <h6 style="color:blueviolet">Contact Person 1</h6>
                     </div>
                     <div class="col-md-6 col-12">
-                        <a href="mailto:@ViewData["EmailTo"]?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="float-right"><i class="icofont icofont-2x icofont-email"></i> Email to all</a>                        
+                        <a href="mailto:@ViewData["EmailTo"]?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="mybtn float-right"><i class="icofont icofont-email"></i> Email to all</a>
                     </div>
+                </div>
+                <div class="row">
+                    
                     <div class="col-md-12 col-12">
                         <div class='dt-responsive table-responsive'>
                             <table class="table table-bordered">

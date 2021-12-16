@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Welcome Admin</title>
+    <title>Welcome Dealers Management</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,10 +75,11 @@
             });
         }</script>
 
+    
     <!-- For Create Confirm -->
-    @if (Session["Create"] != null)
+    @if (Request.Cookies["Create"].Value != null)
     {
-        if (Session["Create"].ToString() == "Yes")
+        if (Request.Cookies["Create"].Value.ToString() == "Yes")
         {
             <script type="text/javascript">
                 window.onload = function () {
@@ -89,13 +90,13 @@
                         button: "OK",
                     });
                 };</script>
-            Session["Create"] = "No";
+            Response.Cookies["Create"].Value = null;
         }
     }
     <!-- For Edit Confirm -->
-    @if (Session["Edit"] != null)
+    @if (Request.Cookies["Edit"].Value != null)
     {
-        if (Session["Edit"].ToString() == "Yes")
+        if (Request.Cookies["Edit"].Value.ToString() == "Yes")
         {
             <script type="text/javascript">
                 window.onload = function () {
@@ -106,7 +107,7 @@
                         button: "OK",
                     });
                 };</script>
-            Session["Edit"] = "No";
+            Response.Cookies["Edit"].Value = null;
         }
     }
     <!-- For Delete Confirm -->

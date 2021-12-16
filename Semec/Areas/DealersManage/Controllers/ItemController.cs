@@ -91,7 +91,7 @@ namespace Semec.Areas.DealersManage.Controllers
                     obj.ItemID = incid + 1;                    
                     db.ItemModels.Add(obj);
                     db.SaveChanges();
-                    Session["Create"] = "Yes";
+                    Response.Cookies["Create"].Value = "Yes";                   
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -127,7 +127,7 @@ namespace Semec.Areas.DealersManage.Controllers
 
                         db.Entry(obj).State = EntityState.Modified;
                         db.SaveChanges();
-                        Session["Edit"] = "Yes";
+                        Response.Cookies["Edit"].Value = "Yes";
                         return RedirectToAction(nameof(Index));
                     }
                 }
@@ -136,7 +136,7 @@ namespace Semec.Areas.DealersManage.Controllers
 
                     db.Entry(obj).State = EntityState.Modified;
                     db.SaveChanges();
-                    Session["Edit"] = "Yes";
+                    Response.Cookies["Edit"].Value = "Yes";
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -148,16 +148,14 @@ namespace Semec.Areas.DealersManage.Controllers
         public ActionResult Delete(int id)
         {
             ViewData["PageTitle"] = "Delete Item";
-            ViewData["Error"] = "Do you want to delete this record !";
+            //ViewData["Error"] = "Do you want to delete this record !";
             var model = db.ItemModels.Where(x => x.ItemID == id).FirstOrDefault();
             return View(model);
         }
         [HttpPost]
         public ActionResult Delete(int id, string confirm)
         {
-
-            // if area used
-            string s = confirm;
+            // if area used            
             if (confirm == "Yes")
             {
                 bool p = db.DealInModels.Any(x => x.ItemID == id);
@@ -170,7 +168,7 @@ namespace Semec.Areas.DealersManage.Controllers
                 }
                 else
                 {
-                    ViewData["PageTitle"] = "Item Manager";
+                    ViewData["PageTitle"] = "Item List";
                     var model = db.ItemModels.Where(x => x.ItemID == id).FirstOrDefault();
                     ModelState.AddModelError("ItemName", "You can not delete this record becuase it used !");                   
                     return View(model);

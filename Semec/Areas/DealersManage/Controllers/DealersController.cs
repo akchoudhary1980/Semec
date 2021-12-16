@@ -114,8 +114,8 @@ namespace Semec.Areas.DealersManage.Controllers
             string EmailTo = "";
             string Subject = "Tender Enqury for -- due on -- .";
             var msg = new System.Net.Mail.MailMessage();
-            msg.Body = "Dear Sir,\r\n\nPlease find attached GEM tender for -- from-- due on --.</p>" + "<br/>"
-                + "Kindly suggest us suitable product / model." + "<br/>"
+            msg.Body = "Dear Sir,Please find attached GEM tender for -- from-- due on --"
+                + "Kindly suggest us suitable product / model." 
                 + "Thanks";
 
             EmailTo = model.EmailCP1+";";
@@ -178,7 +178,7 @@ namespace Semec.Areas.DealersManage.Controllers
                     db.SaveChanges();
                     // Insert Transaction                     
                     InsertSaleTrans(DealersID, dt);
-                    Session["Create"] = "Yes";
+                    Response.Cookies["Create"].Value = "Yes";
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -274,7 +274,7 @@ namespace Semec.Areas.DealersManage.Controllers
                         
                         InsertSaleTrans(obj.DealersID, dt);
 
-                        Session["Edit"] = "Yes";
+                        Response.Cookies["Edit"].Value = "Yes";
                         return RedirectToAction(nameof(Index));
                     }
                 }
@@ -313,7 +313,7 @@ namespace Semec.Areas.DealersManage.Controllers
                     // Newly  Insert Transaction
                     InsertSaleTrans(obj.DealersID, dt);
 
-                    Session["Edit"] = "Yes";
+                    Response.Cookies["Edit"].Value = "Yes";
                     return RedirectToAction(nameof(Index));
                 }
             }

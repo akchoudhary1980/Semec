@@ -1,6 +1,7 @@
-﻿@*<nav class="pcoded-navbar" pcoded-header-position="relative">
+﻿
+<nav class="pcoded-navbar" pcoded-header-position="relative">
     <div class="pcoded-inner-navbar main-menu">
-        <div class="pcoded-navigatio-lavel">ERP Solution</div>
+        <div class="pcoded-navigatio-lavel">Contact Manage Suite</div>
         <ul class="pcoded-item pcoded-left-item">
             <li>
                 <a href="@Url.Action("Index", "Dashboard")">
@@ -11,99 +12,52 @@
 
             <li>
                 <a href="@Url.Action("Index", "Dashboard" , new { area = "DealersManage" }, null)">
+                    <span class="pcoded-micon"><i class="feather icon-grid"></i></span>
                     <span class="pcoded-mtext">Dealer App</span>
                 </a>
             </li>
+
             <li>
-                <a href="@Url.Action("Index", "Dashboard" , new { area = "TenderLink" }, null)">
-                    <span class="pcoded-mtext">Tender Link App</span>
+                <a href="@Url.Action("Index", "Dashboard" , new { area = "TenderSearchManage" }, null)">
+                    <span class="pcoded-micon"><i class="feather icon-grid"></i></span>
+                    <span class="pcoded-mtext">Tender Search App</span>
                 </a>
             </li>
+
             <li>
-                <a href="@Url.Action("Index", "Dashboard" , new { area = "EmdManage" }, null)">
+                <a href="@Url.Action("Index", "Dashboard" , new { area = "TenderQuoteManage" }, null)">
+                    <span class="pcoded-micon"><i class="feather icon-grid"></i></span>
+                    <span class="pcoded-mtext">Tender Quote App</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="@Url.Action("Index", "Dashboard" , new { area = "EMDManage" }, null)">
+                    <span class="pcoded-micon"><i class="feather icon-grid"></i></span>
                     <span class="pcoded-mtext">EMD App</span>
                 </a>
             </li>
+
             <li>
                 <a href="@Url.Action("Index", "Dashboard" , new { area = "InvoiceManage" }, null)">
+                    <span class="pcoded-micon"><i class="feather icon-grid"></i></span>
                     <span class="pcoded-mtext">Invoice App</span>
                 </a>
             </li>
+
             <li>
                 <a href="@Url.Action("Index", "Dashboard" , new { area = "WebsiteManage" }, null)">
+                    <span class="pcoded-micon"><i class="feather icon-grid"></i></span>
                     <span class="pcoded-mtext">Website App</span>
                 </a>
             </li>
-        </ul>
-        
-    </div>
-</nav>*@
 
-<nav class="pcoded-navbar" pcoded-header-position="relative">
-    <div class="pcoded-inner-navbar main-menu">
-        <div class="pcoded-navigatio-lavel">Contact Manage Suite</div>
-        <ul class="pcoded-item pcoded-left-item">
             <li>
-                <a href="@Url.Action("Index", "Dashboard" , new { area = "DealersManage" }, null)">
+                <a href="@Url.Action("Index", "Dashboard" , new { area = "AdminManage" }, null)">
                     <span class="pcoded-micon"><i class="feather icon-grid"></i></span>
-                    <span class="pcoded-mtext">Dashboard</span>
+                    <span class="pcoded-mtext">Admin App</span>
                 </a>
             </li>
-
-            <li class="pcoded-hasmenu">
-                <a href="#">
-                    <span class="pcoded-micon"><i class="feather icon-award"></i></span>
-                    <span class="pcoded-mtext">Dealer Manage</span>
-                </a>
-                <ul class="pcoded-submenu">
-                    <li>
-                        <a href="@Url.Action("Index", "Dealers" , new { area = "DealersManage" }, null)">
-                            <span class="pcoded-mtext">Dealer List</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("Index", "Item" , new { area = "DealersManage" }, null)">
-                            <span class="pcoded-mtext">Item List</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="pcoded-hasmenu">
-                <a href="#">
-                    <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
-                    <span class="pcoded-mtext">Reports</span>
-                </a>
-                <ul class="pcoded-submenu">
-                    <li>
-                        <a href="@Url.Action("NoWebsite", "Reports" , new { area = "DealersManage" }, null)">
-                            <span class="pcoded-mtext">No Website</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("NoBrand", "Reports" , new { area = "DealersManage" }, null)">
-                            <span class="pcoded-mtext">No Brand</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("NoDealIn", "Reports" , new { area = "DealersManage" }, null)">
-                            <span class="pcoded-mtext">No Deal In</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("NoCatelog", "Reports" , new { area = "DealersManage" }, null)">
-                            <span class="pcoded-mtext">No Catelog</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="@Url.Action("NoLogo", "Reports" , new { area = "DealersManage" }, null)">
-                            <span class="pcoded-mtext">No Logo</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
-
 
 
         </ul>

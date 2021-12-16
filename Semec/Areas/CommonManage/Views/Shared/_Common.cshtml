@@ -74,9 +74,9 @@
     </script>
 
     <!-- For Create Confirm -->
-    @if (Session["Create"] != null)
+    @if (Response.Cookies["Create"].Value != null)
     {
-        if (Session["Create"].ToString() == "Yes")
+        if (Response.Cookies["Create"].Value.ToString() == "Yes")
         {
             <script type="text/javascript">
                 window.onload = function () {
@@ -88,13 +88,13 @@
                     });
                 };
             </script>
-            Session["Create"] = "No";
+            Response.Cookies["Create"].Value = "No";
         }
     }
     <!-- For Edit Confirm -->
-    @if (Session["Edit"] != null)
+    @if (Response.Cookies["Edit"].Value != null)
     {
-        if (Session["Edit"].ToString() == "Yes")
+        if (Response.Cookies["Edit"].Value.ToString() == "Yes")
         {
             <script type="text/javascript">
                 window.onload = function () {
@@ -106,7 +106,7 @@
                     });
                 };
             </script>
-            Session["Edit"] = "No";
+            Response.Cookies["Edit"].Value = "No";
         }
     }
     <!-- For Delete Confirm -->

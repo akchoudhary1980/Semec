@@ -103,7 +103,7 @@ namespace Semec.Areas.CommonManage.Controllers
                     
                     db.StateModels.Add(obj);
                     db.SaveChanges();
-                    Session["Create"] = "Yes";                   
+                    Response.Cookies["Create"].Value = "Yes";                   
                     return RedirectToAction(nameof(Index));                   
                 }
             }
@@ -139,7 +139,7 @@ namespace Semec.Areas.CommonManage.Controllers
                         
                         db.Entry(obj).State = EntityState.Modified;
                         db.SaveChanges();
-                        Session["Edit"] = "Yes";                        
+                        Response.Cookies["Edit"].Value = "Yes";                        
                         return RedirectToAction(nameof(Index));
                     }
                 }
@@ -148,7 +148,7 @@ namespace Semec.Areas.CommonManage.Controllers
                     
                     db.Entry(obj).State = EntityState.Modified;
                     db.SaveChanges();
-                    Session["Edit"] = "Yes";                    
+                    Response.Cookies["Edit"].Value = "Yes";                    
                     return RedirectToAction(nameof(Index));
                 }
             }

@@ -94,7 +94,7 @@ namespace Semec.Areas.TenderSearchManage.Controllers
                     obj.DepartmentID = incid + 1;
                     db.DepartmentModels.Add(obj);
                     db.SaveChanges();
-                    Session["Create"] = "Yes";
+                    Response.Cookies["Create"].Value = "Yes";
                     return RedirectToAction(nameof(Index));
                 }
             }
@@ -130,7 +130,7 @@ namespace Semec.Areas.TenderSearchManage.Controllers
 
                         db.Entry(obj).State = EntityState.Modified;
                         db.SaveChanges();
-                        Session["Edit"] = "Yes";
+                        Response.Cookies["Edit"].Value = "Yes";
                         return RedirectToAction(nameof(Index));
                     }
                 }
@@ -139,7 +139,7 @@ namespace Semec.Areas.TenderSearchManage.Controllers
 
                     db.Entry(obj).State = EntityState.Modified;
                     db.SaveChanges();
-                    Session["Edit"] = "Yes";
+                    Response.Cookies["Edit"].Value = "Yes";
                     return RedirectToAction(nameof(Index));
                 }
             }
