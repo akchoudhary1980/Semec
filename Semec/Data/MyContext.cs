@@ -11,6 +11,7 @@ using Semec.Areas.EmdManage.Model;
 using Semec.Areas.InvoiceManage.Model;
 using Semec.Areas.DealersManage.Model;
 using Semec.Areas.TenderSearchManage.Model;
+using Semec.Areas.TenderQuoteManage.Model;
 
 namespace Semec
 {
@@ -83,8 +84,13 @@ namespace Semec
 
         // Tender Search App 
         public DbSet<TenderSearchLinkModel> TenderSearchLinkModels { get; set; }
-        public DbSet<DepartmentCategoryModel> DepartmentCategoryModels { get; set; }
-        public DbSet<DepartmentModel> DepartmentModels { get; set; }
+        public DbSet<DepartmentCategoryModel> DepartmentCategoryModels { get; set; } // Common 
+        public DbSet<DepartmentModel> DepartmentModels { get; set; } // Common 
+
+        // Tender Search App 
+        public DbSet<TenderQuoteLinkModel> TenderQuoteLinkModels { get; set; }
+        public DbSet<DigitalSignatureModel> DigitalSignatureModels { get; set; }
+        public DbSet<BrowserModel> BrowserModels { get; set; }
 
         // Invoice Modules Class 
 

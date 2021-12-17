@@ -1,24 +1,24 @@
 ﻿using System.Web.Mvc;
 
-namespace Semec.Areas.TenderSearchManage
+namespace Semec.Areas.TenderQuoteManage
 {
-    public class TenderSearchManageAreaRegistration : AreaRegistration 
+    public class TenderQuoteManageAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "TenderSearchManage";
+                return "TenderQuoteManage";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(                
-                "TenderSearchManage_default",
-                "TenderSearchManage/{controller}/{action}/{id}",
+                "TenderQuoteManage_default",
+                "TenderQuoteManage/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional },
-                new[] { "Semec.Areas.TenderSearchManage.Controllers" }
+                new[] { "Semec.Areas.TenderQuoteManage.Controllers" }
             );
         }
     }

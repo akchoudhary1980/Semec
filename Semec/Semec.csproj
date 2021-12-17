@@ -189,6 +189,10 @@
     <Compile Include="Areas\DealersManage\Controllers\DealersController.cs" />
     <Compile Include="Areas\DealersManage\Controllers\ItemController.cs" />
     <Compile Include="Areas\EmdManage\EmdManageAreaRegistration.cs" />
+    <Compile Include="Areas\TenderQuoteManage\Model\DigitalSignatureModel.cs" />
+    <Compile Include="Areas\TenderQuoteManage\Model\BrowserModel.cs" />
+    <Compile Include="Areas\TenderQuoteManage\Model\TenderQuoteLinkModel.cs" />
+    <Compile Include="Areas\TenderQuoteManage\TenderQuoteManageAreaRegistration.cs" />
     <Compile Include="Areas\TenderSearchManage\Controllers\DashboardController.cs" />
     <Compile Include="Areas\TenderSearchManage\Controllers\DepartmentCategoryController.cs" />
     <Compile Include="Areas\TenderSearchManage\Controllers\DepartmentController.cs" />
@@ -295,6 +299,10 @@
     <Compile Include="Migrations\202112170903112_TenerSearchLinkModel.cs" />
     <Compile Include="Migrations\202112170903112_TenerSearchLinkModel.designer.cs">
       <DependentUpon>202112170903112_TenerSearchLinkModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112171134167_add-migation.cs" />
+    <Compile Include="Migrations\202112171134167_add-migation.designer.cs">
+      <DependentUpon>202112171134167_add-migation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -768,6 +776,7 @@
     <Content Include="Areas\DealersManage\Views\Reports\NoCatelog.cshtml" />
     <Content Include="Areas\DealersManage\Views\Reports\NoLogo.cshtml" />
     <Content Include="Areas\TenderSearchManage\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\TenderQuoteManage\Views\web.config" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -855,6 +864,8 @@
     <Folder Include="Areas\CommonManage\Views\Default\" />
     <Folder Include="Areas\EmdManage\Controllers\" />
     <Folder Include="Areas\InvoiceManage\Controllers\" />
+    <Folder Include="Areas\TenderQuoteManage\Controllers\" />
+    <Folder Include="Areas\TenderQuoteManage\Views\Shared\" />
     <Folder Include="Areas\WebsiteManage\Controllers\" />
     <Folder Include="Areas\WebsiteManage\Data\" />
     <Folder Include="Areas\WebsiteManage\Views\Shared\" />
@@ -891,6 +902,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112170903112_TenerSearchLinkModel.resx">
       <DependentUpon>202112170903112_TenerSearchLinkModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112171134167_add-migation.resx">
+      <DependentUpon>202112171134167_add-migation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
