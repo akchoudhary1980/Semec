@@ -1,0 +1,64 @@
+﻿<nav class="pcoded-navbar" pcoded-header-position="relative">
+    <div class="pcoded-inner-navbar main-menu">
+        <div class="pcoded-navigatio-lavel">Tender Search App</div>
+        <ul class="pcoded-item pcoded-left-item">
+            <li>
+                <a href="@Url.Action("Index", "Dashboard" , new { area = "TenderSearchManage" }, null)">
+                    <span class="pcoded-micon"><i class="feather icon-grid"></i></span>
+                    <span class="pcoded-mtext">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="pcoded-hasmenu">
+                <a href="#">
+                    <span class="pcoded-micon"><i class="feather icon-award"></i></span>
+                    <span class="pcoded-mtext">Tender Search Manage</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li>
+                        <a href="@Url.Action("Index", "TenderSearchLink" , new { area = "TenderSearchManage" }, null)">
+                            <span class="pcoded-mtext">Tender Site List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "Department" , new { area = "TenderSearchManage" }, null)">
+                            <span class="pcoded-mtext">Department List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index", "DepartmentCategory" , new { area = "TenderSearchManage" }, null)">
+                            <span class="pcoded-mtext">Department Category List</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="pcoded-hasmenu">
+                <a href="#">
+                    <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
+                    <span class="pcoded-mtext">Reports</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li>
+                        <a href="@Url.Action("NoWebsite", "Reports" , new { area = "TenderSearchManage" }, null)">
+                            <span class="pcoded-mtext">No Website</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("NoBrand", "Reports" , new { area = "TenderSearchManage" }, null)">
+                            <span class="pcoded-mtext">No Brand</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("NoDealIn", "Reports" , new { area = "TenderSearchManage" }, null)">
+                            <span class="pcoded-mtext">No Deal In</span>
+                        </a>
+                    </li>                   
+
+                </ul>
+            </li>
+
+        </ul>
+        
+    </div>
+</nav>

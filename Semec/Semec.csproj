@@ -189,6 +189,7 @@
     <Compile Include="Areas\DealersManage\Controllers\DealersController.cs" />
     <Compile Include="Areas\DealersManage\Controllers\ItemController.cs" />
     <Compile Include="Areas\EmdManage\EmdManageAreaRegistration.cs" />
+    <Compile Include="Areas\TenderQuoteManage\Controllers\DashboardController.cs" />
     <Compile Include="Areas\TenderQuoteManage\Model\DigitalSignatureModel.cs" />
     <Compile Include="Areas\TenderQuoteManage\Model\BrowserModel.cs" />
     <Compile Include="Areas\TenderQuoteManage\Model\TenderQuoteLinkModel.cs" />
@@ -777,6 +778,9 @@
     <Content Include="Areas\DealersManage\Views\Reports\NoLogo.cshtml" />
     <Content Include="Areas\TenderSearchManage\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\TenderQuoteManage\Views\web.config" />
+    <Content Include="Areas\TenderQuoteManage\Views\Shared\_LeftMenu.cshtml" />
+    <Content Include="Areas\TenderQuoteManage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\TenderQuoteManage\Views\Dashboard\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -864,8 +868,6 @@
     <Folder Include="Areas\CommonManage\Views\Default\" />
     <Folder Include="Areas\EmdManage\Controllers\" />
     <Folder Include="Areas\InvoiceManage\Controllers\" />
-    <Folder Include="Areas\TenderQuoteManage\Controllers\" />
-    <Folder Include="Areas\TenderQuoteManage\Views\Shared\" />
     <Folder Include="Areas\WebsiteManage\Controllers\" />
     <Folder Include="Areas\WebsiteManage\Data\" />
     <Folder Include="Areas\WebsiteManage\Views\Shared\" />
