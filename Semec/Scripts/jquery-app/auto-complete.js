@@ -19,10 +19,7 @@ function GetStateList() {
                 // alert(ui.item.id);
                 $("#State").val(ui.item.id);
                 // $('#CusID').val(response);
-            },
-            messages: {
-                noResults: "", results: ""
-            }
+            },           
         });
     })
 }
@@ -47,10 +44,7 @@ function GetCityList() {
                 // alert(ui.item.id);
                 $("#City").val(ui.item.id);
                 // $('#CusID').val(response);
-            },
-            messages: {
-                noResults: "", results: ""
-            }
+            },            
         });
     })
 }

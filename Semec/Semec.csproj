@@ -783,6 +783,8 @@
     <Content Include="Scripts\jquery-app\dt-no-logo.js" />
     <Content Include="Scripts\jquery-app\dt-no-catelog.js" />
     <Content Include="Scripts\jquery-app\dt-no-website.js" />
+    <Content Include="Scripts\jquery-app\tr-tender-search.js" />
+    <Content Include="Scripts\jquery-app\vl-tender-search.js" />
     <Content Include="Scripts\jquery-app\vl-department-category.js" />
     <Content Include="Scripts\jquery-app\vl-department.js" />
     <Content Include="Scripts\jquery-app\vl-item.js" />
