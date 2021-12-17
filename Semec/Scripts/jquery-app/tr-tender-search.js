@@ -43,6 +43,37 @@ $(document).ready(function () {
         }
     });
 })
+
+
+// edit 
+$(document).ready(function () {   
+    // Department 
+    $.ajax({
+        type: 'POST',
+        url: "/TenderSearchManage/TenderSearchLink/GetDepartmentName",
+        dataType: 'json',
+        data: { 'DepartmentID': $('#DepartmentID').val(), "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
+        success: function (response) {           
+            $('#DepartmentName').val(response);
+        }
+    });
+
+    // Department Category 
+    $.ajax({
+        type: 'POST',
+        url: "/TenderSearchManage/TenderSearchLink/GetDepartmentCategoryName",
+        dataType: 'json',
+        data: { 'DepartmentCategoryID': $('#DepartmentCategoryID').val(), "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
+        success: function (response) {
+            $('#DepartmentCategoryName').val(response);
+        }
+    });
+
+})
+
+
+
+
 function uploadPicture(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();

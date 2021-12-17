@@ -1,7 +1,8 @@
-﻿@model Semec.Areas.TenderSearchManage.Model.DepartmentCategoryModel
+﻿@model Semec.Areas.TenderSearchManage.Model.TenderSearchLinkModel
 @{ Layout = "~/Areas/TenderSearchManage/Views/Shared/_Layout.cshtml"; }
 
-<script src="~/Scripts/jquery-app/vl-department-category.js"></script>
+<script src="~/Scripts/jquery-app/vl-tender-search.js"></script>
+<script src="~/Scripts/jquery-app/tr-tender-search.js"></script>
 
 
 <div class="page-header">
@@ -9,7 +10,7 @@
         <div class="card-block bg-primary">
             <div class="row ">
                 <div class="col-lg-4">
-                    <h5 class="text-uppercase font-weight-bold">Update Department Category</h5>
+                    <h5 class="text-uppercase font-weight-bold">Update Tender Search Link</h5>
                 </div>
                 <div class="col-lg-8 align-items-end">
                     <div class="page-header-breadcrumb">
@@ -18,7 +19,7 @@
                                 <a href="@Url.Action("Index", "Dashboard")"> <i class="icofont icofont-home" style="color:white"></i> </a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="@Url.Action("Index", "DepartmentCategory")" style="color:white">Home / Masters / Update Department Category</a>
+                                <a href="@Url.Action("Index", "TenderSearchLink")" style="color:white">Home / Masters / Update Tender Search Link</a>
                             </li>
                         </ul>
                     </div>
@@ -34,34 +35,103 @@
                 <div class="row">
                     <div class="col-md-9 col-9"><h3>@ViewData["PageTitle"]</h3></div>
                     <div class="col-md-3 col-3">
-                        <a href="@Url.Action("Index", "DepartmentCategory")" class="btn btn-primary btn-outline-primary float-right">
+                        <a href="@Url.Action("Index", "TenderSearchLink")" class="btn btn-primary btn-outline-primary float-right">
                             <i class="icofont icofont-user-alt-3"></i> Back to List
                         </a>
                     </div>
                 </div>
             </div>
 
-            @using (Html.BeginForm("Edit", "DepartmentCategory", FormMethod.Post, new { enctype = "multipart/form-data", id = "departmentcategoryform", name = "departmentcategoryform" }))
+            @using (Html.BeginForm("Edit", "TenderSearchLink", FormMethod.Post, new { enctype = "multipart/form-data", id = "departmentcategoryform", name = "departmentcategoryform" }))
             {
-                <div class="card-block">
-                    <h4 class="sub-title">Item Update</h4>
-                    @Html.AntiForgeryToken()
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.DepartmentCategoryID)
-                    <h4 class="sub-title">.Department Category Info</h4>
-                    <div class="form-group row">
-                        @Html.LabelFor(model => model.DepartmentCategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.DepartmentCategoryName, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.DepartmentCategoryName, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <input type="submit" value="Update" class="btn btn-primary btn-out float-right" />
-                        </div>
-                    </div>
+        <div class="card-block">
+            <h4 class="sub-title">Tender Search Link Update</h4>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.TenderSearchLinkID)
+
+          
+            <div class="form-group row">
+                @Html.LabelFor(model => model.DepartmentID, htmlAttributes: new { @class = "control-label col-md-2 col-2" })
+                <div class="col-md-9 col-9">
+                    @Html.TextBox("DepartmentName", null, new { @class = "form-control", autocomplete = "off" })
+                    @Html.Hidden("DepartmentID")
                 </div>
+                <div class="col-md-1 col-1">
+                    <button type="button" class="btn btn-primary btn-sm float-right" onclick="DepModel();"><i class="icofont icofont-tick-mark"></i></button>
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.DepartmentCategoryID, htmlAttributes: new { @class = "control-label col-md-2 col-2" })
+                <div class="col-md-9 col-9">
+                    @Html.TextBox("DepartmentCategoryName", null, new { @class = "form-control", autocomplete = "off" })
+                    @Html.Hidden("DepartmentCategoryID")
+                </div>
+                <div class="col-md-1 col-1">
+                    <button type="button" class="btn btn-primary btn-sm float-right" onclick="DepCatModel();"><i class="icofont icofont-tick-mark"></i></button>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                </div>
+                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.TenderSearchWebsite, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenderSearchWebsite, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenderSearchWebsite, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.TenderSearchLink, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenderSearchLink, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenderSearchLink, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <p>Department Logo (Size: 150px X 100px)</p>
+                    <img id="logoPicture" src="~/UploadFiles/CommonFile/cameraIcon.png" alt="" class="img-fluid img-thumbnail" />
+                </div>
+                <div class="col-md-4">
+                    <input type='file' name="FileLogo" onchange="uploadPicture(this);" class="btn btn-success pull-right" />
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="submit" value="Update" class="btn btn-primary btn-out float-right" />
+                </div>
+            </div>
+        </div>
             }
         </div>
     </div>

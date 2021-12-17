@@ -37,18 +37,31 @@ namespace Semec.Areas.TenderSearchManage.Controllers
             {
                 //data
                 var obj = (from t1 in dc.TenderSearchLinkModels// Item Model
-                           // join here 
+                                                               // join here 
+
+                         join t2 in dc.DepartmentModels // category 
+                         on t1.DepartmentID equals t2.DepartmentID
+
+                        join t3 in dc.DepartmentCategoryModels // category 
+                        on t1.DepartmentCategoryID equals t3.DepartmentCategoryID
 
                            select new
                            {
                                t1.TenderSearchLinkID,
+                               t1.Logo,
+                               t2.DepartmentName,
+                               t3.DepartmentCategoryName,
                                t1.State,
                                t1.City,
+                               // unuse 
+                               t1.Address,
+                               t1.TenderSearchWebsite,
+                               t1.TenderSearchLink
                            });
                 // for Sorting
                 if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDir)))
                 {
-                    if (sortColumn.Equals("DepartmentID"))
+                    if (sortColumn.Equals("TenderSearchLinkID"))
                     {
                         obj = obj.OrderBy(sortColumn + " " + "desc");
                     }
@@ -60,7 +73,14 @@ namespace Semec.Areas.TenderSearchManage.Controllers
                 // searching 
                 if (!string.IsNullOrEmpty(searchValue))
                 {
-                    obj = obj.Where(m => m.City.Contains(searchValue));
+                    obj = obj.Where(m => m.DepartmentName.Contains(searchValue)
+                    || m.DepartmentCategoryName.Contains(searchValue)
+                    || m.State.Contains(searchValue)
+                    || m.City.Contains(searchValue)
+                    || m.Address.Contains(searchValue)
+                    || m.TenderSearchWebsite.Contains(searchValue)
+                    || m.TenderSearchLink.Contains(searchValue)
+                    ) ;
                 }
 
 
@@ -177,26 +197,11 @@ namespace Semec.Areas.TenderSearchManage.Controllers
         [HttpPost]
         public ActionResult Delete(int id, string confirm)
         {
-
-            // if area used
-            string s = confirm;
             if (confirm == "Yes")
             {
-                bool p = db.TenderSearchLinkModels.Any(x => x.DepartmentCategoryID == id);
-                // to do is used in logic ?
-                if (p == false)
-                {
-                    db.DepartmentModels.RemoveRange(db.DepartmentModels.Where(x => x.DepartmentID == id));
-                    db.SaveChanges();
-                    return RedirectToAction(nameof(Index));
-                }
-                else
-                {
-                    ViewData["PageTitle"] = "Tender Search Link";
-                    var model = db.DepartmentModels.Where(x => x.DepartmentID == id).FirstOrDefault();
-                    ModelState.AddModelError("DepartmentName", "You can not delete this record becuase it used !");
-                    return View(model);
-                }
+                db.TenderSearchLinkModels.RemoveRange(db.TenderSearchLinkModels.Where(x => x.TenderSearchLinkID == id));
+                db.SaveChanges();
+                return RedirectToAction(nameof(Index));                
             }
             else
             {
@@ -266,6 +271,23 @@ namespace Semec.Areas.TenderSearchManage.Controllers
                 Message = obj.DepartmentCategoryID + "^" + obj.DepartmentCategoryName;
             }
             return Json(Message, JsonRequestBehavior.AllowGet);
+        }
+
+        // Get Departmetn Name 
+        public JsonResult GetDepartmentName(int DepartmentID)
+        {
+            string result;
+            var obj = db.DepartmentModels.Where(x => x.DepartmentID == DepartmentID).SingleOrDefault();
+            result = obj.DepartmentName;
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        // Get Departmetn category  Name 
+        public JsonResult GetDepartmentCategoryName(int DepartmentCategoryID)
+        {
+            string result;
+            var obj = db.DepartmentCategoryModels.Where(x => x.DepartmentCategoryID == DepartmentCategoryID).SingleOrDefault();
+            result = obj.DepartmentCategoryName;
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

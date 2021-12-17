@@ -292,6 +292,10 @@
     <Compile Include="Migrations\202112141757524_TenderSearchModel.designer.cs">
       <DependentUpon>202112141757524_TenderSearchModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112170903112_TenerSearchLinkModel.cs" />
+    <Compile Include="Migrations\202112170903112_TenerSearchLinkModel.designer.cs">
+      <DependentUpon>202112170903112_TenerSearchLinkModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -775,7 +779,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-app\ajax-modules.js" />
     <Content Include="Scripts\jquery-app\auto-complete.js" />
-    <Content Include="Scripts\jquery-app\dt-department-tender-search.js" />
+    <Content Include="Scripts\jquery-app\dt-tender-search.js" />
     <Content Include="Scripts\jquery-app\dt-department-category.js" />
     <Content Include="Scripts\jquery-app\dt-department.js" />
     <Content Include="Scripts\jquery-app\dt-no-brand.js" />
@@ -932,6 +936,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112141757524_TenderSearchModel.resx">
       <DependentUpon>202112141757524_TenderSearchModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112170903112_TenerSearchLinkModel.resx">
+      <DependentUpon>202112170903112_TenerSearchLinkModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

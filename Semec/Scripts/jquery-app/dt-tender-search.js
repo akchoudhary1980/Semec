@@ -36,6 +36,17 @@
         }],
         "columns": [
             { "data": "TenderSearchLinkID", "name": "TenderSearchLinkID", "autoWidth": true },
+            {
+                "data": "Logo", "name": "Logo",
+
+                "render": function (data, type, full, meta) {
+                    return "<img src='../UploadFiles/" + full.Logo + "' height='50'/>";
+                },
+                "orderable": false,
+                "searchable": false
+            },
+            { "data": "DepartmentName", "name": "DepartmentName", "autoWidth": true },
+            { "data": "DepartmentCategoryName", "name": "DepartmentCategoryName", "autoWidth": true },
             { "data": "State", "name": "State", "autoWidth": true },
             { "data": "City", "name": "City", "autoWidth": true },
             {

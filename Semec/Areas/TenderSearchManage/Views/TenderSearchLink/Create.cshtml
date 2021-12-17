@@ -43,79 +43,93 @@
 
             @using (Html.BeginForm("Create", "TenderSearchLink", FormMethod.Post, new { enctype = "multipart/form-data", id = "departmentcategoryform", name = "departmentcategoryform" }))
             {
-                <div class="card-block">
+        <div class="card-block">
 
 
-                    @Html.AntiForgeryToken()
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <h4 class="sub-title">Tender Search Info</h4>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <h4 class="sub-title">Tender Search Info</h4>
 
-                    <div class="form-group row">
-                        @Html.LabelFor(model => model.DepartmentID, htmlAttributes: new { @class = "control-label col-md-2 col-2" })
-                        <div class="col-md-8 col-8">
-                            @Html.TextBox("DepartmentName", null, new { @class = "form-control", autocomplete = "off" })
-                            @Html.Hidden("DepartmentID")
-                        </div>
-                        <div class="col-md-2 col-2">
-                            <button type="button" class="btn btn-primary btn-sm float-right" onclick="DepModel();"><i class="icofont icofont-tick-mark"></i></button>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        @Html.LabelFor(model => model.DepartmentCategoryID, htmlAttributes: new { @class = "control-label col-md-2 col-2" })
-                        <div class="col-md-8 col-8">
-                            @Html.TextBox("DepartmentCategoryName", null, new { @class = "form-control", autocomplete = "off" })
-                            @Html.Hidden("DepartmentCategoryID")
-                        </div>
-                        <div class="col-md-2 col-2">
-                            <button type="button" class="btn btn-primary btn-sm float-right" onclick="DepCatModel();"><i class="icofont icofont-tick-mark"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-4">
-                            @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
-                        </div>
-                        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-4">
-                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        @Html.LabelFor(model => model.TenderSearchLink, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.TenderSearchLink, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.TenderSearchLink, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-4">
-                            <p>Department Logo (Size: 150px X 100px)</p>
-                            <img id="logoPicture" src="~/UploadFiles/CommonFile/cameraIcon.png" alt="" class="img-fluid img-thumbnail" />
-                        </div>
-                        <div class="col-md-4">
-                            <input type='file' name="FileLogo" onchange="uploadPicture(this);" class="btn btn-success pull-right" />
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <input type="submit" value="Create" class="btn btn-primary btn-out float-right" />
-                        </div>
-                    </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.DepartmentID, htmlAttributes: new { @class = "control-label col-md-2 col-2" })
+                <div class="col-md-9 col-9">
+                    @Html.TextBox("DepartmentName", null, new { @class = "form-control", autocomplete = "off" })
+                    @Html.Hidden("DepartmentID")
                 </div>
+                <div class="col-md-1 col-1">
+                    <button type="button" class="btn btn-primary btn-sm float-right" onclick="DepModel();"><i class="icofont icofont-tick-mark"></i></button>
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.DepartmentCategoryID, htmlAttributes: new { @class = "control-label col-md-2 col-2" })
+                <div class="col-md-9 col-9">
+                    @Html.TextBox("DepartmentCategoryName", null, new { @class = "form-control", autocomplete = "off" })
+                    @Html.Hidden("DepartmentCategoryID")
+                </div>
+                <div class="col-md-1 col-1">
+                    <button type="button" class="btn btn-primary btn-sm float-right" onclick="DepCatModel();"><i class="icofont icofont-tick-mark"></i></button>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
+                </div>
+                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.TenderSearchWebsite, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenderSearchWebsite, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenderSearchWebsite, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.TenderSearchLink, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenderSearchLink, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenderSearchLink, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Remark, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Remark, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Remark, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    <p>Department Logo (Size: 150px X 100px)</p>
+                    <img id="logoPicture" src="~/UploadFiles/CommonFile/cameraIcon.png" alt="" class="img-fluid img-thumbnail" />
+                </div>
+                <div class="col-md-4">
+                    <input type='file' name="FileLogo" onchange="uploadPicture(this);" class="btn btn-success pull-right" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="submit" value="Create" class="btn btn-primary btn-out float-right" />
+                </div>
+            </div>
+        </div>
             }
         </div>
     </div>
