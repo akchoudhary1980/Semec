@@ -289,5 +289,23 @@ namespace Semec.Areas.TenderSearchManage.Controllers
             result = obj.DepartmentCategoryName;
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
+
+        [HttpPost]
+        public JsonResult AjaxMethod()
+        {
+            List<SelectListItem> itemlist = new List<SelectListItem>();
+            var list = db.DepartmentModels.ToList();
+
+            foreach(var l in list)
+            {
+                itemlist.Add(new SelectListItem
+                {
+                    Value = l.DepartmentID.ToString(),
+                    Text =  l.DepartmentName
+                });
+            }
+            return Json(itemlist);
+        }
     }
 }
