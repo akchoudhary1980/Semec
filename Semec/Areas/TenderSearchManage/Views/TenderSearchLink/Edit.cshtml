@@ -4,7 +4,14 @@
 <script src="~/Scripts/jquery-app/vl-tender-search.js"></script>
 <script src="~/Scripts/jquery-app/tr-tender-search.js"></script>
 
+<script>
 
+    $(document).ready(function () {    // Call
+        SetDropDown("DepartmentID", "/TenderSearchManage/TenderSearchLink/GetDepartmentList", "departmentID");
+        SetDropDown("DepartmentCategoryID", "/TenderSearchManage/TenderSearchLink/GetDepartmentCategoryList","departmentCategoryID");
+       
+    })
+</script>
 <div class="page-header">
     <div class="card">
         <div class="card-block bg-primary">
@@ -48,14 +55,13 @@
             <h4 class="sub-title">Tender Search Link Update</h4>
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.TenderSearchLinkID)
+            @Html.HiddenFor(model => model.TenderSearchLinkID)           
 
-          
             <div class="form-group row">
                 @Html.LabelFor(model => model.DepartmentID, htmlAttributes: new { @class = "control-label col-md-2 col-2" })
                 <div class="col-md-9 col-9">
-                    @Html.TextBox("DepartmentName", null, new { @class = "form-control", autocomplete = "off" })
-                    @Html.Hidden("DepartmentID")
+                    <select id="DepartmentID" name="DepartmentID"  class="form-control"></select>    
+                    <input type="hidden" id="departmentID" name="departmentID" value="@Model.DepartmentID" />
                 </div>
                 <div class="col-md-1 col-1">
                     <button type="button" class="btn btn-primary btn-sm float-right" onclick="DepModel();"><i class="icofont icofont-tick-mark"></i></button>
@@ -64,8 +70,8 @@
             <div class="form-group row">
                 @Html.LabelFor(model => model.DepartmentCategoryID, htmlAttributes: new { @class = "control-label col-md-2 col-2" })
                 <div class="col-md-9 col-9">
-                    @Html.TextBox("DepartmentCategoryName", null, new { @class = "form-control", autocomplete = "off" })
-                    @Html.Hidden("DepartmentCategoryID")
+                    <select id="DepartmentCategoryID" name="DepartmentCategoryID" class="form-control"></select>
+                    <input type="hidden" id="departmentCategoryID" name="departmentID" value="@Model.DepartmentCategoryID" />
                 </div>
                 <div class="col-md-1 col-1">
                     <button type="button" class="btn btn-primary btn-sm float-right" onclick="DepCatModel();"><i class="icofont icofont-tick-mark"></i></button>

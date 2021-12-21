@@ -144,6 +144,6 @@ function PushDepartmentCategory() {
 }
 // Logic for dropdon
 $(document).ready(function () {    // Call
-    GetDropDown("DepartmentID", "/TenderSearchManage/TenderSearchLink/GetDepartmentList");
-    GetDropDown("DepartmentCategoryID", "/TenderSearchManage/TenderSearchLink/GetDepartmentCategoryList");
+   GetDropDown("DepartmentID", "/TenderSearchManage/TenderSearchLink/GetDepartmentList");   
+   GetDropDown("DepartmentCategoryID", "/TenderSearchManage/TenderSearchLink/GetDepartmentCategoryList");
 })
