@@ -292,7 +292,7 @@ namespace Semec.Areas.TenderSearchManage.Controllers
 
 
         [HttpPost]
-        public JsonResult AjaxMethod()
+        public JsonResult GetDepartmentList()
         {
             List<SelectListItem> itemlist = new List<SelectListItem>();
             var list = db.DepartmentModels.ToList();
@@ -303,6 +303,23 @@ namespace Semec.Areas.TenderSearchManage.Controllers
                 {
                     Value = l.DepartmentID.ToString(),
                     Text =  l.DepartmentName
+                });
+            }
+            return Json(itemlist);
+        }
+
+        [HttpPost]
+        public JsonResult GetDepartmentCategoryList()
+        {
+            List<SelectListItem> itemlist = new List<SelectListItem>();
+            var list = db.DepartmentCategoryModels.ToList();
+
+            foreach (var l in list)
+            {
+                itemlist.Add(new SelectListItem
+                {
+                    Value = l.DepartmentCategoryID.ToString(),
+                    Text = l.DepartmentCategoryName
                 });
             }
             return Json(itemlist);

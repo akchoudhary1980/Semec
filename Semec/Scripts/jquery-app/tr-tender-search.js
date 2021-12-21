@@ -105,12 +105,13 @@ function PushDepartment() {
             dataType: 'json',
             data: { 'DepartmentName': $('#Department').val(), "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
             success: function (response) {
+                GetDropDown("DepartmentID", "/TenderSearchManage/TenderSearchLink/GetDepartmentList");
                 alert('Department Added Successfully !');
-                $('#dep-Modal').modal('hide');  
-                // logic for set value
+                $('#dep-Modal').modal('hide'); 
+                // logic for set value               
                 var myArray = response.split('^');
                 $('#DepartmentID').val(myArray[0]);  
-                $('#DepartmentName').val(myArray[1]);
+                //$('#DepartmentName').val(myArray[1]);
                 $('#Department').val("");
             }
         });
@@ -129,48 +130,20 @@ function PushDepartmentCategory() {
             dataType: 'json',
             data: { 'DepartmentCategoryName': $('#DepartmentCategory').val(), "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() },
             success: function (response) {
+                GetDropDown("DepartmentCategoryID", "/TenderSearchManage/TenderSearchLink/GetDepartmentCategoryList");
                 alert('Department Category Added Successfully !');
                 $('#depcat-Modal').modal('hide');
                 // logic for set value
                 var myArray = response.split('^');
                 $('#DepartmentCategoryID').val(myArray[0]);
-                $('#DepartmentCategoryName').val(myArray[1]);
+                //$('#DepartmentCategoryName').val(myArray[1]);
                 $('#DepartmentCategory').val("");
             }
         });
     }
 }
-
-
 // Logic for dropdon
-
-$(document).ready(function () {
-    // Call
-    GetDropDown("ddlCustomers", "/TenderSearchManage/TenderSearchLink/AjaxMethod");
-
-    // Defination 
-    function GetDropDown(Name, Method) {
-
-        var ddName = $("#" + Name);
-        ddName.empty().append('<option selected="selected" value="0" disabled = "disabled">Loading.....</option>');
-
-        $.ajax({
-            type: "POST",
-            url: Method, 
-            data: '{}',
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-
-            success: function (response) {                
-                // initail value 
-                ddName.empty().append('<option selected="selected" value="0">Select</option>');
-                // through Loop 
-                $.each(response, function () {
-                    ddName.append($("<option></option>").val(this['Value']).html(this['Text']));
-                });
-            },
-        });        
-    }
-    // Fundtion End 
-
+$(document).ready(function () {    // Call
+    GetDropDown("DepartmentID", "/TenderSearchManage/TenderSearchLink/GetDepartmentList");
+    GetDropDown("DepartmentCategoryID", "/TenderSearchManage/TenderSearchLink/GetDepartmentCategoryList");
 })

@@ -48,7 +48,6 @@ function GetCityList() {
         });
     })
 }
-
 // Get Item List
 function GetItemList() {
     $(document).ready(function () {
@@ -77,6 +76,29 @@ function GetItemList() {
         });
     })
 }
+// Defination 
+function GetDropDown(Name, Method) {
+    var ddName = $("#" + Name);
+    ddName.empty().append('<option selected="selected" value="0" disabled = "disabled">Loading.....</option>');
+
+    $.ajax({
+        type: "POST",
+        url: Method,
+        data: '{}',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+
+        success: function (response) {
+            // initail value 
+            ddName.empty().append('<option selected="selected" value="0">Select</option>');
+            // through Loop 
+            $.each(response, function () {
+                ddName.append($("<option></option>").val(this['Value']).html(this['Text']));
+            });
+        },
+    });
+}
+    // Fundtion End
 
 
 // Get Area List

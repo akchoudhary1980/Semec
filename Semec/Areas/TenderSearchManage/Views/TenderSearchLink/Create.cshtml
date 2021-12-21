@@ -53,8 +53,9 @@
             <div class="form-group row">
                 @Html.LabelFor(model => model.DepartmentID, htmlAttributes: new { @class = "control-label col-md-2 col-2" })
                 <div class="col-md-9 col-9">
-                    @Html.TextBox("DepartmentName", null, new { @class = "form-control", autocomplete = "off" })
-                    @Html.Hidden("DepartmentID")
+                    <select id="DepartmentID" name="DepartmentCategoryID" class="form-control"></select>
+                    @*@Html.TextBox("DepartmentName", null, new { @class = "form-control", autocomplete = "off" })
+                    @Html.Hidden("DepartmentID")*@
                 </div>
                 <div class="col-md-1 col-1">
                     <button type="button" class="btn btn-primary btn-sm float-right" onclick="DepModel();"><i class="icofont icofont-tick-mark"></i></button>
@@ -63,8 +64,10 @@
             <div class="form-group row">
                 @Html.LabelFor(model => model.DepartmentCategoryID, htmlAttributes: new { @class = "control-label col-md-2 col-2" })
                 <div class="col-md-9 col-9">
-                    @Html.TextBox("DepartmentCategoryName", null, new { @class = "form-control", autocomplete = "off" })
-                    @Html.Hidden("DepartmentCategoryID")
+                    <select id="DepartmentCategoryID" name="DepartmentCategoryID" class="form-control"></select>
+
+                    @*@Html.TextBox("DepartmentCategoryName", null, new { @class = "form-control", autocomplete = "off" })
+        @Html.Hidden("DepartmentCategoryID")*@
                 </div>
                 <div class="col-md-1 col-1">
                     <button type="button" class="btn btn-primary btn-sm float-right" onclick="DepCatModel();"><i class="icofont icofont-tick-mark"></i></button>
@@ -123,16 +126,6 @@
                     <input type='file' name="FileLogo" onchange="uploadPicture(this);" class="btn btn-success pull-right" />
                 </div>
             </div>
-
-
-            <div class="form-group row">
-               <label class = "control-label col-md-2">Dynamic</label>
-                <div class="col-md-10">
-                    <select id="ddlCustomers" name="ddlCustomers" class="form-control" ></select>
-                </div>
-            </div>
-
-
 
             <div class="form-group row">
                 <div class="col-sm-12">
