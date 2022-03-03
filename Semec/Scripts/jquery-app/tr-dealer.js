@@ -39,7 +39,6 @@ function PushRow() {
         });
     }
 }
-
 // for Remove Trans Data
 function PopRow(serno) {
     $.ajax({

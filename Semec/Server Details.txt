@@ -60,3 +60,10 @@ Database Details
 dbName : semec_in_erpsystem
 user : erpsystem
 pass : #Qt6ww08
+
+
+Database Details 
+dbName : semec_in_school
+user : schooluser
+pass : lZ^47q1x
+
