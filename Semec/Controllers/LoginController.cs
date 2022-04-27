@@ -11,9 +11,10 @@ namespace Semec.Controllers
     {
         public MyContext db = new MyContext();
         public ActionResult Challenge()
-        {         
-            Response.Cookies["CaptchaCode"].Value = TextLib.GetCaptcha(); 
-            TextLib.DrawCaptch(Request.Cookies["CaptchaCode"].Value);           
+        {    
+            string Captcha = TextLib.GetCaptcha();
+            Response.Cookies["CaptchaCode"].Value = Captcha;
+            TextLib.DrawCaptch(Captcha);           
             return View();
         }
         [HttpPost]
@@ -107,8 +108,9 @@ namespace Semec.Controllers
         [HttpPost]
         public ActionResult RefereceCaptcha()
         {
-            Response.Cookies["CaptchaCode"].Value = TextLib.GetCaptcha();
-            TextLib.DrawCaptch(Request.Cookies["CaptchaCode"].Value);
+            string Captcha = TextLib.GetCaptcha();
+            Response.Cookies["CaptchaCode"].Value = Captcha;
+            TextLib.DrawCaptch(Captcha);
             return Json("OK", JsonRequestBehavior.AllowGet);
         }
         public ActionResult Reset()

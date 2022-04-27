@@ -114,9 +114,11 @@ namespace Semec.Areas.DealersManage.Controllers
             string EmailTo = "";
             string Subject = "Tender Enqury for -- due on -- .";
             var msg = new System.Net.Mail.MailMessage();
-            msg.Body = "Dear Sir,Please find attached GEM tender for -- from-- due on --"
-                + "Kindly suggest us suitable product / model." 
-                + "Thanks";
+            msg.IsBodyHtml = true;
+            
+            msg.Body = "Dear Sir, <br>Please find attached GEM Tender Enquiry for --- ."
+                + "<br>Kindly suggest us suitable product / model."
+                + "<br>Thanks";
 
             EmailTo = model.EmailCP1+";";
 

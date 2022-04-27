@@ -143,11 +143,10 @@
                 </div>
 
                 <div class="row mb-3">
-                    <div class="col-md-6 col-12">
-                        <h6 style="color:blueviolet">Contact Person 1</h6>
+                    <div class="col-md-6 col-12">                     
                     </div>
                     <div class="col-md-6 col-12">
-                        <a href="mailto:@ViewData["EmailTo"]?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="mybtn float-right"><i class="icofont icofont-email"></i> Email to all</a>
+                        <a href="mailto:@ViewData["EmailTo"]?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-warning float-right"><i class="icofont icofont-email"></i> Email to all</a>
                     </div>
                 </div>
                 <div class="row">
@@ -157,34 +156,28 @@
                             <table class="table table-bordered">
                                 <tbody>
                                     <tr>
+                                        <td colspan="2"><h5 style="color:blueviolet">Contact Persion 1</h5></td>
+                                    </tr>
+                                    <tr>
                                         <td>Name</td>
                                         <td><b>@Model.CP1</b></td>
+
                                         <td>Mobile</td>
                                         <td>
-                                        <button class="btn btn-sm btn-primary" onclick="ShowZoomModel('@Model.CP1','@Model.MobileCP1')"><i class="icofont icofont-2x icofont-ui-zoom-in"></i></button> <b>@Model.MobileCP1 </b>   
+                                            <button class="btn btn-outline-info" onclick="ShowZoomModel('@Model.CP1','@Model.MobileCP1')"><i class="icofont icofont-ui-zoom-in"></i> Zoom </button> 
+                                            <b>@Model.MobileCP1 </b>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td colspan="1">Email</td>
                                         <td colspan="2"><b>@Model.EmailCP1</b></td>
                                         <td colspan="1">
-                                            <a href="mailto:@Model.EmailCP1?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-sm btn-primary"><i class="icofont icofont-2x icofont-email"></i></a>
+                                            <a href="mailto:@Model.EmailCP1?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-info"><i class="icofont icofont-email"></i> Email </a>
                                         </td>
                                     </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12 col-12">
-                        <h6 style="color:blueviolet">Contact Person 2</h6>
-                    </div>
-                    <div class="col-md-12 col-12">
-                        <div class='dt-responsive table-responsive'>
-                            <table class="table table-bordered">
-                                <tbody>
+                                    <tr>
+                                        <td colspan="2"><h5 style="color:blueviolet">Contact Persion 2</h5></td>
+                                    </tr>
                                     <tr>
                                         <td>Name</td>
                                         <td><b>@Model.CP2</b></td>
@@ -192,7 +185,7 @@
                                         <td>
                                             @if (Model.EmailCP2 != null)
                                             {
-                                                <button class="btn btn-sm btn-primary" onclick="ShowZoomModel('@Model.CP2','@Model.MobileCP2')"><i class="icofont icofont-2x icofont-ui-zoom-in"></i></button>
+                                                <button class="btn btn-outline-info" onclick="ShowZoomModel('@Model.CP2','@Model.MobileCP2')"><i class="icofont icofont-ui-zoom-in"></i> Zoom </button>
                                                 <b>@Model.MobileCP2 </b>
                                             }
                                         </td>
@@ -203,24 +196,13 @@
                                         <td colspan="1">
                                             @if (Model.EmailCP2 != null)
                                             {
-                                                <a href="mailto:@Model.EmailCP2?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-sm btn-primary"><i class="icofont icofont-2x icofont-email"></i></a>
+                                                <a href="mailto:@Model.EmailCP2?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-info"><i class="icofont icofont-email"></i> Email </a>
                                             }
                                         </td>
                                     </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12 col-12">
-                        <h6 style="color:blueviolet">Contact Person 3</h6>
-                    </div>
-                    <div class="col-md-12 col-12">
-                        <div class='dt-responsive table-responsive'>
-                            <table class="table table-bordered">
-                                <tbody>
+                                    <tr>
+                                        <td colspan="2"><h5 style="color:blueviolet">Contact Persion 3</h5></td>
+                                    </tr>
                                     <tr>
                                         <td>Name</td>
                                         <td><b>@Model.CP3</b></td>
@@ -228,9 +210,9 @@
                                         <td>
                                             @if (Model.EmailCP3 != null)
                                             {
-                                                <button class="btn btn-sm btn-primary" onclick="ShowZoomModel('@Model.CP3','@Model.MobileCP3')"><i class="icofont icofont-2x icofont-ui-zoom-in"></i></button>
+                                                <button class="btn btn-outline-info" onclick="ShowZoomModel('@Model.CP3','@Model.MobileCP3')"><i class="icofont icofont-ui-zoom-in"></i> Zoom </button>
                                                 <b>@Model.MobileCP3 </b>
-                                            }                                            
+                                            }
                                         </td>
                                     </tr>
                                     <tr>
@@ -239,17 +221,18 @@
                                         <td colspan="1">
                                             @if (Model.EmailCP3 != null)
                                             {
-                                                <a href="mailto:@Model.EmailCP3?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-sm btn-primary"><i class="icofont icofont-2x icofont-email"></i></a>
+                                                <a href="mailto:@Model.EmailCP3?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-info"><i class="icofont icofont-email"></i> Email</a>
                                             }
-                                            
+
                                         </td>
                                     </tr>
+
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
 
             </div>
         </div>
