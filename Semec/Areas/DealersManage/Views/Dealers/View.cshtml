@@ -8,7 +8,7 @@
 
     ViewBag.Title = "View";
 }
-
+ 
 <style type="text/css">
     .mybtn {
         border: none;
@@ -146,7 +146,7 @@
                     <div class="col-md-6 col-12">                     
                     </div>
                     <div class="col-md-6 col-12">
-                        <a href="mailto:@ViewData["EmailTo"]?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-warning float-right"><i class="icofont icofont-email"></i> Email to all</a>
+                        <a href="mailto:@ViewData["EmailTo"]?CC=asawa70@gmail.com&Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-warning float-right"><i class="icofont icofont-email"></i> Email to all</a>
                     </div>
                 </div>
                 <div class="row">
@@ -164,7 +164,7 @@
 
                                         <td>Mobile</td>
                                         <td>
-                                            <button class="btn btn-outline-info" onclick="ShowZoomModel('@Model.CP1','@Model.MobileCP1')"><i class="icofont icofont-ui-zoom-in"></i> Zoom </button> 
+                                            <button class="btn btn-outline-info" onclick="ShowZoomModel('@Model.CP1','@Model.MobileCP1')"><i class="icofont icofont-ui-zoom-in"></i> Zoom </button>
                                             <b>@Model.MobileCP1 </b>
                                         </td>
                                     </tr>
@@ -172,7 +172,7 @@
                                         <td colspan="1">Email</td>
                                         <td colspan="2"><b>@Model.EmailCP1</b></td>
                                         <td colspan="1">
-                                            <a href="mailto:@Model.EmailCP1?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-info"><i class="icofont icofont-email"></i> Email </a>
+                                            <a href="mailto:@Model.EmailCP1?CC=asawa70@gmail.com&Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-info"><i class="icofont icofont-email"></i> Email </a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -196,7 +196,7 @@
                                         <td colspan="1">
                                             @if (Model.EmailCP2 != null)
                                             {
-                                                <a href="mailto:@Model.EmailCP2?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-info"><i class="icofont icofont-email"></i> Email </a>
+                                                <a href="mailto:@Model.EmailCP2?CC=asawa70@gmail.com&Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-info"><i class="icofont icofont-email"></i> Email </a>
                                             }
                                         </td>
                                     </tr>
@@ -216,20 +216,19 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="1">Email</td>
+                                        <td colspan="1">Email Test</td>
                                         <td colspan="2"><b>@Model.EmailCP3</b></td>
                                         <td colspan="1">
                                             @if (Model.EmailCP3 != null)
                                             {
-                                                <a href="mailto:@Model.EmailCP3?Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-info"><i class="icofont icofont-email"></i> Email</a>
+                                                <a href="mailto:@Model.EmailCP3?CC=asawa70@gmail.com&Subject=@ViewData["Subject"]&Body=@ViewData["Body"]" class="btn btn-outline-info"><i class="icofont icofont-email"></i> Email</a>
                                             }
 
                                         </td>
                                     </tr>
-
-
                                 </tbody>
                             </table>
+                           
                         </div>
                     </div>
                 </div>

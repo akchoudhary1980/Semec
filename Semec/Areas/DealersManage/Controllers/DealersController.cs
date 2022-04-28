@@ -112,13 +112,13 @@ namespace Semec.Areas.DealersManage.Controllers
             var model = db.DealersModels.Where(x => x.DealersID == id).FirstOrDefault();
             
             string EmailTo = "";
-            string Subject = "Tender Enqury for -- due on -- .";
+            string Subject = "Tender Enqury for --.";
             var msg = new System.Net.Mail.MailMessage();
             msg.IsBodyHtml = true;
-            
-            msg.Body = "Dear Sir, <br>Please find attached GEM Tender Enquiry for --- ."
-                + "<br>Kindly suggest us suitable product / model."
-                + "<br>Thanks";
+
+            msg.Body = "Dear Sir, %0aPlease find attached GEM Tender Enquiry for --- ."
+                + "%0aKindly suggest us suitable product / model."
+                + "%0aThanks";
 
             EmailTo = model.EmailCP1+";";
 
