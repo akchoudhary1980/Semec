@@ -44,12 +44,16 @@ namespace Semec.Areas.DealersManage.Model
         [Display(Name = "Contact Persion")]
         public string CP1 { get; set; }
 
-
         [Display(Name = "Contact Persion")]
         public string CP2 { get; set; }
 
         [Display(Name = "Contact Persion")]
         public string CP3 { get; set; }
+
+        [Display(Name = "Contact Persion")]
+        public string CP4 { get; set; }
+        [Display(Name = "Contact Persion")]
+        public string CP5 { get; set; }
 
         // Mobile 
         [Required(ErrorMessage = "Please Enter Mobile")]
@@ -61,6 +65,12 @@ namespace Semec.Areas.DealersManage.Model
 
         [Display(Name = "Mobile")]
         public string MobileCP3 { get; set; }
+
+        [Display(Name = "Mobile")]
+        public string MobileCP4 { get; set; }
+
+        [Display(Name = "Mobile")]
+        public string MobileCP5 { get; set; }
 
         // Email
         [Required(ErrorMessage = "Please Enter Email")]
@@ -74,7 +84,27 @@ namespace Semec.Areas.DealersManage.Model
         [Display(Name = "Email")]
         public string EmailCP3 { get; set; }
 
-      
+        [Display(Name = "Email")]
+        public string EmailCP4 { get; set; }
+
+        [Display(Name = "Email")]
+        public string EmailCP5 { get; set; }
+
+
+        [Display(Name = "Desgination")]
+        public int DesginationID1 { get; set; }
+
+        [Display(Name = "Desgination")]
+        public int DesginationID2 { get; set; }
+
+        [Display(Name = "Desgination")]
+        public int DesginationID3 { get; set; }
+
+        [Display(Name = "Desgination")]
+        public int DesginationID4 { get; set; }
+
+        [Display(Name = "Desgination")]
+        public int DesginationID5 { get; set; }
 
 
         [Display(Name = "Cataloge")]

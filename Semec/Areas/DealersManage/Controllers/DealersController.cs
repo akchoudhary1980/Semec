@@ -503,5 +503,19 @@ namespace Semec.Areas.DealersManage.Controllers
             return data;
         }
 
+        /// Get Designation List
+        public static List<SelectListItem> GetDesginationList()
+        {
+            List<SelectListItem> ls = new List<SelectListItem>();
+            MyContext db1 = new MyContext();
+            var mylist = db1.DesginationModels.ToList();
+            ls.Add(new SelectListItem() { Text = "Select", Value = "0" });
+            foreach (var temp in mylist)
+            {
+                ls.Add(new SelectListItem() { Text = temp.DesginationName, Value = temp.DesginationID.ToString() });
+            }
+            db1.Dispose();
+            return ls;
+        }
     }
 }

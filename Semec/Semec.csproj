@@ -162,6 +162,7 @@
     <Compile Include="Areas\AdminManage\Model\TOrderTransModel.cs" />
     <Compile Include="Areas\AdminManage\Model\VisiterModel.cs" />
     <Compile Include="Areas\CommonManage\CommonManageAreaRegistration.cs" />
+    <Compile Include="Areas\CommonManage\Controllers\DesginationController.cs" />
     <Compile Include="Areas\CommonManage\Controllers\StateController.cs" />
     <Compile Include="Areas\CommonManage\Model\BrandModel.cs" />
     <Compile Include="Areas\CommonManage\Model\CategoryModel.cs" />
@@ -304,6 +305,14 @@
     <Compile Include="Migrations\202112171134167_add-migation.cs" />
     <Compile Include="Migrations\202112171134167_add-migation.designer.cs">
       <DependentUpon>202112171134167_add-migation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204290632169_DealersModel3.cs" />
+    <Compile Include="Migrations\202204290632169_DealersModel3.designer.cs">
+      <DependentUpon>202204290632169_DealersModel3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204290633456_DealersModel4.cs" />
+    <Compile Include="Migrations\202204290633456_DealersModel4.designer.cs">
+      <DependentUpon>202204290633456_DealersModel4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -781,6 +790,12 @@
     <Content Include="Areas\TenderQuoteManage\Views\Shared\_LeftMenu.cshtml" />
     <Content Include="Areas\TenderQuoteManage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\TenderQuoteManage\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\CommonManage\Views\Desgination\Index.cshtml" />
+    <Content Include="Areas\CommonManage\Views\Desgination\Edit.cshtml" />
+    <Content Include="Areas\CommonManage\Views\Desgination\Delete.cshtml" />
+    <Content Include="Areas\CommonManage\Views\Desgination\Create.cshtml" />
+    <Content Include="Areas\CommonManage\Views\Shared\_LeftMenu.cshtml" />
+    <Content Include="Areas\CommonManage\Views\Shared\_TopMenu.cshtml" />
     <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -792,6 +807,7 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-app\ajax-modules.js" />
     <Content Include="Scripts\jquery-app\auto-complete.js" />
+    <Content Include="Scripts\jquery-app\dt-desgination.js" />
     <Content Include="Scripts\jquery-app\dt-tender-search.js" />
     <Content Include="Scripts\jquery-app\dt-department-category.js" />
     <Content Include="Scripts\jquery-app\dt-department.js" />
@@ -907,6 +923,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112171134167_add-migation.resx">
       <DependentUpon>202112171134167_add-migation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204290632169_DealersModel3.resx">
+      <DependentUpon>202204290632169_DealersModel3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204290633456_DealersModel4.resx">
+      <DependentUpon>202204290633456_DealersModel4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

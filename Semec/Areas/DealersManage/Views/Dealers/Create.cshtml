@@ -103,10 +103,16 @@
                         <div class="accordion-desc">
                             <div class="form-group row">
                                 @Html.LabelFor(model => model.CP1, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
+                                <div class="col-md-4">
                                     @Html.EditorFor(model => model.CP1, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.CP1, "", new { @class = "text-danger" })
                                 </div>
+                                @Html.LabelFor(model => model.DesginationID1, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.DesginationID1,
+                                Semec.Areas.DealersManage.Controllers.DealersController.GetDesginationList(), new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DesginationID1, "", new { @class = "text-danger" })
+                            </div>
                             </div>
                             <div class="form-group row">
                                 @Html.LabelFor(model => model.MobileCP1, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -125,21 +131,27 @@
                         <div class="accordion-desc">
                             <div class="form-group row">
                                 @Html.LabelFor(model => model.CP2, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
+                                <div class="col-md-4">
                                     @Html.EditorFor(model => model.CP2, new { htmlAttributes = new { @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.CP2, "", new { @class = "text-danger" })
+                                </div>
+                                @Html.LabelFor(model => model.DesginationID2, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(model => model.DesginationID2,
+                                    Semec.Areas.DealersManage.Controllers.DealersController.GetDesginationList(), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DesginationID2, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group row">
                                 @Html.LabelFor(model => model.MobileCP2, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-4">
                                     @Html.EditorFor(model => model.MobileCP2, new { htmlAttributes = new { @class = "form-control", maxlength = "10", autocomplete = "off" } })
-                                    @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.MobileCP2, "", new { @class = "text-danger" })
                                 </div>
                                 @Html.LabelFor(model => model.EmailCP2, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-4">
                                     @Html.EditorFor(model => model.EmailCP2, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.EmailCP2, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>
@@ -147,21 +159,84 @@
                         <div class="accordion-desc">
                             <div class="form-group row">
                                 @Html.LabelFor(model => model.CP3, htmlAttributes: new { @class = "control-label col-md-2" })
-                                <div class="col-md-10">
+                                <div class="col-md-4">
                                     @Html.EditorFor(model => model.CP3, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.CP2, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.CP3, "", new { @class = "text-danger" })
+                                </div>
+                                @Html.LabelFor(model => model.DesginationID1, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(model => model.DesginationID3,
+                                    Semec.Areas.DealersManage.Controllers.DealersController.GetDesginationList(), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DesginationID3, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group row">
                                 @Html.LabelFor(model => model.MobileCP3, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-4">
                                     @Html.EditorFor(model => model.MobileCP3, new { htmlAttributes = new { @class = "form-control", maxlength = "10", autocomplete = "off" } })
-                                    @Html.ValidationMessageFor(model => model.MobileCP1, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.MobileCP3, "", new { @class = "text-danger" })
                                 </div>
                                 @Html.LabelFor(model => model.EmailCP3, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-4">
                                     @Html.EditorFor(model => model.EmailCP3, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.EmailCP1, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.EmailCP3, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <a class="accordion-msg">Contact Persion 4</a>
+                        <div class="accordion-desc">
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.CP4, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.CP4, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.CP4, "", new { @class = "text-danger" })
+                                </div>
+                                @Html.LabelFor(model => model.DesginationID4, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(model => model.DesginationID4,
+                                    Semec.Areas.DealersManage.Controllers.DealersController.GetDesginationList(), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DesginationID1, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.MobileCP4, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.MobileCP4, new { htmlAttributes = new { @class = "form-control", maxlength = "10", autocomplete = "off" } })
+                                    @Html.ValidationMessageFor(model => model.MobileCP4, "", new { @class = "text-danger" })
+                                </div>
+                                @Html.LabelFor(model => model.EmailCP4, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.EmailCP4, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.EmailCP4, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <a class="accordion-msg">Contact Persion 5</a>
+                        <div class="accordion-desc">
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.CP4, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.CP4, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.CP4, "", new { @class = "text-danger" })
+                                </div>
+                                @Html.LabelFor(model => model.DesginationID4, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(model => model.DesginationID4,
+                                    Semec.Areas.DealersManage.Controllers.DealersController.GetDesginationList(), new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.DesginationID4, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                @Html.LabelFor(model => model.MobileCP5, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.MobileCP5, new { htmlAttributes = new { @class = "form-control", maxlength = "10", autocomplete = "off" } })
+                                    @Html.ValidationMessageFor(model => model.MobileCP5, "", new { @class = "text-danger" })
+                                </div>
+                                @Html.LabelFor(model => model.EmailCP5, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.EmailCP5, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.EmailCP5, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>
