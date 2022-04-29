@@ -106,45 +106,7 @@ namespace Semec.Areas.DealersManage.Controllers
                 return Json(new { draw = draw, recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = data }, JsonRequestBehavior.AllowGet);
             }
         }
-        public ActionResult View(int id)
-        {
-            ViewData["PageTitle"] = "Dealers Details";
-            var model = db.DealersModels.Where(x => x.DealersID == id).FirstOrDefault();
-            
-            string EmailTo = "";
-            string Subject = "Tender Enqury for --.";
-            var msg = new System.Net.Mail.MailMessage();
-            msg.IsBodyHtml = true;
-
-            msg.Body = "Dear Sir, %0aPlease find attached GEM Tender Enquiry for --- ."
-                + "%0aKindly suggest us suitable product / model."
-                + "%0aThanks";
-
-            EmailTo = model.EmailCP1+";";
-
-            if(model.EmailCP2!=null)
-            {
-                EmailTo = EmailTo + model.EmailCP2 + ";";
-            }
-            if (model.EmailCP3 != null)
-            {
-                EmailTo = EmailTo + model.EmailCP3 + ";";
-            }
-            if (model.EmailCP4 != null)
-            {
-                EmailTo = EmailTo + model.EmailCP4 + ";";
-            }
-            if (model.EmailCP5 != null)
-            {
-                EmailTo = EmailTo + model.EmailCP5 + ";";
-            }
-
-
-            ViewData["EmailTo"] = EmailTo;
-            ViewData["Subject"] = Subject;
-            ViewData["Body"] = msg.Body;
-            return View(model);            
-        }
+       
         public ActionResult Create()
         {
             // DataTable 
@@ -371,6 +333,45 @@ namespace Semec.Areas.DealersManage.Controllers
             }
         }
 
+        public ActionResult View(int id)
+        {
+            ViewData["PageTitle"] = "Dealers Details";
+            var model = db.DealersModels.Where(x => x.DealersID == id).FirstOrDefault();
+
+            string EmailTo = "";
+            string Subject = "Tender Enqury for --.";
+            var msg = new System.Net.Mail.MailMessage();
+            msg.IsBodyHtml = true;
+
+            msg.Body = "Dear Sir, %0aPlease find attached GEM Tender Enquiry for --- ."
+                + "%0aKindly suggest us suitable product / model."
+                + "%0aThanks";
+
+            EmailTo = model.EmailCP1 + ";";
+
+            if (model.EmailCP2 != null)
+            {
+                EmailTo = EmailTo + model.EmailCP2 + ";";
+            }
+            if (model.EmailCP3 != null)
+            {
+                EmailTo = EmailTo + model.EmailCP3 + ";";
+            }
+            if (model.EmailCP4 != null)
+            {
+                EmailTo = EmailTo + model.EmailCP4 + ";";
+            }
+            if (model.EmailCP5 != null)
+            {
+                EmailTo = EmailTo + model.EmailCP5 + ";";
+            }
+
+
+            ViewData["EmailTo"] = EmailTo;
+            ViewData["Subject"] = Subject;
+            ViewData["Body"] = msg.Body;
+            return View(model);
+        }
         // App
         // Get Item Auto Complete List
         public JsonResult ItemAutoComplete(string Prefix)
@@ -494,7 +495,6 @@ namespace Semec.Areas.DealersManage.Controllers
             }
             return list;
         }
-
         // Download File 
         public ActionResult DownloadFile(string filename)
         {

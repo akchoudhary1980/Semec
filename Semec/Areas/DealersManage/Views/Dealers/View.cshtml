@@ -3,8 +3,7 @@
     ViewBag.Title = "View";
     Layout = "~/Areas/DealersManage/Views/Shared/_Layout.cshtml";
     MyContext db = new MyContext();
-    //var dealin = db.DealInModels.Where(x => x.DealersID == Model.DealersID).ToList();
-
+   
     string d1 = db.DesginationModels.Where(x => x.DesginationID == Model.DesginationID1).Select(u => u.DesginationName).SingleOrDefault();
     string d2 = db.DesginationModels.Where(x => x.DesginationID == Model.DesginationID2).Select(u => u.DesginationName).SingleOrDefault();
     string d3 = db.DesginationModels.Where(x => x.DesginationID == Model.DesginationID3).Select(u => u.DesginationName).SingleOrDefault();
@@ -12,24 +11,27 @@
     string d5 = db.DesginationModels.Where(x => x.DesginationID == Model.DesginationID5).Select(u => u.DesginationName).SingleOrDefault();
 
     ViewBag.Title = "View";
+
+    List<string> list = new List<string>();
+    list = Model.DealIn.Split(',').ToList();    
 }
  
 <style type="text/css">
-    .mybtn {
-        border: none;
-        background-color: #008080;
-        color: white;
-        font-size: medium;
-        padding-left: 5px;
-        padding-right: 5px;
-        line-height: 25px;
-        vertical-align: middle;
-        transition: all 0.5s;
+
+    .pill {
+        background-color:#0ac282;
+        color:white;
+        border-radius:5px;
+        padding:5px;
+        margin-left:5px;
+        margin-right:5px;       
     }
-        .mybtn:hover {
-            background-color: #40B5AD;
-            color: white;
-        }
+
+    .box {
+        border: 1px solid #DCDCDC;
+        padding: 10px;
+    }
+
 </style>
 
  
@@ -86,8 +88,10 @@
                                     <tr>
                                         <td>Company Cataloge</td>
                                         <td>
-                                            <img src="~/UploadFiles/CommonFile/pdfIcon.png" height="40" />
-                                            <a href="~/Dealers/DownloadFile?filename=@Model.Cataloge"> <b>Download File</b>  <i class="icofont icofont-download"></i></a>
+                                            <div class="float-right">
+                                                <img src="~/UploadFiles/CommonFile/pdfIcon.png" height="40" />
+                                                <a href="~/Dealers/DownloadFile?filename=@Model.Cataloge"> <b>Download File</b>  <i class="icofont icofont-download"></i></a>
+                                            </div>                                            
                                         </td>
                                     </tr>
                                 </tbody>
@@ -111,19 +115,16 @@
                                         <td>Website</td>
 
                                         <td>
-                                            <a style="color:blue;font-size:medium" href="@Url.Content(Model.Website)" target="_blank">@Model.Website</a>                                          
+                                            <a style="color:blue;font-size:medium" href="@Url.Content(Model.Website)" target="_blank">@Model.Website</a>
                                         </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="1">Deal In</td>
-                                        <td colspan="3" style="color:green"><b>@Model.DealIn</b></td>
-                                    </tr>
+                                    </tr>                                     
                                 </tbody>
                             </table>
+                            
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-md-12 col-12">
                         <h6 style="color:blueviolet">Dealer Location</h6>
                     </div>
@@ -143,6 +144,15 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <h6 style="color:blueviolet">Deal In</h6>
+                        <div class="box">
+                            @{
+                                foreach (string item in list)
+                                {
+                                    <label class="pill">@item </label>
+                                }
+                            }
                         </div>
                     </div>
                 </div>
