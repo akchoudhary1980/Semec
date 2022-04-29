@@ -130,6 +130,15 @@ namespace Semec.Areas.DealersManage.Controllers
             {
                 EmailTo = EmailTo + model.EmailCP3 + ";";
             }
+            if (model.EmailCP4 != null)
+            {
+                EmailTo = EmailTo + model.EmailCP4 + ";";
+            }
+            if (model.EmailCP5 != null)
+            {
+                EmailTo = EmailTo + model.EmailCP5 + ";";
+            }
+
 
             ViewData["EmailTo"] = EmailTo;
             ViewData["Subject"] = Subject;

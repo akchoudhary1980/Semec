@@ -215,16 +215,16 @@
                         <a class="accordion-msg">Contact Persion 5</a>
                         <div class="accordion-desc">
                             <div class="form-group row">
-                                @Html.LabelFor(model => model.CP4, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.LabelFor(model => model.CP5, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-4">
-                                    @Html.EditorFor(model => model.CP4, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.CP4, "", new { @class = "text-danger" })
+                                    @Html.EditorFor(model => model.CP5, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.CP5, "", new { @class = "text-danger" })
                                 </div>
-                                @Html.LabelFor(model => model.DesginationID4, htmlAttributes: new { @class = "control-label col-md-2" })
+                                @Html.LabelFor(model => model.DesginationID5, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-4">
-                                    @Html.DropDownListFor(model => model.DesginationID4,
+                                    @Html.DropDownListFor(model => model.DesginationID5,
                                     Semec.Areas.DealersManage.Controllers.DealersController.GetDesginationList(), new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.DesginationID4, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(model => model.DesginationID5, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                             <div class="form-group row">
