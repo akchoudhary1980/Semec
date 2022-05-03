@@ -21,12 +21,12 @@
             {
                 "render": function (data, type, full)
                 {
-                    return "<a href='/DealersManage/Desgination/Edit/" + full.DesginationID + "' class='btn btn-success btn-mini btn-outline-primary'><i class='icofont icofont-ui-edit'></i></a>";
+                    return "<a href='/CommonManage/Desgination/Edit/" + full.DesginationID + "' class='btn btn-success btn-mini btn-outline-primary'><i class='icofont icofont-ui-edit'></i></a>";
                 }
             },
             {
                 "render": function (data, type, full) {
-                    return "<a href='/DealersManage/Desgination/Delete/" + full.DesginationID + "' class='btn btn-danger btn-mini btn-outline-primary'><i class='icofont icofont-ui-close'></i></a>";
+                    return "<a href='/CommonManage/Desgination/Delete/" + full.DesginationID + "' class='btn btn-danger btn-mini btn-outline-primary'><i class='icofont icofont-ui-close'></i></a>";
                 }
             },
            

@@ -117,10 +117,11 @@ namespace Semec.Areas.CommonManage.Controllers
         [HttpPost]
         public ActionResult Edit(DesginationModel obj)
         {
+            MyContext db1 = new MyContext();
             if (ModelState.IsValid)
             {   
-                var oldvalue = db.DesginationModels.Where(x => x.DesginationID == obj.DesginationID).SingleOrDefault();
-                if (oldvalue.DesginationName != obj.DesginationName)
+                var cur = db1.DesginationModels.Where(x => x.DesginationID == obj.DesginationID).SingleOrDefault();
+                if (cur.DesginationName != obj.DesginationName)
                 {
                     bool duplicate = db.DesginationModels.Any(x => x.DesginationName == obj.DesginationName);
                     if (duplicate)
@@ -158,9 +159,13 @@ namespace Semec.Areas.CommonManage.Controllers
         }
         [HttpPost]
         public ActionResult Delete(int id,string confirm)
-        {   
+        {
+            MyContext db1 = new MyContext();
+
+            bool isany = db.DealersModels.Any(x => x.DesginationID1 == id || x.DesginationID2 == id || x.DesginationID3 == id || x.DesginationID4 == id || x.DesginationID5 == id);
+
             string s = confirm;
-            if (confirm=="Yes")
+            if (isany == false)
             {                
                 db.DesginationModels.RemoveRange(db.DesginationModels.Where(x => x.DesginationID == id));
                 db.SaveChanges();
@@ -168,6 +173,7 @@ namespace Semec.Areas.CommonManage.Controllers
             }
             else
             {
+                ModelState.AddModelError("DesginationName", "You can't delete this record becuase it is used in other table !");
                 return View();
             }           
         }
