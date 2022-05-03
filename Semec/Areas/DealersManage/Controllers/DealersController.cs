@@ -190,7 +190,7 @@ namespace Semec.Areas.DealersManage.Controllers
             });
             Session.Add("Trans", Trans);
             // End
-            ViewData["PageTitle"] = "Edit Item";
+            ViewData["PageTitle"] = "Update Dealer";
             var model = db.DealersModels.Where(x => x.DealersID == id).FirstOrDefault();           
             return View(model);
         }

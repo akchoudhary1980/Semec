@@ -51,7 +51,7 @@
             @using (Html.BeginForm("Delete", "Dealers", FormMethod.Post, htmlAttributes: new { @class = "swa-confirm" }))
             {
                 <div class="card-block">
-                    <h4 class="sub-title">Item Delete</h4>
+                    <h4 class="sub-title">Dealer Delete</h4>
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     @Html.HiddenFor(model => model.DealersID)
                     <input type="hidden" id="confirm" name="confirm" value="No" />

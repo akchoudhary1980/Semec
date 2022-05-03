@@ -65,7 +65,7 @@
             @using (Html.BeginForm("Edit", "Dealers", FormMethod.Post, new { enctype = "multipart/form-data", id = "dealerform", name = "dealerform" }))
             {
         <div class="card-block">
-            <h4 class="sub-title">Item Update</h4>
+            <h4 class="sub-title">Dealer Update</h4>
 
             @Html.AntiForgeryToken()
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
